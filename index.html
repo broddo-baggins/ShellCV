@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Yogev - ShellCV</title>
+    <meta name="description" content="Amit Yogev - Product Manager & QA Leader. Interactive shell-based resume.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="btn btn-close"></span>
+                <span class="btn btn-minimize"></span>
+                <span class="btn btn-maximize"></span>
+            </div>
+            <div class="terminal-title">zsh - amityogev.com</div>
+        </div>
+        <div class="terminal-body">
+            <div class="shell-output" id="shellOutput"></div>
+            <div class="input-line" id="inputLine" style="display: none;">
+                <span class="prompt-path">~/amityogev.com</span>
+                <span class="prompt-symbol">$</span>
+                <input type="text" id="commandInput" class="command-input" autofocus autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+    
+    <footer class="page-footer">
+        <p>source: <a href="https://github.com/broddo-baggins/ShellCV" target="_blank">github.com/broddo-baggins/ShellCV</a></p>
+        <p>&copy; amit yogev - shellcv 2025</p>
+    </footer>
+    
+    <script src="terminal.js"></script>
+</body>
+</html>
+

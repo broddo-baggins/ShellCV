@@ -1,0 +1,333 @@
+
+    █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
+   ██╔══██╗████╗ ████║██║╚══██╔══╝    ╚██╗ ██╔╝██╔═══██╗██╔════╝ ██╔════╝██║   ██║
+   ███████║██╔████╔██║██║   ██║        ╚████╔╝ ██║   ██║██║  ███╗█████╗  ██║   ██║
+   ██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
+   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
+   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
+
+                           TECHNICAL SKILLS & EXPERTISE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PRODUCT MANAGEMENT
+
+  Strategy & Vision
+  ├─ Product Strategy & Roadmap Development
+  ├─ Product Discovery & Market Research
+  ├─ Product-Market Fit & Go-to-Market Strategy
+  ├─ MVP Definition & Feature Prioritization
+  ├─ Jobs-to-Be-Done Framework
+  └─ Competitive Analysis & Market Segmentation
+
+  Execution & Delivery
+  ├─ PRDs (Product Requirements Documents)
+  ├─ User Stories & Acceptance Criteria
+  ├─ Wireframing & Prototyping (Figma)
+  ├─ Backlog Management & Sprint Planning
+  ├─ Agile/Scrum/Kanban Methodologies
+  └─ Cross-functional Team Leadership
+
+  Metrics & Analytics
+  ├─ North Star Metrics & OKRs
+  ├─ Activation, Engagement, Retention (AER)
+  ├─ LTV, CAC, LTV:CAC Ratio
+  ├─ Conversion Funnels & A/B Testing
+  ├─ Google Analytics, Mixpanel, Hotjar
+  └─ Data-Driven Decision Making
+
+  Specialized
+  ├─ AI Product Management (LLMs, Prompt Engineering)
+  ├─ B2B SaaS Product Management
+  ├─ Platform & Ecosystem Design
+  └─ Community & Growth Product
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DEVELOPMENT
+
+  Frontend  ████████████████░░░░ 80%
+  ├─ React 18 (Hooks, Context, Custom Hooks)
+  ├─ TypeScript & JavaScript (ES6+)
+  ├─ HTML5, CSS3, Responsive Design
+  ├─ Tailwind CSS & Modern CSS
+  ├─ State Management: Zustand, Context API
+  ├─ Data Fetching: TanStack Query (React Query)
+  ├─ UI Libraries: Radix UI, shadcn/ui
+  ├─ Build Tools: Vite, Webpack
+  └─ Mobile-First & Accessible Design
+
+  Backend  ███████████████░░░░░ 75%
+  ├─ Node.js & Express.js
+  ├─ RESTful API Design
+  ├─ WebSocket & Real-time Systems
+  ├─ PostgreSQL & Database Design
+  ├─ Redis (Caching, Queues, Pub/Sub)
+  ├─ Prisma ORM & TypeORM
+  ├─ MongoDB & NoSQL
+  ├─ Authentication: OAuth 2.0, JWT, bcrypt
+  └─ Microservices Architecture
+
+  DevOps & Infrastructure  ██████████████░░░░░░ 70%
+  ├─ Docker & Docker Compose
+  ├─ CI/CD Pipelines (GitHub Actions, Jenkins)
+  ├─ Git & GitHub (Advanced: Rebase, Cherry-pick, Bisect)
+  ├─ Vercel, Railway, Render Deployment
+  ├─ Nginx & Reverse Proxy Configuration
+  ├─ Cloud Services (AWS basics)
+  ├─ Environment Management & Secrets
+  └─ Infrastructure as Code
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TESTING & QA
+
+  Test Automation  █████████████████░░ 85%
+  ├─ Playwright (E2E Testing)
+  ├─ Vitest & Jest (Unit Testing)
+  ├─ React Testing Library
+  ├─ Selenium WebDriver
+  ├─ Pytest (Python Testing)
+  ├─ Gtest (C++ Testing)
+  ├─ Cypress (Alternative E2E)
+  └─ 1,289+ Tests Written (Real Experience)
+
+  QA Strategy & Leadership
+  ├─ Test Planning & Test Architecture
+  ├─ Test Coverage Analysis (85%+ Achieved)
+  ├─ CI/CD Pipeline Integration
+  ├─ API Testing (Postman, REST Assured)
+  ├─ Integration Testing Strategies
+  ├─ Performance & Load Testing
+  ├─ Security Testing (OWASP, Penetration Testing)
+  ├─ Accessibility Testing (WCAG 2.1 AA)
+  ├─ Mobile Testing (iOS, Android)
+  ├─ Cross-browser Testing
+  ├─ Regression Test Suites
+  ├─ Shift-Left Testing Culture
+  └─ QA Team Management (30+ Engineers)
+
+  Quality Achievements
+  ├─ 0% → 100% Automation Growth (SentinelOne)
+  ├─ Zero Production Defects (McAfee)
+  ├─ #1 Ranked Security Solution (4 Years)
+  └─ 5,000+ Automated Test Cases
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+AI & MACHINE LEARNING
+
+  AI Product Management
+  ├─ LLM Integration (GPT-4, Claude, etc.)
+  ├─ Prompt Engineering & Optimization
+  ├─ Guardrails & Safety Mechanisms
+  ├─ Intent/Entity Extraction
+  ├─ AI Model Quality Metrics
+  ├─ A/B Testing for AI (Accuracy vs Latency)
+  ├─ Conversational AI Design
+  └─ AI-Powered Features & Workflows
+
+  AI Tools in My Workflow
+  ├─ Cursor AI (3× faster development)
+  ├─ GitHub Copilot (60% faster testing)
+  ├─ Claude (Thematic coding, user research)
+  ├─ GPT-4 (PRDs, documentation)
+  └─ AI for 10× faster user research analysis
+
+  AI Implementation Experience
+  ├─ Built LLM-based messaging agent (OvenAI)
+  ├─ BANT scoring with 82% accuracy
+  ├─ Real-time intent classification
+  └─ Prompt template optimization
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CYBERSECURITY
+
+  Security Products
+  ├─ EDR (Endpoint Detection & Response)
+  ├─ EPP (Endpoint Protection Platform)
+  ├─ XDR (Extended Detection & Response)
+  ├─ DLP (Data Loss Prevention)
+  ├─ Cloud Workload Protection
+  ├─ Endpoint Security Solutions
+  └─ Security Information & Event Management
+
+  Security Frameworks
+  ├─ MITRE ATT&CK Framework
+  ├─ Sigma Rules & Detection Engineering
+  ├─ Security Testing Methodologies
+  ├─ Vulnerability Assessment
+  ├─ Threat Detection & Mitigation
+  └─ Penetration Testing Fundamentals
+
+  Compliance & Standards
+  ├─ GDPR Compliance
+  ├─ SOC2 Standards
+  ├─ FedRAMP (Federal Risk Authorization)
+  ├─ WCAG 2.1 AA (Accessibility)
+  └─ Security Auditing
+
+  Technical Security
+  ├─ Kernel-Level Security (macOS/Linux)
+  ├─ File System Monitoring
+  ├─ Process Injection Detection
+  ├─ System Instrumentation (LLDB, DTrace)
+  └─ ETW-like Telemetry
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GAMING & ENGAGEMENT
+
+  Game Design Principles
+  ├─ Progression Systems & Reward Loops
+  ├─ Retention Mechanics (D1/D7/D30)
+  ├─ Player Psychology & Motivation
+  ├─ Game Economics & Balance
+  ├─ Engagement Optimization
+  └─ Gamification in Product
+
+  Metrics I Track
+  ├─ DAU/MAU (Daily/Monthly Active Users)
+  ├─ Stickiness Ratio (DAU/MAU)
+  ├─ Session Length & Frequency
+  ├─ Retention Curves (Day 1, 7, 30)
+  └─ Virality & K-factor
+
+  Hands-On Experience
+  ├─ Built Rogue-Lite game in Godot
+  ├─ Procedural generation systems
+  ├─ Loot systems & drop rate balancing
+  ├─ Player progression design
+  └─ Learned the hard way: 2% legendary = frustrated players!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TOOLS & PLATFORMS
+
+  Collaboration & Design
+  ├─ Jira (Product Management & Agile)
+  ├─ Confluence (Documentation)
+  ├─ Figma (Design & Prototyping)
+  ├─ Slack, Discord (Team Communication)
+  ├─ Notion (Knowledge Management)
+  └─ Miro (Brainstorming & Workshops)
+
+  Analytics & Data
+  ├─ Google Analytics (GA4)
+  ├─ Mixpanel (Product Analytics)
+  ├─ Hotjar (Heatmaps & Session Recording)
+  ├─ Amplitude (Behavioral Analytics)
+  └─ Tableau (Data Visualization)
+
+  Version Control & CI/CD
+  ├─ Git & GitHub (Expert Level)
+  ├─ GitLab CI
+  ├─ GitHub Actions
+  ├─ Jenkins
+  ├─ CVS & Subversion (Legacy)
+  └─ Continuous Integration Best Practices
+
+  Databases
+  ├─ PostgreSQL (Primary)
+  ├─ MySQL
+  ├─ Redis (Caching & Queues)
+  ├─ MongoDB
+  ├─ Supabase (Backend-as-a-Service)
+  └─ Airtable (No-Code Database)
+
+  APIs & Integration
+  ├─ RESTful API Design & Implementation
+  ├─ WebSocket Real-time Communication
+  ├─ OAuth 2.0 & JWT Authentication
+  ├─ WhatsApp Business API
+  ├─ Calendly API
+  ├─ Postman (API Testing)
+  └─ Webhook Management
+
+  Automation & Workflow
+  ├─ n8n (Workflow Automation)
+  ├─ Zapier
+  ├─ Custom Automation Scripts
+  └─ Process Optimization
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DOMAIN EXPERTISE
+
+  Industries I've Worked In
+  ├─ SaaS Products (Multi-tenant, B2B, B2C)
+  ├─ Cybersecurity (EDR, EPP, XDR, DLP)
+  ├─ FinTech & Payments
+  ├─ HealthTech & Mental Health
+  ├─ Web3 & Blockchain
+  ├─ Gaming & Game Design
+  ├─ Real Estate Tech
+  ├─ Enterprise Software
+  ├─ AdTech
+  └─ Community Building & Growth
+
+  Business Models
+  ├─ B2B SaaS
+  ├─ B2C Consumer Apps
+  ├─ Marketplace Platforms
+  ├─ Freemium & Subscription
+  ├─ Usage-Based Pricing
+  └─ Community-Led Growth
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SKILL HIGHLIGHTS & ACHIEVEMENTS
+
+  [4 years]   Industry-leading security product (SentinelOne #1 ranked)
+  [1,289+]    Automated tests written (OvenAI)
+  [5,000+]    Test cases automated (SentinelOne)
+  [150K]      Community members grown organically
+  [85%]       Test coverage achieved
+  [70%]       Engineering collaboration (typical PM: 30-40%)
+  [10×]       Faster user research with AI tools
+  [45]        Enterprise beta customers managed
+  [30+]       Engineers managed across time zones
+  [20M+]      Users impacted (Web-Pick)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+MY APPROACH
+
+  Product Philosophy
+  ├─ Start with user research (50+ interviews typical)
+  ├─ Ship fast, measure everything, iterate
+  ├─ Build analytics into everything
+  ├─ Let data inform, not dictate
+  └─ Validate before scaling
+
+  Technical Philosophy
+  ├─ Can build it myself if needed (and sometimes do)
+  ├─ Quality is not negotiable
+  ├─ Automate everything that's repetitive
+  ├─ Measure before optimizing
+  └─ Documentation is a feature
+
+  Leadership Philosophy
+  ├─ Hire people smarter than me
+  ├─ Clear goals, then get out of the way
+  ├─ Celebrate failures that teach
+  ├─ Feedback loops over hierarchy
+  └─ Lead by example (I ship code)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EXPLORE MORE
+
+  curl amityogev.com             # Full resume
+  curl amityogev.com/projects    # Project portfolio
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CONTACT
+
+  Email:    amit.yogev@gmail.com
+  Phone:    +972-54-767-8761
+  LinkedIn: linkedin.com/in/amit-yogev
+  GitHub:   github.com/amityogev
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
