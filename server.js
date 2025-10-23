@@ -37,24 +37,24 @@ function getCurlHomePage() {
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
 
-            Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer
-                         https://amityogev.com | https://github.com/broddo-baggins
-       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+             Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer
+                          https://amityogev.com | https://github.com/broddo-baggins
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        Source: https://github.com/broddo-baggins/ShellCV
 
 
-  ┌─About───────────────────────────────┐ ┌─Socials───┬───────────────────────────┐
-  │                                     │ │           │                           │
-  │ Product Manager. Full-stack dev    │ │ LinkedIn  │ linkedin.com/in/amit-yogev│
-  │ turned PM. Built AI CRM achieving   │ │ GitHub    │ github.com/broddo-baggins │
-  │ 70% engagement, 2.5× meetings.      │ │ Email     │ amit.yogev@gmail.com      │
-  │ Led QA at SentinelOne (4yr leader). │ │ Location  │ Tel Aviv, Israel          │
-  │ Ship products backed by data,       │ │           │                           │
-  │ validated by users.                 │ │           │                           │
-  └─────────────────────────────────────┘ └───────────┴───────────────────────────┘
+  ┌─About────────────────────────────────┐ ┌─Socials───┬──────────────────────────┐
+  │                                      │ │           │                          │
+  │ Product Manager. Full-stack dev     │ │ LinkedIn  │ linkedin.com/in/amit-yog…│
+  │ turned PM. Built AI CRM achieving    │ │ GitHub    │ github.com/broddo-baggin…│
+  │ 70% engagement, 2.5× meetings.       │ │ Email     │ amit.yogev@gmail.com     │
+  │ Led QA at SentinelOne (4yr leader).  │ │ Location  │ Tel Aviv, Israel         │
+  │ Ship products backed by data,        │ │           │                          │
+  │ validated by users.                  │ │           │                          │
+  └──────────────────────────────────────┘ └───────────┴──────────────────────────┘
 
   Legend
-                           
+  
   $ curl amityogev.com            Get this page
   $ curl amityogev.com/resume     Full resume + impact metrics
   $ curl amityogev.com/skills     Technical skills breakdown

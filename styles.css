@@ -122,15 +122,15 @@ body {
     margin-right: 5px;
 }
 
-/* Links - light blue */
+/* Links - cyan/teal like YSAP */
 a {
-    color: #61afef;
+    color: #56b6c2;
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
-    color: #89c0f5;
+    color: #7dd3da;
 }
 
 /* ASCII Art - green */
@@ -149,15 +149,15 @@ a:hover {
 
 .tagline-links {
     color: #5c6370; /* gray */
-    margin-bottom: 15px;
+    margin: 10px 0;
 }
 
-/* Box headers - cyan like ZSH git info */
+/* Box headers - yellow/gold like YSAP */
 .box-header {
-    color: #56b6c2; /* cyan */
+    color: #e5c07b; /* yellow/gold */
 }
 
-/* Box content - normal text */
+/* Box content - bright text */
 .box-content {
     color: #d4d4d4;
 }
@@ -174,7 +174,7 @@ a:hover {
 .info-boxes-container {
     display: flex;
     gap: 15px;
-    margin: 15px 0;
+    margin: 20px 0;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -184,32 +184,35 @@ a:hover {
     flex: 1;
     min-width: 250px;
     max-width: 400px;
-    border: 1px solid #444;
-    padding: 10px;
+    border: 1px solid #3e3e3e;
+    border-radius: 2px;
+    padding: 12px;
     font-size: 10px;
-    line-height: 1.4;
+    line-height: 1.5;
+    background: rgba(30, 30, 30, 0.3);
 }
 
 .info-box-header {
-    color: #98c379;
+    color: #e5c07b;
     font-weight: bold;
-    margin-bottom: 8px;
-    border-bottom: 1px solid #444;
-    padding-bottom: 4px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #3e3e3e;
+    padding-bottom: 6px;
+    font-size: 10px;
 }
 
 .info-box-content {
-    color: #b8b8b8;
+    color: #d4d4d4;
 }
 
 /* Legend container */
 .legend-container {
-    margin: 15px 0;
-    border: 1px solid #444;
-    padding: 10px;
+    margin: 20px auto;
+    border: 1px solid #3e3e3e;
+    border-radius: 2px;
+    padding: 12px;
     max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
+    background: rgba(30, 30, 30, 0.3);
 }
 
 /* Legend section */
@@ -267,15 +270,16 @@ a:hover {
     color: #d4d4d4;
 }
 
-/* Section headers - cyan */
+/* Section headers - yellow/gold */
 .section-header {
-    color: #56b6c2;
+    color: #e5c07b;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
-/* Success messages - green */
+/* Success messages - cyan */
 .success {
-    color: #98c379;
+    color: #56b6c2;
 }
 
 /* Error messages - red */
@@ -375,25 +379,25 @@ a:hover {
     /* Flexbox mobile adjustments */
     .info-boxes-container {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
         margin: 15px 0;
     }
     
     .info-box {
         min-width: 100%;
         font-size: 9px;
-        padding: 8px;
-        line-height: 1.3;
+        padding: 10px;
+        line-height: 1.4;
     }
     
     .info-box-header {
         font-size: 9px;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
     }
     
     .legend-container {
         margin: 15px 0;
-        padding: 8px;
+        padding: 10px;
         font-size: 8px;
     }
     
@@ -465,19 +469,19 @@ a:hover {
     
     /* Flexbox mobile adjustments */
     .info-boxes-container {
-        gap: 8px;
-        margin: 10px 0;
+        gap: 10px;
+        margin: 15px 0;
     }
     
     .info-box {
         font-size: 8px;
-        padding: 6px;
-        line-height: 1.3;
+        padding: 8px;
+        line-height: 1.4;
     }
     
     .info-box-header {
         font-size: 8px;
-        margin-bottom: 5px;
+        margin-bottom: 6px;
     }
     
     .info-box-content {
@@ -485,8 +489,8 @@ a:hover {
     }
     
     .legend-container {
-        margin: 10px 0;
-        padding: 6px;
+        margin: 15px 0;
+        padding: 8px;
     }
     
     pre {

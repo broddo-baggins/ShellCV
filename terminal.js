@@ -99,18 +99,18 @@ class ShellCV {
     }
 
     getColoredContentHTML() {
-        return `<pre style="color: #ff9500; font-size: 8px; line-height: 1.1; margin: 5px 0; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">   █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
+        return `<pre style="color: #e5c07b; font-size: 8px; line-height: 1.1; margin: 10px 0; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">   █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
   ██╔══██╗████╗ ████║██║╚══██╔══╝    ╚██╗ ██╔╝██╔═══██╗██╔════╝ ██╔════╝██║   ██║
   ███████║██╔████╔██║██║   ██║        ╚████╔╝ ██║   ██║██║  ███╗█████╗  ██║   ██║
   ██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre>
 
-<div style="text-align: center; color: #b8b8b8; font-size: 10px; margin: 8px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer</div>
-<div style="color: #5c6370; font-size: 9px; margin: 8px 0; text-align: center; word-wrap: break-word;">https://amityogev.com | https://github.com/broddo-baggins</div>
+<div style="text-align: center; color: #d4d4d4; font-size: 10px; margin: 10px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer</div>
+<div style="color: #5c6370; font-size: 9px; margin: 10px 0; text-align: center; word-wrap: break-word;">https://amityogev.com | https://github.com/broddo-baggins</div>
 
-<div style="border-top: 1px solid #444; border-bottom: 1px solid #444; margin: 12px auto; padding: 4px 0; text-align: center; max-width: 650px;">
-<span style="color: #888; font-size: 8px;">Source: <a href="https://github.com/broddo-baggins/ShellCV" style="color: #61afef;">https://github.com/broddo-baggins/ShellCV</a></span>
+<div style="border-top: 1px solid #444; border-bottom: 1px solid #444; margin: 15px auto; padding: 8px 0; text-align: center; max-width: 650px;">
+<span style="color: #5c6370; font-size: 8px;">Source: <a href="https://github.com/broddo-baggins/ShellCV" style="color: #56b6c2;">https://github.com/broddo-baggins/ShellCV</a></span>
 </div>
 
 <div class="info-boxes-container">
@@ -129,17 +129,17 @@ validated by users.
   <div class="info-box">
     <div class="info-box-header">Socials</div>
     <div class="info-box-content">
-LinkedIn   <a href="https://linkedin.com/in/amit-yogev" style="color: #61afef;">linkedin.com/in/amit-yogev</a>
-GitHub     <a href="https://github.com/broddo-baggins" style="color: #61afef;">github.com/broddo-baggins</a>
-Email      <a href="mailto:amit.yogev@gmail.com" style="color: #61afef;">amit.yogev@gmail.com</a>
+LinkedIn   <a href="https://linkedin.com/in/amit-yogev" style="color: #56b6c2;">linkedin.com/in/amit-yogev</a>
+GitHub     <a href="https://github.com/broddo-baggins" style="color: #56b6c2;">github.com/broddo-baggins</a>
+Email      <a href="mailto:amit.yogev@gmail.com" style="color: #56b6c2;">amit.yogev@gmail.com</a>
 Location   Tel Aviv, Israel
     </div>
   </div>
 </div>
 
 <div class="legend-container">
-  <div style="color: #98c379; font-size: 9px; margin-bottom: 8px; font-weight: bold;">Legend</div>
-  <pre style="color: #888; font-size: 9px; line-height: 1.5; margin: 0;">$ curl amityogev.com            Get this page
+  <div style="color: #e5c07b; font-size: 10px; margin-bottom: 10px; font-weight: bold;">Legend</div>
+  <pre style="color: #5c6370; font-size: 9px; line-height: 1.6; margin: 0;">$ curl amityogev.com            Get this page
 $ curl amityogev.com/resume     Full resume + impact metrics
 $ curl amityogev.com/skills     Technical skills breakdown
 $ curl amityogev.com/projects   Project portfolio
