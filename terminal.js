@@ -370,6 +370,10 @@ Built with vanilla JavaScript - no frameworks, no dependencies.
         const scripts = [
             '/game/pm-career.js',
             '/game/game-renderer.js',
+            '/game/encounters/daily-encounters.js',
+            '/game/encounters/stakeholder-encounters.js',
+            '/game/encounters/crisis-encounters.js',
+            '/game/encounters/boss-encounters.js',
             '/game/game-content.js',
             '/game/game-engine.js'
         ];

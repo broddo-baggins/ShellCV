@@ -2,47 +2,84 @@
 
 ## 🎮 Game Overview
 
-PM Quest is an idle roguelike game integrated into the terminal CV that simulates a Product Manager's career journey.
+PM Quest is a **fully functional** roguelike game integrated into the terminal CV that simulates a Product Manager's career journey from Associate PM to Chief Product Officer.
 
 ## 📦 Game Files
 
 ```
 game/
-├── game-state.js      # State management & save system ✅
-├── game-engine.js     # Core game loop (to be added)
-├── game-renderer.js   # Terminal rendering (to be added)
-├── game-content.js    # Encounters & scenarios (placeholder)
-└── pm-progression.js  # Skill trees & leveling ✅
+├── game-engine.js             # Core game loop & state management ✅
+├── game-renderer.js           # Terminal rendering & ASCII art ✅
+├── game-content.js            # Items, enemies, dialogue system ✅
+├── pm-career.js              # 7-level career progression ✅
+└── encounters/               # Modular encounter files ✅
+    ├── daily-encounters.js        # 8 daily PM challenges
+    ├── stakeholder-encounters.js  # 8 stakeholder scenarios
+    ├── crisis-encounters.js       # 8 high-pressure crises
+    └── boss-encounters.js         # 7 career milestone bosses
 ```
+
+**Total:** ~2,000 lines of game code, 39 unique encounters
 
 ## 🎯 Features
 
-- **Career Progression**: Start as Junior PM, level up to Director
-- **Skill System**: 8 skills (Prioritization, Stakeholder Mgmt, Data Analysis, etc.)
-- **Encounters**: Daily standups, sprint planning, stakeholder meetings
-- **Resources**: Team morale, velocity, tech debt
-- **Decision Making**: Choose how to handle situations
-- **Idle Mechanics**: Progress over time
+- **Career Progression**: 7 levels (APM → PM → Senior PM → Lead PM → Director → VP → CPO)
+- **Resource Management**: Energy, Credibility, Budget, Team Morale, Velocity
+- **Encounter Types**: Daily tasks, stakeholder meetings, crisis situations, boss battles
+- **Decision Making**: 4 choices per encounter with probability-based outcomes
+- **Save/Load System**: Base64-encoded save codes for session persistence
+- **Level-Up System**: Stat increases, new skills, budget unlocks
 
-## 🚀 Activation
+## 🚀 How to Play
 
-To activate the game in terminal.js:
+### Starting the Game
+```bash
+$ play
+```
 
-1. Add game mode flags to constructor
-2. Implement `launchGame()` command
-3. Load game scripts dynamically
-4. Integrate game renderer with shell output
+### Game Commands
+- `[n]` - New Game
+- `[l]` - Load Game (enter save code)
+- `[1-4]` - Make decisions
+- `[s]` - Save game
+- `[stats]` - View full stats
+- `[i]` - View inventory
+- `[q]` - Quit to menu
 
-## 📝 Status
+## 📝 Implementation Status
 
-**Current**: Game files present, not integrated into terminal  
-**Future**: Full game integration with `play` command
+✅ **COMPLETE** - Fully integrated and playable
 
-## 🎨 Design
+### Completed Components:
+- [x] Core game engine with state management
+- [x] 7-level career progression system
+- [x] 39 unique encounters (8 daily, 8 stakeholder, 8 crisis, 7 boss)
+- [x] Terminal rendering with ASCII art
+- [x] Save/load system (Base64 hash)
+- [x] Resource management (5 stats)
+- [x] Items and equipment system
+- [x] Win/loss conditions
+- [x] Terminal integration (`play` command)
+- [x] Server routing for game files
+- [x] Modular encounter architecture
 
-Inspired by idle RPGs and career simulators, but focused on real PM challenges and decision-making scenarios.
+## 🎨 Design Philosophy
+
+Inspired by idle RPGs and career simulators, but grounded in **real PM challenges**:
+- Stakeholder management
+- Technical debt tradeoffs
+- Crisis response
+- Resource allocation
+- Team morale vs velocity
+- Scope creep battles
+
+## 🧪 Testing
+
+Game is **production-ready** and accessible at:
+- Local: `http://localhost:8080` → type `play`
+- Live: `https://amityogev.com` → type `play`
 
 ---
 
-**Note**: Game feature is optional and doesn't affect the core CV functionality.
+**Status**: ✅ Fully functional, integrated, and deployed.
 
