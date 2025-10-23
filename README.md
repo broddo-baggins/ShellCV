@@ -88,7 +88,6 @@ curl amityogev.com/projects
 
 ## Inspired By
 
-- [ysap.sh](https://ysap.sh) - Clean terminal design
 - [imjb.dev](https://www.imjb.dev) - Interactive shell concept
 - Classic Unix terminals
 

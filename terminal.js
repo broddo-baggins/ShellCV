@@ -26,6 +26,11 @@ class ShellCV {
         // Show input line
         this.inputLine.style.display = 'flex';
         this.commandInput.focus();
+        
+        // Ensure scroll to bottom after everything loads (especially for mobile)
+        setTimeout(() => {
+            this.scrollToBottom();
+        }, 300);
     }
 
     async showInitialLoad() {
@@ -47,8 +52,23 @@ class ShellCV {
         contentDiv.innerHTML = content;
         this.shellOutput.appendChild(contentDiv);
         
-        // Scroll to bottom
+        // Scroll to bottom - works for both desktop and mobile
+        this.scrollToBottom();
+    }
+    
+    scrollToBottom() {
+        // Scroll both window and terminal body
         window.scrollTo(0, document.body.scrollHeight);
+        
+        const terminalBody = document.querySelector('.terminal-body');
+        if (terminalBody) {
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+        
+        // For mobile - ensure input line is visible
+        if (this.inputLine) {
+            this.inputLine.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
     }
 
     getHomeContent() {
@@ -57,43 +77,52 @@ class ShellCV {
     }
 
     getColoredContentHTML() {
-        return `<pre style="color: #ff9500; font-size: 8px; line-height: 1.1; margin: 5px 0;">   █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
+        return `<pre style="color: #ff9500; font-size: 8px; line-height: 1.1; margin: 5px 0; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">   █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
   ██╔══██╗████╗ ████║██║╚══██╔══╝    ╚██╗ ██╔╝██╔═══██╗██╔════╝ ██╔════╝██║   ██║
   ███████║██╔████╔██║██║   ██║        ╚████╔╝ ██║   ██║██║  ███╗█████╗  ██║   ██║
   ██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre>
-<div style="text-align: center; color: #b8b8b8; font-size: 10px; margin: 5px 0;">Built AI CRM w/ 70% engagement & 2.5× meetings | Ex-SentinelOne, McAfee | Full-Stack → PM</div>
-<div style="color: #5c6370; font-size: 9px; margin: 5px 0; text-align: center;">https://amityogev.com | https://github.com/broddo-baggins</div>
-<div style="border-top: 1px solid #444; border-bottom: 1px solid #444; margin: 5px 0; padding: 4px 0; text-align: center;">
+
+<div style="text-align: center; color: #b8b8b8; font-size: 10px; margin: 5px 0; max-width: 100%; word-wrap: break-word;">Built AI CRM w/ 70% engagement & 2.5× meetings | Ex-SentinelOne, McAfee | Full-Stack → PM</div>
+<div style="color: #5c6370; font-size: 9px; margin: 5px 0; text-align: center; word-wrap: break-word;">https://amityogev.com | https://github.com/broddo-baggins</div>
+
+<div style="border-top: 1px solid #444; border-bottom: 1px solid #444; margin: 10px 0; padding: 4px 0; text-align: center;">
 <span style="color: #888; font-size: 8px;">Source: <a href="https://github.com/broddo-baggins/ShellCV" style="color: #61afef;">https://github.com/broddo-baggins/ShellCV</a></span>
 </div>
 
-<pre style="color: #b8b8b8; font-size: 9px; line-height: 1.4;">
-  <span style="color: #98c379;">About</span>
+<div class="info-boxes-container">
+  <div class="info-box">
+    <div class="info-box-header">About</div>
+    <div class="info-box-content">
+Product Manager. Full-stack dev
+turned PM. Built AI CRM achieving
+70% engagement, 2.5× meetings.
+Led QA at SentinelOne (4yr leader).
+Ship products backed by data,
+validated by users.
+    </div>
+  </div>
   
-  Product Manager. Full-stack dev
-  turned PM. Built AI CRM achieving
-  70% engagement, 2.5× meetings.
-  Led QA at SentinelOne (4yr leader).
-  Ship products backed by data,
-  validated by users.
-  
-  <span style="color: #98c379;">Socials</span>
-  
-  LinkedIn   <a href="https://linkedin.com/in/amit-yogev" style="color: #61afef;">linkedin.com/in/amit-yogev</a>
-  GitHub     <a href="https://github.com/broddo-baggins" style="color: #61afef;">github.com/broddo-baggins</a>
-  Email      <a href="mailto:amit.yogev@gmail.com" style="color: #61afef;">amit.yogev@gmail.com</a>
-  Location   Tel Aviv, Israel
-</pre>
-<div style="color: #98c379; font-size: 9px; margin: 8px 0 4px 2px;">  Legend</div>
-<pre style="color: #888; font-size: 9px; line-height: 1.5;">                           
-  <span style="color: #61afef;">$ curl amityogev.com</span>            Get this page
-  <span style="color: #61afef;">$ curl amityogev.com/resume</span>     Full resume + impact metrics
-  <span style="color: #61afef;">$ curl amityogev.com/skills</span>     Technical skills breakdown
-  <span style="color: #61afef;">$ curl amityogev.com/projects</span>   Project portfolio
-  <span style="color: #61afef;">$ curl amityogev.com/help</span>       Full list of available commands
-</pre>`;
+  <div class="info-box">
+    <div class="info-box-header">Socials</div>
+    <div class="info-box-content">
+LinkedIn   <a href="https://linkedin.com/in/amit-yogev" style="color: #61afef;">linkedin.com/in/amit-yogev</a>
+GitHub     <a href="https://github.com/broddo-baggins" style="color: #61afef;">github.com/broddo-baggins</a>
+Email      <a href="mailto:amit.yogev@gmail.com" style="color: #61afef;">amit.yogev@gmail.com</a>
+Location   Tel Aviv, Israel
+    </div>
+  </div>
+</div>
+
+<div class="legend-container">
+  <div style="color: #98c379; font-size: 9px; margin-bottom: 8px; font-weight: bold;">Legend</div>
+  <pre style="color: #888; font-size: 9px; line-height: 1.5; margin: 0;">$ curl amityogev.com            Get this page
+$ curl amityogev.com/resume     Full resume + impact metrics
+$ curl amityogev.com/skills     Technical skills breakdown
+$ curl amityogev.com/projects   Project portfolio
+$ curl amityogev.com/help       Full list of available commands</pre>
+</div>`;
     }
 
     createColoredContent() {
