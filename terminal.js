@@ -46,14 +46,36 @@ class ShellCV {
         this.shellOutput.appendChild(document.createElement('br'));
         this.shellOutput.appendChild(document.createElement('br'));
         
-        // Insert HTML content directly (no typing animation for HTML)
-        const content = this.getHomeContent();
+        // Create container for animated content
         const contentDiv = document.createElement('div');
-        contentDiv.innerHTML = content;
         this.shellOutput.appendChild(contentDiv);
+        
+        // Animate the content loading
+        const content = this.getHomeContent();
+        await this.typeHTML(content, contentDiv);
         
         // Scroll to bottom - works for both desktop and mobile
         this.scrollToBottom();
+    }
+    
+    async typeHTML(html, container) {
+        // Show content instantly but with a loading effect
+        container.style.opacity = '0';
+        container.innerHTML = html;
+        
+        // Fade in animation
+        await this.sleep(100);
+        let opacity = 0;
+        const fadeIn = setInterval(() => {
+            opacity += 0.1;
+            container.style.opacity = opacity;
+            if (opacity >= 1) {
+                clearInterval(fadeIn);
+                container.style.opacity = '1';
+            }
+        }, 30);
+        
+        await this.sleep(400);
     }
     
     scrollToBottom() {
@@ -84,10 +106,10 @@ class ShellCV {
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre>
 
-<div style="text-align: center; color: #b8b8b8; font-size: 10px; margin: 5px 0; max-width: 100%; word-wrap: break-word;">Built AI CRM w/ 70% engagement & 2.5× meetings | Ex-SentinelOne, McAfee | Full-Stack → PM</div>
-<div style="color: #5c6370; font-size: 9px; margin: 5px 0; text-align: center; word-wrap: break-word;">https://amityogev.com | https://github.com/broddo-baggins</div>
+<div style="text-align: center; color: #b8b8b8; font-size: 10px; margin: 8px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer</div>
+<div style="color: #5c6370; font-size: 9px; margin: 8px 0; text-align: center; word-wrap: break-word;">https://amityogev.com | https://github.com/broddo-baggins</div>
 
-<div style="border-top: 1px solid #444; border-bottom: 1px solid #444; margin: 10px 0; padding: 4px 0; text-align: center;">
+<div style="border-top: 1px solid #444; border-bottom: 1px solid #444; margin: 12px auto; padding: 4px 0; text-align: center; max-width: 650px;">
 <span style="color: #888; font-size: 8px;">Source: <a href="https://github.com/broddo-baggins/ShellCV" style="color: #61afef;">https://github.com/broddo-baggins/ShellCV</a></span>
 </div>
 

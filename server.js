@@ -37,7 +37,7 @@ function getCurlHomePage() {
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
 
-            Built AI CRM w/ 70% engagement & 2.5× meetings | Ex-SentinelOne, McAfee | Full-Stack → PM
+            Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer
                          https://amityogev.com | https://github.com/broddo-baggins
        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        Source: https://github.com/broddo-baggins/ShellCV
