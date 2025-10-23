@@ -305,7 +305,7 @@ $ curl amityogev.com/help       Full list of available commands</pre>
                 break;
             case 'home':
                 this.clear();
-                this.shellOutput.textContent = this.getHomeContent();
+                this.shellOutput.innerHTML = this.getHomeContent();
                 break;
             default:
                 this.handleUnknownCommand(cmd);
@@ -516,7 +516,7 @@ Built with vanilla JavaScript - no frameworks, no dependencies.
 
     autoComplete() {
         const partial = this.commandInput.value.toLowerCase();
-        const commands = ['help', 'resume', 'skills', 'projects', 'contact', 'about', 'home', 'clear'];
+        const commands = ['help', 'resume', 'skills', 'projects', 'contact', 'play', 'game', 'about', 'home', 'clear'];
         
         const matches = commands.filter(cmd => cmd.startsWith(partial));
         
