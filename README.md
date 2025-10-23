@@ -78,19 +78,33 @@ curl amityogev.com/projects
 ├── index.html       # Main HTML interface
 ├── styles.css       # Terminal styling
 ├── terminal.js      # Command handler & logic
-├── server.js        # Node.js server
-├── resume.txt       # ASCII resume content
+├── favicon.svg      # Site favicon
+├── resume.txt       # Resume content
 ├── skills.txt       # Skills breakdown
 ├── projects.txt     # Project portfolio
-└── vercel.json      # Deployment config
+├── server.js        # Node.js server (optional)
+├── package.json     # Node dependencies
+├── vercel.json      # Vercel deployment config
+├── .gitignore       # Git ignore rules
+├── README.md        # This file
+└── docs/            # Documentation
+    ├── CHANGELOG.md
+    ├── COMMANDS.md
+    ├── DEPLOY-NOW.md
+    ├── DEPLOYMENT-CHECKLIST.md
+    ├── DNS-SETUP.md
+    ├── DUAL-INTERFACE.md
+    ├── PROJECT_STATUS.md
+    ├── START-HERE.md
+    └── UX-FEATURES.md
 ```
 
 ## Local Development
 
 ```bash
 # Clone the repo
-git clone https://github.com/broddo-baggins/amit-terminal-resume.git
-cd amit-terminal-resume
+git clone https://github.com/broddo-baggins/ShellCV.git
+cd ShellCV
 
 # Start server
 node server.js
