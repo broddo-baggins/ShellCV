@@ -38,8 +38,14 @@ class ShellCV {
         this.shellOutput.appendChild(document.createElement('br'));
         this.shellOutput.appendChild(document.createElement('br'));
         
+        // Insert HTML content directly (no typing animation for HTML)
         const content = this.getHomeContent();
-        await this.typeText(content, this.shellOutput);
+        const contentDiv = document.createElement('div');
+        contentDiv.innerHTML = content;
+        this.shellOutput.appendChild(contentDiv);
+        
+        // Scroll to bottom
+        window.scrollTo(0, document.body.scrollHeight);
     }
 
     getHomeContent() {
@@ -92,25 +98,13 @@ class ShellCV {
     }
 
     async typeText(text, container) {
-        // Type character by character for strings
+        // Type character by character for command text only
         if (typeof text === 'string') {
             const tempSpan = document.createElement('span');
             container.appendChild(tempSpan);
             
             for (let i = 0; i < text.length; i++) {
                 tempSpan.textContent += text[i];
-                window.scrollTo(0, document.body.scrollHeight);
-                await this.sleep(this.typingSpeed);
-            }
-        } else {
-            // For HTML content, type it out character by character
-            const htmlString = text;
-            const tempDiv = document.createElement('div');
-            
-            for (let i = 0; i < htmlString.length; i++) {
-                tempDiv.innerHTML = htmlString.substring(0, i + 1);
-                container.innerHTML = '';
-                container.appendChild(tempDiv.cloneNode(true));
                 window.scrollTo(0, document.body.scrollHeight);
                 await this.sleep(this.typingSpeed);
             }
