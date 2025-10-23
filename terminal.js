@@ -9,6 +9,9 @@ class ShellCV {
         this.typingSpeed = 3; // milliseconds per character (faster animation)
         this.lastCommand = '';
         this.lastCommandTime = 0;
+        this.gameActive = false;
+        this.gameInstance = null;
+        this.loadGameMode = false;
         
         this.init();
     }
@@ -182,6 +185,42 @@ class ShellCV {
     }
 
     async executeCommand(command) {
+        // Check if game is active
+        if (this.gameActive && this.gameInstance) {
+            // Handle load game mode
+            if (this.loadGameMode) {
+                this.loadGameMode = false;
+                this.gameInstance.loadGameFromHash(command.trim());
+                return;
+            }
+            
+            // Route input to game
+            if (this.gameInstance.gameMode === 'menu') {
+                await this.gameInstance.handleMenuInput(command);
+            } else if (this.gameInstance.gameMode === 'playing') {
+                await this.gameInstance.handleGameInput(command);
+            } else if (this.gameInstance.gameMode === 'gameover' || this.gameInstance.gameMode === 'victory') {
+                const cmd = command.trim().toLowerCase();
+                if (cmd === 'n' || cmd === 'new') {
+                    await this.gameInstance.newGame();
+                } else if (cmd === 'q' || cmd === 'quit') {
+                    this.gameInstance.exitGame();
+                    this.gameActive = false;
+                    this.gameInstance = null;
+                }
+            } else if (this.gameInstance.gameMode === 'exited') {
+                this.gameActive = false;
+                this.gameInstance = null;
+                // Execute command normally
+                await this.executeNormalCommand(command);
+            }
+            return;
+        }
+
+        await this.executeNormalCommand(command);
+    }
+
+    async executeNormalCommand(command) {
         const args = command.split(' ');
         const cmd = args[0];
 
@@ -205,6 +244,10 @@ class ShellCV {
             case 'about':
                 this.showAbout();
                 break;
+            case 'play':
+            case 'game':
+                await this.launchGame();
+                break;
             case 'clear':
             case 'cls':
                 this.clear();
@@ -226,6 +269,7 @@ class ShellCV {
   <span class="success">skills</span>     Show technical skills breakdown
   <span class="success">projects</span>   View detailed project portfolio
   <span class="success">contact</span>    Get contact information
+  <span class="success">play</span>       Start PM Quest (idle roguelike game)
   <span class="success">about</span>      Learn about this shell
   <span class="success">home</span>       Return to home page
   <span class="success">clear</span>      Clear screen
@@ -234,7 +278,7 @@ class ShellCV {
   Up/Down     Navigate command history
   Tab         Auto-complete commands
 
-<span class="comment">Pro tip: Try 'resume' to see my experience!</span>
+<span class="comment">Pro tip: Try 'play' for an interactive PM adventure!</span>
         `;
         this.printOutput(help);
     }
@@ -302,9 +346,50 @@ Built with vanilla JavaScript - no frameworks, no dependencies.
         this.printOutput(about);
     }
 
+    async launchGame() {
+        this.printOutput('<span style="color: #56b6c2;">Loading PM Quest...</span>');
+        
+        try {
+            // Load game scripts
+            await this.loadGameScripts();
+            
+            // Initialize game instance
+            this.gameInstance = new PMQuestEngine(this);
+            this.gameActive = true;
+            
+            // Start game
+            await this.gameInstance.start();
+        } catch (error) {
+            this.printOutput('<span style="color: #e06c75;">Error loading game: ' + error.message + '</span>');
+            console.error('Game load error:', error);
+        }
+    }
+
+    async loadGameScripts() {
+        // Load game scripts dynamically
+        const scripts = [
+            '/game/pm-career.js',
+            '/game/game-renderer.js',
+            '/game/game-content.js',
+            '/game/game-engine.js'
+        ];
+
+        for (const scriptPath of scripts) {
+            if (!document.querySelector(`script[src="${scriptPath}"]`)) {
+                await new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = scriptPath;
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.head.appendChild(script);
+                });
+            }
+        }
+    }
+
     handleUnknownCommand(cmd) {
         // Find similar commands using Levenshtein-like similarity
-        const commands = ['help', 'resume', 'cv', 'skills', 'projects', 'contact', 'about', 'home', 'clear', 'cls'];
+        const commands = ['help', 'resume', 'cv', 'skills', 'projects', 'contact', 'play', 'game', 'about', 'home', 'clear', 'cls'];
         const similar = this.findSimilarCommands(cmd, commands);
         
         let suggestion = '';

@@ -19,6 +19,7 @@ help        # Show available commands
 resume      # Display full resume/CV  
 skills      # Show technical skills breakdown
 projects    # View detailed project portfolio
+play        # Start PM Quest (idle roguelike game)
 
 contact     # Get contact information
 email       # Open email client
@@ -28,6 +29,26 @@ linkedin    # Open LinkedIn profile
 about       # Learn about this terminal
 whoami      # Display user information
 clear       # Clear terminal screen
+```
+
+### PM Quest: Interactive Game
+
+An idle roguelike game built into the terminal! Play through a Product Manager's career journey from Associate PM to Chief Product Officer.
+
+**Features:**
+- 7 career levels with unique challenges
+- Strategic decision-making gameplay
+- Real PM scenarios and frameworks
+- Save/load system with hash codes
+- 50+ encounters across 7 corporate "dungeons"
+
+**Play Now:**
+```bash
+# In browser terminal
+play
+
+# Or via curl (info only)
+curl amityogev.com/play
 ```
 
 ### Keyboard Shortcuts

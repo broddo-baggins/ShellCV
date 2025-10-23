@@ -106,6 +106,27 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Handle game directory
+  if (url.startsWith('/game/')) {
+    const filename = url.substring(6);
+    const filepath = path.join(__dirname, 'game', filename);
+    
+    try {
+      if (fs.existsSync(filepath)) {
+        const content = fs.readFileSync(filepath, 'utf8');
+        res.writeHead(200, { 'Content-Type': 'text/javascript; charset=utf-8' });
+        res.end(content);
+      } else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('Game file not found');
+      }
+    } catch (error) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.end('Error loading game file');
+    }
+    return;
+  }
+
   // Handle text file routes (for both curl and HTML fetch)
   if (url === '/resume' || url === '/resume.txt') {
     res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -116,6 +137,24 @@ const server = http.createServer((req, res) => {
   } else if (url === '/projects' || url === '/projects.txt') {
     res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end(projects);
+  } else if (url === '/play') {
+    // Curl-friendly game info
+    const playInfo = `
+PM QUEST: CORPORATE CLIMBER
+============================
+
+An idle roguelike game where you climb from Associate PM to CPO.
+Make strategic decisions, manage stakeholders, and ship products.
+
+This game is best played in the browser at:
+https://amityogev.com
+
+Type 'play' in the browser terminal to start!
+
+Or return to resume with: curl amityogev.com/resume
+`;
+    res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end(playInfo);
   } else if (url === '/help') {
     const help = `
 Available Endpoints:
@@ -124,9 +163,12 @@ Available Endpoints:
   curl amityogev.com/resume       Full resume/CV
   curl amityogev.com/skills       Technical skills
   curl amityogev.com/projects     Project portfolio
+  curl amityogev.com/play         PM Quest game info
   curl amityogev.com/help         This help message
 
 Or visit in your browser: https://amityogev.com
+
+Try typing 'play' in the browser for an interactive PM adventure!
 `;
     res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end(help);
