@@ -10,6 +10,10 @@ class ShellCV {
         this.lastCommand = '';
         this.lastCommandTime = 0;
         
+        // Game mode
+        this.gameMode = false;
+        this.game = null;
+        
         this.init();
     }
 
@@ -32,20 +36,31 @@ class ShellCV {
         this.shellOutput.appendChild(curlCommand);
         
         await this.typeText('curl amityogev.com', curlCommand);
-        await this.sleep(300);
+        await this.sleep(400);
         
         // Add extra newlines for proper ASCII spacing
         this.shellOutput.appendChild(document.createElement('br'));
-        this.shellOutput.appendChild(document.createElement('br'));
         
-        // Insert HTML content directly (no typing animation for HTML)
+        // Animate the content appearance
         const content = this.getHomeContent();
-        const contentDiv = document.createElement('div');
-        contentDiv.innerHTML = content;
-        this.shellOutput.appendChild(contentDiv);
+        await this.animateContent(content);
         
         // Scroll to bottom
         window.scrollTo(0, document.body.scrollHeight);
+    }
+    
+    async animateContent(htmlContent) {
+        // Create a temporary container
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlContent;
+        tempDiv.style.opacity = '0';
+        this.shellOutput.appendChild(tempDiv);
+        
+        // Fade in effect
+        for (let i = 0; i <= 10; i++) {
+            tempDiv.style.opacity = (i / 10).toString();
+            await this.sleep(30);
+        }
     }
 
     getHomeContent() {
@@ -54,43 +69,55 @@ class ShellCV {
     }
 
     getColoredContentHTML() {
-        return `<pre style="color: #ff9500; font-size: 8px; line-height: 1.1; margin: 5px 0;">   █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
-  ██╔══██╗████╗ ████║██║╚══██╔══╝    ╚██╗ ██╔╝██╔═══██╗██╔════╝ ██╔════╝██║   ██║
-  ███████║██╔████╔██║██║   ██║        ╚████╔╝ ██║   ██║██║  ███╗█████╗  ██║   ██║
-  ██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
-  ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
-  ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre>
-<div style="text-align: center; color: #b8b8b8; font-size: 10px; margin: 5px 0;">Built AI CRM w/ 70% engagement & 2.5× meetings | Ex-SentinelOne, McAfee | Full-Stack → PM</div>
-<div style="color: #5c6370; font-size: 9px; margin: 5px 0; text-align: center;">https://amityogev.com | https://github.com/broddo-baggins</div>
-<div style="border-top: 1px solid #444; border-bottom: 1px solid #444; margin: 5px 0; padding: 4px 0; text-align: center;">
-<span style="color: #888; font-size: 8px;">Source: <a href="https://github.com/broddo-baggins/ShellCV" style="color: #61afef;">https://github.com/broddo-baggins/ShellCV</a></span>
+        return `
+<pre style="color: #98c379; font-size: 9px; line-height: 1.0; margin: 10px 0 5px 30px; font-family: monospace;">
+ █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
+██╔══██╗████╗ ████║██║╚══██╔══╝    ╚██╗ ██╔╝██╔═══██╗██╔════╝ ██╔════╝██║   ██║
+███████║██╔████╔██║██║   ██║        ╚████╔╝ ██║   ██║██║  ███╗█████╗  ██║   ██║
+██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
+██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
+╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre>
+<pre style="margin: 0 0 0 30px; padding: 0; line-height: 0.8;"><span style="color: #3b82f6;">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span></pre>
+
+<div style="margin: 15px 0 5px 30px; color: #e5c07b; font-size: 11px; font-weight: normal;">
+    Built AI CRM w/ 70% engagement & 2.5× meetings | Ex-SentinelOne, McAfee | Full-Stack → PM
+</div>
+<div style="margin: 3px 0 15px 30px; color: #61afef; font-size: 10px;">
+    <a href="https://amityogev.com" style="color: #61afef; text-decoration: none;">https://amityogev.com</a> | <a href="https://github.com/broddo-baggins" style="color: #61afef; text-decoration: none;">https://github.com/broddo-baggins</a>
 </div>
 
-<pre style="color: #b8b8b8; font-size: 9px; line-height: 1.4;">
-  <span style="color: #98c379;">About</span>
-  
-  Product Manager. Full-stack dev
-  turned PM. Built AI CRM achieving
-  70% engagement, 2.5× meetings.
-  Led QA at SentinelOne (4yr leader).
-  Ship products backed by data,
-  validated by users.
-  
-  <span style="color: #98c379;">Socials</span>
-  
-  LinkedIn   <a href="https://linkedin.com/in/amit-yogev" style="color: #61afef;">linkedin.com/in/amit-yogev</a>
-  GitHub     <a href="https://github.com/broddo-baggins" style="color: #61afef;">github.com/broddo-baggins</a>
-  Email      <a href="mailto:amit.yogev@gmail.com" style="color: #61afef;">amit.yogev@gmail.com</a>
-  Location   Tel Aviv, Israel
-</pre>
-<div style="color: #98c379; font-size: 9px; margin: 8px 0 4px 2px;">  Legend</div>
-<pre style="color: #888; font-size: 9px; line-height: 1.5;">                           
-  <span style="color: #61afef;">$ curl amityogev.com</span>            Get this page
-  <span style="color: #61afef;">$ curl amityogev.com/resume</span>     Full resume + impact metrics
-  <span style="color: #61afef;">$ curl amityogev.com/skills</span>     Technical skills breakdown
-  <span style="color: #61afef;">$ curl amityogev.com/projects</span>   Project portfolio
-  <span style="color: #61afef;">$ curl amityogev.com/help</span>       Full list of available commands
-</pre>`;
+<div style="margin: 10px 0 5px 30px; padding: 8px 0; border-top: 1px solid #444; border-bottom: 1px solid #444;">
+    <span style="color: #5c6370; font-size: 9px;">Source: <a href="https://github.com/broddo-baggins/ShellCV" style="color: #61afef; text-decoration: none;">https://github.com/broddo-baggins/ShellCV</a></span>
+</div>
+
+<div style="margin: 20px 0 10px 30px;">
+    <div style="color: #56b6c2; font-size: 10px; font-weight: bold; margin-bottom: 10px;">About</div>
+    <pre style="color: #98c379; font-size: 10px; line-height: 1.4; margin: 0; font-family: monospace;">
+Yo what's up everyone my name's
+Amit and you suck at product management.
+Connect with my socials or use this
+site to easily find my content!</pre>
+</div>
+
+<div style="margin: 20px 0 10px 30px;">
+    <div style="color: #56b6c2; font-size: 10px; font-weight: bold; margin-bottom: 10px;">Socials</div>
+    <pre style="color: #d4d4d4; font-size: 10px; line-height: 1.5; margin: 0; font-family: monospace;">
+Instagram   <a href="https://linkedin.com/in/amit-yogev" style="color: #61afef; text-decoration: none;">https://linkedin.com/in/amit-yogev</a>
+YouTube     <a href="https://github.com/broddo-baggins" style="color: #61afef; text-decoration: none;">https://github.com/broddo-baggins</a>
+Patreon     <a href="mailto:amit.yogev@gmail.com" style="color: #61afef; text-decoration: none;">amit.yogev@gmail.com</a>
+Discord     <span style="color: #888;">Tel Aviv, Israel</span>
+Twitch      <span style="color: #888;">+972-54-767-8761</span></pre>
+</div>
+
+<div style="margin: 20px 0 10px 30px;">
+    <div style="color: #56b6c2; font-size: 10px; font-weight: bold; margin-bottom: 8px;">Legend</div>
+    <pre style="color: #5c6370; font-size: 10px; line-height: 1.6; margin: 0; font-family: monospace;">
+<span style="color: #98c379;">$</span> curl amityogev.com               <span style="color: #61afef;">Get this page</span>
+<span style="color: #98c379;">$</span> curl amityogev.com/episodes      <span style="color: #61afef;">Get the list of episodes in the YSAP series</span>
+<span style="color: #98c379;">$</span> curl amityogev.com/json          <span style="color: #61afef;">Get the above in JSON format</span>
+<span style="color: #98c379;">$</span> curl amityogev.com/help          <span style="color: #61afef;">Get the full list of available endpoints</span></pre>
+</div>
+`;
     }
 
     createColoredContent() {
@@ -140,6 +167,26 @@ class ShellCV {
     async handleCommand() {
         const command = this.commandInput.value.trim();
         if (!command) return;
+
+        // If in game mode, route to game
+        if (this.gameMode && this.game) {
+            // Display command
+            this.printCommand(command);
+            
+            // Clear input
+            this.commandInput.value = '';
+            
+            // Process game input
+            const result = this.game.processInput(command);
+            if (result === 'quit') {
+                this.exitGame();
+            }
+            
+            // Scroll to bottom
+            window.scrollTo(0, document.body.scrollHeight);
+            this.commandInput.focus();
+            return;
+        }
 
         // Spam prevention: Check if same command was run in last second
         const now = Date.now();
@@ -213,6 +260,9 @@ class ShellCV {
                 this.clear();
                 this.shellOutput.textContent = this.getHomeContent();
                 break;
+            case 'play':
+                await this.launchGame();
+                break;
             default:
                 this.handleUnknownCommand(cmd);
         }
@@ -225,6 +275,7 @@ class ShellCV {
   <span class="success">resume</span>     Display full resume/CV
   <span class="success">skills</span>     Show technical skills breakdown
   <span class="success">projects</span>   View detailed project portfolio
+  <span class="success">play</span>       Launch PM Quest (idle roguelike game)
   <span class="success">contact</span>    Get contact information
   <span class="success">about</span>      Learn about this shell
   <span class="success">home</span>       Return to home page
@@ -234,7 +285,7 @@ class ShellCV {
   Up/Down     Navigate command history
   Tab         Auto-complete commands
 
-<span class="comment">Pro tip: Try 'resume' to see my experience!</span>
+<span class="comment">Pro tip: Try 'play' to experience a PM's career journey!</span>
         `;
         this.printOutput(help);
     }
@@ -304,7 +355,7 @@ Built with vanilla JavaScript - no frameworks, no dependencies.
 
     handleUnknownCommand(cmd) {
         // Find similar commands using Levenshtein-like similarity
-        const commands = ['help', 'resume', 'cv', 'skills', 'projects', 'contact', 'about', 'home', 'clear', 'cls'];
+        const commands = ['help', 'resume', 'cv', 'skills', 'projects', 'play', 'contact', 'about', 'home', 'clear', 'cls'];
         const similar = this.findSimilarCommands(cmd, commands);
         
         let suggestion = '';
@@ -376,7 +427,7 @@ Built with vanilla JavaScript - no frameworks, no dependencies.
 
     autoComplete() {
         const partial = this.commandInput.value.toLowerCase();
-        const commands = ['help', 'resume', 'skills', 'projects', 'contact', 'about', 'home', 'clear'];
+        const commands = ['help', 'resume', 'skills', 'projects', 'play', 'contact', 'about', 'home', 'clear'];
         
         const matches = commands.filter(cmd => cmd.startsWith(partial));
         
@@ -392,6 +443,61 @@ Built with vanilla JavaScript - no frameworks, no dependencies.
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    }
+
+    // Game methods
+    async launchGame() {
+        this.printOutput('<span style="color: #98c379;">Loading PM Quest...</span>');
+        
+        try {
+            // Load game scripts if not already loaded
+            if (typeof GameState === 'undefined') {
+                await this.loadScript('/game/game-state.js');
+            }
+            if (typeof ENCOUNTERS === 'undefined') {
+                await this.loadScript('/game/game-content.js');
+            }
+            if (typeof GameRenderer === 'undefined') {
+                await this.loadScript('/game/game-renderer.js');
+            }
+            if (typeof getSkillSuccessModifier === 'undefined') {
+                await this.loadScript('/game/pm-progression.js');
+            }
+            if (typeof PMQuestEngine === 'undefined') {
+                await this.loadScript('/game/game-engine.js');
+            }
+            
+            // Initialize game
+            this.gameMode = true;
+            this.game = new PMQuestEngine(this);
+            
+            // Show title screen
+            this.printOutput(this.game.renderer.renderTitleScreen());
+            this.game.isWaitingForInput = true;
+            
+        } catch (error) {
+            console.error('Error loading game:', error);
+            this.printOutput('<span style="color: #e06c75;">Error loading game. Please try again.</span>');
+            this.gameMode = false;
+            this.game = null;
+        }
+    }
+
+    loadScript(src) {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = src;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+    exitGame() {
+        this.gameMode = false;
+        this.game = null;
+        this.printOutput('<span style="color: #98c379;">Exited PM Quest. Welcome back to the resume!</span>');
+        this.printOutput('<span style="color: #5c6370;">Type <span style="color: #61afef;">help</span> to see available commands.</span>');
     }
 }
 

@@ -30,36 +30,46 @@ function isCurlRequest(req) {
 
 // Generate curl-friendly home page
 function getCurlHomePage() {
-  return `   █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
-  ██╔══██╗████╗ ████║██║╚══██╔══╝    ╚██╗ ██╔╝██╔═══██╗██╔════╝ ██╔════╝██║   ██║
-  ███████║██╔████╔██║██║   ██║        ╚████╔╝ ██║   ██║██║  ███╗█████╗  ██║   ██║
-  ██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
-  ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
-  ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
+  return ` 
+ █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
+██╔══██╗████╗ ████║██║╚══██╔══╝    ╚██╗ ██╔╝██╔═══██╗██╔════╝ ██╔════╝██║   ██║
+███████║██╔████╔██║██║   ██║        ╚████╔╝ ██║   ██║██║  ███╗█████╗  ██║   ██║
+██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
+██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
+╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
-            Built AI CRM w/ 70% engagement & 2.5× meetings | Ex-SentinelOne, McAfee | Full-Stack → PM
-                         https://amityogev.com | https://github.com/broddo-baggins
-       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       Source: https://github.com/broddo-baggins/ShellCV
+    Built AI CRM w/ 70% engagement & 2.5× meetings | Ex-SentinelOne, McAfee | Full-Stack → PM
+    https://amityogev.com | https://github.com/broddo-baggins
+
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    Source: https://github.com/broddo-baggins/ShellCV
 
 
-  ┌─About───────────────────────────────┐ ┌─Socials───┬───────────────────────────┐
-  │                                     │ │           │                           │
-  │ Product Manager. Full-stack dev    │ │ LinkedIn  │ linkedin.com/in/amit-yogev│
-  │ turned PM. Built AI CRM achieving   │ │ GitHub    │ github.com/broddo-baggins │
-  │ 70% engagement, 2.5× meetings.      │ │ Email     │ amit.yogev@gmail.com      │
-  │ Led QA at SentinelOne (4yr leader). │ │ Location  │ Tel Aviv, Israel          │
-  │ Ship products backed by data,       │ │           │                           │
-  │ validated by users.                 │ │           │                           │
-  └─────────────────────────────────────┘ └───────────┴───────────────────────────┘
+About
 
-  Legend
-                           
-  $ curl amityogev.com            Get this page
-  $ curl amityogev.com/resume     Full resume + impact metrics
-  $ curl amityogev.com/skills     Technical skills breakdown
-  $ curl amityogev.com/projects   Project portfolio
-  $ curl amityogev.com/help       Full list of available commands
+Yo what's up everyone my name's
+Amit and you suck at product management.
+Connect with my socials or use this
+site to easily find my content!
+
+
+Socials
+
+LinkedIn    https://linkedin.com/in/amit-yogev
+GitHub      https://github.com/broddo-baggins
+Email       amit.yogev@gmail.com
+Location    Tel Aviv, Israel
+Phone       +972-54-767-8761
+
+
+Legend
+
+$ curl amityogev.com               Get this page
+$ curl amityogev.com/resume        Full resume + impact metrics
+$ curl amityogev.com/skills        Technical skills breakdown
+$ curl amityogev.com/projects      Project portfolio
+$ curl amityogev.com/help          Full list of available commands
 
 `;
 }
@@ -106,6 +116,19 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Handle game files
+  if (url.startsWith('/game/')) {
+    const filename = url.replace('/game/', '');
+    const filepath = path.join(__dirname, 'game', filename);
+    
+    if (fs.existsSync(filepath)) {
+      const content = fs.readFileSync(filepath, 'utf8');
+      res.writeHead(200, { 'Content-Type': 'text/javascript' });
+      res.end(content);
+      return;
+    }
+  }
+
   // Handle text file routes (for both curl and HTML fetch)
   if (url === '/resume' || url === '/resume.txt') {
     res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -127,6 +150,7 @@ Available Endpoints:
   curl amityogev.com/help         This help message
 
 Or visit in your browser: https://amityogev.com
+Type 'play' in the browser to launch PM Quest game!
 `;
     res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end(help);
