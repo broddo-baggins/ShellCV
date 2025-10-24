@@ -35,7 +35,7 @@ The script will ask for:
 You'll get a complete project:
 ```
 your-name-shellcv/
-├── Career_Documents/
+├── assets/
 │   ├── resume.txt       ← Edit your CV here
 │   ├── skills.txt       ← Add your skills
 │   └── projects.txt     ← List your projects
@@ -59,7 +59,7 @@ Open http://localhost:3333
 
 ### Step 6: Customize Content
 
-Edit the files in `Career_Documents/`:
+Edit the files in `assets/`:
 - **resume.txt** - Your full CV
 - **skills.txt** - Technical skills
 - **projects.txt** - Portfolio

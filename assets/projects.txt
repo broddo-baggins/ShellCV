@@ -1,0 +1,48 @@
+PROJECTS PORTFOLIO
+
+1. ShellCV - Interactive Terminal-Style CV
+   An innovative terminal-based resume that works in both browser and command line.
+   Featuring 90s-style animations, mobile optimization, and curl API support.
+   
+   Tech Stack: Node.js, Express, Vanilla JavaScript, CSS
+   Demo: https://amityogev.com
+   Repository: https://github.com/broddo-baggins/ShellCV
+   
+   Key Features:
+   - Interactive terminal interface with command history
+   - Full curl support for terminal enthusiasts
+   - Mobile-responsive design
+   - Onboarding generator for custom CVs
+   - 90s-style progressive loading animation
+
+2. OvenAI CRM - AI-Powered Lead Management
+   Smart CRM system with AI-powered lead scoring and automated follow-ups.
+   Achieved 70% lead response rates and 2.5x meeting bookings.
+   
+   Tech Stack: React, TypeScript, Supabase, OpenAI
+   Demo: Type 'ovenai' in terminal at amityogev.com
+   
+   Key Features:
+   - AI lead scoring and prioritization
+   - Automated email sequences
+   - Real-time analytics dashboard
+   - Team collaboration tools
+
+3. PM Quest - Interactive Career Game
+   Idle roguelike game simulating a Product Manager's career journey.
+   Built into the terminal CV for an engaging portfolio experience.
+   
+   Tech Stack: Vanilla JavaScript
+   Play: Type 'play' at amityogev.com
+   
+   Key Features:
+   - 7 career levels with unique challenges
+   - Strategic decision-making gameplay
+   - Real PM scenarios and frameworks
+   - Save/load system with hash codes
+
+---
+This is a placeholder projects file.
+To customize: Replace this file in assets/projects.txt with your own projects.
+Add your personal projects, work experience, or portfolio pieces.
+

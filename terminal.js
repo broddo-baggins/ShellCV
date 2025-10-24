@@ -431,7 +431,7 @@ Want a terminal-style CV like this? Generate yours in 2 minutes!
 <span class="comment">What Happens:</span>
   1. Generator creates a personalized project folder
   2. All files pre-configured with your info
-  3. Career_Documents folder with your CV
+  3. assets folder with your CV content
   4. npm install && npm start → DONE!
 
 <span class="comment">Learn More:</span>

@@ -1,0 +1,53 @@
+TECHNICAL SKILLS
+
+Programming & Scripting:
+  • JavaScript / TypeScript
+  • Python
+  • Node.js
+  • Shell scripting
+
+Frontend Development:
+  • React
+  • HTML5 / CSS3
+  • Responsive design
+  • Terminal UI design
+
+Backend & Infrastructure:
+  • Express.js
+  • REST APIs
+  • Serverless functions
+  • Docker
+
+Databases:
+  • PostgreSQL
+  • Supabase
+  • MongoDB
+
+Product Management:
+  • Product strategy
+  • Roadmap planning
+  • Agile / Scrum
+  • User story mapping
+
+Quality Assurance:
+  • Test automation
+  • CI/CD pipelines
+  • Quality frameworks
+  • Manual testing
+
+Tools & Platforms:
+  • Git / GitHub
+  • Vercel / Railway
+  • VS Code
+  • Jira / Linear
+
+Soft Skills:
+  • Technical communication
+  • Cross-functional collaboration
+  • Problem solving
+  • Attention to detail
+
+---
+This is a placeholder skills file.
+To customize: Replace this file in assets/skills.txt with your own skills.
+

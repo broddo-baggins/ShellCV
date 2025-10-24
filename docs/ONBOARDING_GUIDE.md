@@ -42,7 +42,7 @@ The onboarding script will:
 2. **Generate Project Structure**
    ```
    your-name-shellcv/
-   ├── Career_Documents/
+   ├── assets/
    │   ├── resume.txt
    │   ├── skills.txt
    │   └── projects.txt
@@ -141,7 +141,7 @@ Project 2:
 
 **Tips:**
 - You can skip and edit files later
-- Career_Documents/ folder is easy to update
+- assets/ folder is easy to update
 - Projects: Add 1-5 of your best work
 
 ---
@@ -166,7 +166,7 @@ This installs:
 
 ### 3. Edit Content
 
-Open `Career_Documents/` and customize:
+Open `assets/` and customize:
 
 **resume.txt** - Your full CV
 ```
@@ -386,7 +386,7 @@ A: Absolutely! All CSS and JavaScript is editable.
 A: Yes! Use the Node.js script (`setup-shellcv.js`).
 
 **Q: How do I update content?**  
-A: Just edit the `.txt` files in `Career_Documents/` and restart the server.
+A: Just edit the `.txt` files in `assets/` and restart the server.
 
 **Q: Can I add a blog?**  
 A: Yes! Add a new route in `server.js` and corresponding command in `terminal.js`.

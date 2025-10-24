@@ -1,0 +1,38 @@
+AMIT YOGEV
+Product Manager | QA Leader | Technical Builder
+amit.yogev@gmail.com | Tel Aviv, Israel
+LinkedIn: linkedin.com/in/amit-yogev | GitHub: github.com/broddo-baggins
+
+ABOUT
+Technical Product Manager with strong QA background. Experienced in solo ideation to POC delivery.
+Passionate about building innovative solutions and bridging technical and business requirements.
+
+PROFESSIONAL EXPERIENCE
+
+Product Manager @ Stealth Mode Startup (Current)
+- Leading product strategy and development
+- Managing full product lifecycle from concept to delivery
+- Collaborating with cross-functional teams
+
+QA Leader & Technical Lead
+- Established QA processes and testing frameworks
+- Led teams in quality assurance initiatives
+- Implemented automation and CI/CD pipelines
+
+EDUCATION
+
+Computer Science & Software Engineering
+Continuous learning in AI, blockchain, and modern web technologies
+
+SKILLS
+
+See: curl amityogev.com/skills
+
+PROJECTS
+
+See: curl amityogev.com/projects
+
+---
+This is a placeholder resume file. 
+To customize: Replace this file in assets/resume.txt with your own content.
+

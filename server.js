@@ -4,10 +4,10 @@ const path = require('path');
 
 const PORT = process.env.PORT || 3333;
 
-// Read resume files from Career_Documents
-const resume = fs.readFileSync(path.join(__dirname, 'Career_Documents', 'resume.txt'), 'utf8');
-const skills = fs.readFileSync(path.join(__dirname, 'Career_Documents', 'skills.txt'), 'utf8');
-const projects = fs.readFileSync(path.join(__dirname, 'Career_Documents', 'projects.txt'), 'utf8');
+// Read resume files from assets folder
+const resume = fs.readFileSync(path.join(__dirname, 'assets', 'resume.txt'), 'utf8');
+const skills = fs.readFileSync(path.join(__dirname, 'assets', 'skills.txt'), 'utf8');
+const projects = fs.readFileSync(path.join(__dirname, 'assets', 'projects.txt'), 'utf8');
 
 // MIME types
 const mimeTypes = {
@@ -57,7 +57,8 @@ function getCurlHomePage() {
 `;
 }
 
-const server = http.createServer((req, res) => {
+// Request handler (works for both local and Vercel)
+function handleRequest(req, res) {
   const url = req.url;
   
   // Handle root - detect curl vs browser
@@ -184,12 +185,20 @@ Available Commands:
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('404 - Not Found\n\nTry:\n  Browser: https://amityogev.com\n  Terminal: curl amityogev.com/resume\n');
   }
-});
+}
 
-server.listen(PORT, () => {
-  console.log(`Terminal resume server running on port ${PORT}`);
-  console.log(`\nTest locally:`);
-  console.log(`   Browser:  http://localhost:${PORT}`);
-  console.log(`   Terminal: curl localhost:${PORT}`);
-  console.log(`             curl localhost:${PORT}/resume`);
-});
+// Export for Vercel serverless
+module.exports = handleRequest;
+
+// Local development server
+if (require.main === module) {
+  const server = http.createServer(handleRequest);
+  
+  server.listen(PORT, () => {
+    console.log(`Terminal resume server running on port ${PORT}`);
+    console.log(`\nTest locally:`);
+    console.log(`   Browser:  http://localhost:${PORT}`);
+    console.log(`   Terminal: curl localhost:${PORT}`);
+    console.log(`             curl localhost:${PORT}/resume`);
+  });
+}

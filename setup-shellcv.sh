@@ -126,7 +126,7 @@ echo ""
 
 echo "Would you like to:"
 echo "1) Paste your resume content now"
-echo "2) Skip and add it later to Career_Documents/resume.txt"
+echo "2) Skip and add it later to assets/resume.txt"
 echo -n "Choice (1 or 2): "
 read RESUME_CHOICE
 
@@ -147,7 +147,7 @@ echo ""
 
 echo "Would you like to:"
 echo "1) Enter skills now (comma-separated)"
-echo "2) Skip and add later to Career_Documents/skills.txt"
+echo "2) Skip and add later to assets/skills.txt"
 echo -n "Choice (1 or 2): "
 read SKILLS_CHOICE
 
@@ -173,7 +173,7 @@ echo ""
 
 echo "Would you like to:"
 echo "1) Enter project info now"
-echo "2) Skip and add later to Career_Documents/projects.txt"
+echo "2) Skip and add later to assets/projects.txt"
 echo -n "Choice (1 or 2): "
 read PROJECTS_CHOICE
 
@@ -219,7 +219,7 @@ mkdir -p "$PROJECT_DIR"
 cd "$PROJECT_DIR"
 
 # Create directory structure
-mkdir -p Career_Documents
+mkdir -p assets
 mkdir -p docs
 mkdir -p game/encounters
 mkdir -p public
@@ -342,9 +342,9 @@ app.use(express.static(__dirname));
 // Helper function to read career documents
 function readCareerFile(filename) {
     try {
-        return fs.readFileSync(path.join(__dirname, 'Career_Documents', filename), 'utf8');
+        return fs.readFileSync(path.join(__dirname, 'assets', filename), 'utf8');
     } catch (err) {
-        return `Error: ${filename} not found. Please add content to Career_Documents/${filename}`;
+        return `Error: ${filename} not found. Please add content to assets/${filename}`;
     }
 }
 
@@ -458,27 +458,27 @@ echo "  ✓ server.js created"
 
 # Resume
 if [ -n "$RESUME_CONTENT" ]; then
-    echo -e "$RESUME_CONTENT" > Career_Documents/resume.txt
+    echo -e "$RESUME_CONTENT" > assets/resume.txt
 else
-    echo "Add your resume content here." > Career_Documents/resume.txt
+    echo "Add your resume content here." > assets/resume.txt
 fi
-echo "  ✓ Career_Documents/resume.txt created"
+echo "  ✓ assets/resume.txt created"
 
 # Skills
 if [ -n "$SKILLS_CONTENT" ]; then
-    echo -e "$SKILLS_CONTENT" > Career_Documents/skills.txt
+    echo -e "$SKILLS_CONTENT" > assets/skills.txt
 else
-    echo "Add your skills here." > Career_Documents/skills.txt
+    echo "Add your skills here." > assets/skills.txt
 fi
-echo "  ✓ Career_Documents/skills.txt created"
+echo "  ✓ assets/skills.txt created"
 
 # Projects
 if [ -n "$PROJECTS_CONTENT" ]; then
-    echo -e "$PROJECTS_CONTENT" > Career_Documents/projects.txt
+    echo -e "$PROJECTS_CONTENT" > assets/projects.txt
 else
-    echo "Add your projects here." > Career_Documents/projects.txt
+    echo "Add your projects here." > assets/projects.txt
 fi
-echo "  ✓ Career_Documents/projects.txt created"
+echo "  ✓ assets/projects.txt created"
 
 # ================================
 # Generate README
@@ -596,7 +596,7 @@ echo ""
 echo "2. Install dependencies:"
 echo -e "   ${ORANGE}npm install${NC}"
 echo ""
-echo "3. Edit your content in Career_Documents/:"
+echo "3. Edit your content in assets/:"
 echo "   • resume.txt"
 echo "   • skills.txt"
 echo "   • projects.txt"

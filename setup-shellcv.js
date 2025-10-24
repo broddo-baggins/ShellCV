@@ -158,7 +158,7 @@ async function generateProject() {
     
     // Create directories
     fs.mkdirSync(userData.projectDir, { recursive: true });
-    fs.mkdirSync(path.join(userData.projectDir, 'Career_Documents'));
+    fs.mkdirSync(path.join(userData.projectDir, 'assets'));
     fs.mkdirSync(path.join(userData.projectDir, 'docs'));
     fs.mkdirSync(path.join(userData.projectDir, 'public'));
     
@@ -256,9 +256,9 @@ app.use(express.static(__dirname));
 
 function readCareerFile(filename) {
     try {
-        return fs.readFileSync(path.join(__dirname, 'Career_Documents', filename), 'utf8');
+        return fs.readFileSync(path.join(__dirname, 'assets', filename), 'utf8');
     } catch (err) {
-        return \`Error: \${filename} not found. Please add content to Career_Documents/\${filename}\`;
+        return \`Error: \${filename} not found. Please add content to assets/\${filename}\`;
     }
 }
 
@@ -351,7 +351,7 @@ Add your full resume content here including:
 - Achievements
 `;
     fs.writeFileSync(
-        path.join(userData.projectDir, 'Career_Documents', 'resume.txt'),
+        path.join(userData.projectDir, 'assets', 'resume.txt'),
         resumeContent
     );
     
@@ -367,7 +367,7 @@ Add more skills, categorized by:
 - Soft Skills
 `;
     fs.writeFileSync(
-        path.join(userData.projectDir, 'Career_Documents', 'skills.txt'),
+        path.join(userData.projectDir, 'assets', 'skills.txt'),
         skillsContent
     );
     
@@ -387,7 +387,7 @@ Add more skills, categorized by:
     }
     
     fs.writeFileSync(
-        path.join(userData.projectDir, 'Career_Documents', 'projects.txt'),
+        path.join(userData.projectDir, 'assets', 'projects.txt'),
         projectsContent
     );
 }
@@ -488,7 +488,7 @@ function showCompletionMessage() {
     console.log(`   ${colors.orange}cd ${projectName}${colors.reset}\n`);
     console.log(`2. Install dependencies:`);
     console.log(`   ${colors.orange}npm install${colors.reset}\n`);
-    console.log(`3. Edit your content in Career_Documents/:`);
+    console.log(`3. Edit your content in assets/:`);
     console.log(`   • resume.txt`);
     console.log(`   • skills.txt`);
     console.log(`   • projects.txt\n`);
