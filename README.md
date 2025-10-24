@@ -6,6 +6,32 @@ An interactive terminal-style resume that works in **both browser and command li
 
 **Live:** https://amityogev.com
 
+---
+
+## 🚀 Create Your Own ShellCV in 2 Minutes!
+
+Want your own terminal-style CV? Our interactive setup script generates everything you need:
+
+```bash
+# Option 1: Node.js (Recommended - Cross-platform)
+node setup-shellcv.js
+
+# Option 2: Bash (macOS/Linux)
+./setup-shellcv.sh
+```
+
+**What you get:**
+- ✨ Interactive terminal-style CV
+- 🎨 90s-style loading animations
+- 📱 Mobile-optimized design
+- 🔧 Full curl API support
+- 💼 Complete portfolio showcase
+- 🚀 Ready to deploy!
+
+**Learn more:** [Onboarding Guide](docs/ONBOARDING_GUIDE.md)
+
+---
+
 ## Features
 
 ### Dual Interface

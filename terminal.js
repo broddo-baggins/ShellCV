@@ -6,7 +6,7 @@ class ShellCV {
         this.commandInput = document.getElementById('commandInput');
         this.commandHistory = [];
         this.historyIndex = -1;
-        this.typingSpeed = 2; // milliseconds per character for visible typing
+        this.typingSpeed = 20; // Fast typing animation
         this.lastCommand = '';
         this.lastCommandTime = 0;
         this.gameActive = false;
@@ -35,7 +35,7 @@ class ShellCV {
     }
 
     async showInitialLoad() {
-        // Type the curl command with ZSH-style prompt
+        // Type the curl command with animation
         const curlCommand = document.createElement('div');
         curlCommand.innerHTML = '<span class="prompt-path">~/amityogev.com</span> <span class="prompt-symbol">$</span> ';
         this.shellOutput.appendChild(curlCommand);
@@ -43,68 +43,53 @@ class ShellCV {
         await this.typeText('curl amityogev.com', curlCommand);
         await this.sleep(300);
         
-        // Add extra newlines for proper ASCII spacing
-        this.shellOutput.appendChild(document.createElement('br'));
+        // Add spacing
         this.shellOutput.appendChild(document.createElement('br'));
         
-        // Create container for animated content
+        // Create container for content
         const contentDiv = document.createElement('div');
         this.shellOutput.appendChild(contentDiv);
         
-        // Animate the content loading
+        // Animate content loading line-by-line like 90s shell
         const content = this.getHomeContent();
         await this.typeHTML(content, contentDiv);
         
-        // Scroll to bottom - works for both desktop and mobile
+        // Scroll to bottom
         this.scrollToBottom();
     }
     
     async typeHTML(html, container) {
-        // Show content with visible typing animation
-        container.innerHTML = '';
-        container.style.opacity = '1';
+        // 90s-style line-by-line rendering
+        container.style.opacity = '0';
         
-        // Split by major sections for smoother animation
-        const lines = html.split('\n');
-        const chunks = [];
-        let currentChunk = '';
+        // Split by major HTML elements to render in chunks
+        const lines = html.split(/(?=<div|<pre)/);
         
-        // Group lines into chunks
-        for (let line of lines) {
-            currentChunk += line + '\n';
-            if (line.includes('</div>') || line.includes('</pre>')) {
-                chunks.push(currentChunk);
-                currentChunk = '';
-            }
-        }
-        if (currentChunk) chunks.push(currentChunk);
-        
-        // Type out each chunk with visible delay
-        for (let chunk of chunks) {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = chunk;
-            container.appendChild(tempDiv);
-            
-            // Scroll to show new content
-            window.scrollTo(0, document.body.scrollHeight);
-            
-            // Visible pause between chunks
-            await this.sleep(20);
+        for (let i = 0; i < lines.length; i++) {
+            const chunk = lines.slice(0, i + 1).join('');
+            container.innerHTML = chunk;
+            container.style.opacity = '1';
+            await this.sleep(30); // 30ms per chunk
+            this.scrollToBottom();
         }
     }
     
     scrollToBottom() {
-        // Scroll both window and terminal body
-        window.scrollTo(0, document.body.scrollHeight);
-        
+        // Scroll terminal body AGGRESSIVELY
         const terminalBody = document.querySelector('.terminal-body');
         if (terminalBody) {
             terminalBody.scrollTop = terminalBody.scrollHeight;
         }
         
-        // For mobile - ensure input line is visible
+        // Scroll window
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+        
+        // Force input line into view
         if (this.inputLine) {
-            this.inputLine.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            this.inputLine.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         }
     }
 
@@ -114,39 +99,17 @@ class ShellCV {
     }
 
     getColoredContentHTML() {
-        return `<pre style="color: #e5c07b; font-size: 10px; line-height: 1.2; margin: 6px 0; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">   █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
+        return `<pre class="ascii-logo">   █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
   ██╔══██╗████╗ ████║██║╚══██╔══╝    ╚██╗ ██╔╝██╔═══██╗██╔════╝ ██╔════╝██║   ██║
   ███████║██╔████╔██║██║   ██║        ╚████╔╝ ██║   ██║██║  ███╗█████╗  ██║   ██║
   ██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
-  ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
-  <span style="color: #e5c07b;">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></pre>
+  ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre><div class="gradient-bar"></div>
+<div style="text-align: center; color: #888; font-size: 11px; margin: 8px 0; padding: 0; line-height: 1.0;">Product Manager | QA Leader | Builder | Tech Enthusiast</div>
+<div class="info-boxes-container"><div class="info-box"><div class="info-box-header">About This Terminal</div><div class="info-box-content">Interactive terminal-style CV. Navigate with commands or explore via browser. Built to showcase PM/QA skills through code. Type 'help' to start.</div></div><div class="info-box"><div class="info-box-header">Socials</div><div class="info-box-content">LinkedIn  <a href="https://linkedin.com/in/amit-yogev">linkedin.com/in/amit-yogev</a><br>GitHub    <a href="https://github.com/broddo-baggins">github.com/broddo-baggins</a><br>Email     <a href="mailto:amit.yogev@gmail.com">amit.yogev@gmail.com</a><br>Location  Tel Aviv, Israel</div></div></div><div class="legend-container"><div style="color: #ff9966; font-weight: bold; margin: 0; padding: 0; font-size: 11px; line-height: 1.0;">Legend</div><pre>$ curl amityogev.com           Get this page
+$ curl amityogev.com/help      Get the full list of available endpoints
 
-<div style="text-align: center; color: #e0e0e0; font-size: 11px; margin: 8px 0;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer</div>
-
-<div class="info-boxes-container">
-  <div class="info-box">
-    <div class="info-box-header">About</div>
-    <div class="info-box-content">Technical Product Manager, QA background.<br>Solo ideation to POC 100%.</div>
-  </div>
-  
-  <div class="info-box">
-    <div class="info-box-header">Socials</div>
-    <div class="info-box-content">
-<span style="color: #888;">LinkedIn</span>   <a href="https://linkedin.com/in/amit-yogev" style="color: #61c9d2; text-decoration: none;">linkedin.com/in/amit-yogev</a><br>
-<span style="color: #888;">GitHub</span>     <a href="https://github.com/broddo-baggins" style="color: #61c9d2; text-decoration: none;">github.com/broddo-baggins</a><br>
-<span style="color: #888;">Email</span>      <a href="mailto:amit.yogev@gmail.com" style="color: #61c9d2; text-decoration: none;">amit.yogev@gmail.com</a><br>
-<span style="color: #888;">Location</span>   Tel Aviv, Israel
-    </div>
-  </div>
-</div>
-
-<div class="legend-container">
-  <div style="color: #e5c07b; font-size: 11px; margin-bottom: 8px; font-weight: bold;">Commands</div>
-  <pre style="color: #6c7380; font-size: 10px; line-height: 1.7; margin: 0;">Type 'help' for full command list
-
-Quick commands: resume | skills | projects | ovenai | help</pre>
-</div>`;
+Type 'help' or 'start' to begin exploring →</pre></div>`;
     }
 
     createColoredContent() {
@@ -219,8 +182,10 @@ Quick commands: resume | skills | projects | ovenai | help</pre>
         // Execute command
         await this.executeCommand(command.toLowerCase());
 
-        // Scroll to bottom
-        window.scrollTo(0, document.body.scrollHeight);
+        // AGGRESSIVE scroll to bottom
+        this.scrollToBottom();
+        setTimeout(() => this.scrollToBottom(), 100);
+        setTimeout(() => this.scrollToBottom(), 300);
         this.commandInput.focus();
     }
 
@@ -315,6 +280,11 @@ Quick commands: resume | skills | projects | ovenai | help</pre>
             case 'about':
                 this.showAbout();
                 break;
+            case 'create':
+            case 'generate':
+            case 'build':
+                this.showCreate();
+                break;
             case 'ovenai':
             case 'tour':
                 await this.showOvenAITour();
@@ -350,11 +320,15 @@ Quick commands: resume | skills | projects | ovenai | help</pre>
   <span class="success">home</span>       Return to home page
   <span class="success">clear</span>      Clear screen
 
+<span class="section-header">🚀 Want Your Own Terminal CV?</span>
+
+  <span class="success">create</span>     Learn how to build your own ShellCV in 2 minutes!
+
 <span class="comment">Keyboard Shortcuts:</span>
   Up/Down     Navigate command history
   Tab         Auto-complete commands
 
-<span class="comment">Pro tip: Try 'play' for an interactive PM adventure!</span>
+<span class="comment">Pro tip: Try 'create' to make your own terminal CV!</span>
         `;
         this.printOutput(help);
     }
@@ -420,6 +394,59 @@ Built with vanilla JavaScript - no frameworks, no dependencies.
 <span class="comment">Built by Amit Yogev</span>
         `;
         this.printOutput(about);
+    }
+
+    showCreate() {
+        const create = `
+<span class="section-header">🚀 Create Your Own Terminal CV</span>
+
+Want a terminal-style CV like this? Generate yours in 2 minutes!
+
+<span class="success">Step 1: Clone the Repository</span>
+  $ git clone https://github.com/broddo-baggins/ShellCV.git
+  $ cd ShellCV
+
+<span class="success">Step 2: Run the Generator</span>
+  
+  Option A (Recommended - Cross-platform):
+  $ node setup-shellcv.js
+  
+  Option B (macOS/Linux):
+  $ ./setup-shellcv.sh
+
+<span class="success">Step 3: Answer Questions</span>
+  The script will ask for:
+  • Your name & professional title
+  • Contact info (email, LinkedIn, GitHub)
+  • Professional bio
+  • Skills & projects (optional)
+
+<span class="success">Step 4: You Get a Complete Project!</span>
+  ✅ Interactive terminal interface
+  ✅ 90s-style loading animation
+  ✅ Mobile-optimized design
+  ✅ Full curl API support
+  ✅ Ready to deploy!
+
+<span class="comment">What Happens:</span>
+  1. Generator creates a personalized project folder
+  2. All files pre-configured with your info
+  3. Career_Documents folder with your CV
+  4. npm install && npm start → DONE!
+
+<span class="comment">Learn More:</span>
+  GitHub:   <a href="https://github.com/broddo-baggins/ShellCV" target="_blank">github.com/broddo-baggins/ShellCV</a>
+  Guide:    <a href="https://github.com/broddo-baggins/ShellCV/blob/main/docs/ONBOARDING_GUIDE.md" target="_blank">Full Onboarding Guide</a>
+  Quick Start: <a href="https://github.com/broddo-baggins/ShellCV/blob/main/QUICK_START_GENERATOR.md" target="_blank">Quick Start</a>
+
+<span class="success">Deploy Options:</span>
+  • Vercel (easiest - free)
+  • Railway (auto-deploy from GitHub)
+  • Render (free tier available)
+
+<span class="comment">Total time: ~2 minutes setup + 5 minutes customization = Your own ShellCV! 🎉</span>
+        `;
+        this.printOutput(create);
     }
 
     async showOvenAITour() {
@@ -509,7 +536,7 @@ technical implementation with sanitized sample data.
 
     handleUnknownCommand(cmd) {
         // Find similar commands using Levenshtein-like similarity
-        const commands = ['help', 'resume', 'cv', 'skills', 'projects', 'contact', 'play', 'game', 'about', 'home', 'clear', 'cls'];
+        const commands = ['help', 'resume', 'cv', 'skills', 'projects', 'contact', 'create', 'generate', 'play', 'game', 'about', 'home', 'clear', 'cls'];
         const similar = this.findSimilarCommands(cmd, commands);
         
         let suggestion = '';
@@ -581,7 +608,7 @@ technical implementation with sanitized sample data.
 
     autoComplete() {
         const partial = this.commandInput.value.toLowerCase();
-        const commands = ['help', 'resume', 'skills', 'projects', 'ovenai', 'tour', 'contact', 'play', 'game', 'about', 'home', 'clear'];
+        const commands = ['help', 'resume', 'skills', 'projects', 'ovenai', 'tour', 'contact', 'create', 'generate', 'play', 'game', 'about', 'home', 'clear'];
         
         const matches = commands.filter(cmd => cmd.startsWith(partial));
         

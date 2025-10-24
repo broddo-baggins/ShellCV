@@ -4,10 +4,10 @@ const path = require('path');
 
 const PORT = process.env.PORT || 3333;
 
-// Read resume files
-const resume = fs.readFileSync(path.join(__dirname, 'resume.txt'), 'utf8');
-const skills = fs.readFileSync(path.join(__dirname, 'skills.txt'), 'utf8');
-const projects = fs.readFileSync(path.join(__dirname, 'projects.txt'), 'utf8');
+// Read resume files from Career_Documents
+const resume = fs.readFileSync(path.join(__dirname, 'Career_Documents', 'resume.txt'), 'utf8');
+const skills = fs.readFileSync(path.join(__dirname, 'Career_Documents', 'skills.txt'), 'utf8');
+const projects = fs.readFileSync(path.join(__dirname, 'Career_Documents', 'projects.txt'), 'utf8');
 
 // MIME types
 const mimeTypes = {
@@ -169,11 +169,14 @@ Available Commands:
   projects    Project portfolio
   ovenai      View AI CRM demo (70% engagement, 2.5× meetings)
   play        PM Quest idle roguelike game
+  create      Learn how to build your own ShellCV in 2 minutes!
   clear       Clear terminal
   contact     Contact information
   about       About this shell
 
-  GitHub: https://github.com/broddo-baggins/ShellCV
+  Want Your Own Terminal CV?
+  Type 'create' in browser or visit:
+  → GitHub: https://github.com/broddo-baggins/ShellCV
 `;
     res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end(help);

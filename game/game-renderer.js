@@ -32,7 +32,7 @@ class GameRenderer {
 
   // Render main game title
   renderTitle() {
-    return `<pre style="color: ${this.colors.warning}; font-size: 9px; line-height: 1.1; margin: 10px 0;">
+    return `<pre style="color: ${this.colors.warning}; font-size: 9px; line-height: 1.1; margin: 3px 0;">
 ╔═══════════════════════════════════════╗
 ║    PM QUEST: CORPORATE CLIMBER        ║
 ║  An Idle Roguelike Career Adventure   ║
@@ -74,7 +74,7 @@ class GameRenderer {
 
     const symbol = symbols[type] || '═══';
     
-    return `<div style="margin: 15px 0;">
+    return `<div style="margin: 2px 0;">
 <pre style="color: ${this.colors.warning}; font-size: 11px; font-weight: bold;">
 ${symbol} ${title.toUpperCase()} ${symbol}
 </pre></div>`;
@@ -82,11 +82,11 @@ ${symbol} ${title.toUpperCase()} ${symbol}
 
   // Render choice options
   renderChoices(choices) {
-    let html = '<div style="margin: 10px 0;">';
+    let html = '<div style="margin: 3px 0;">';
     
     choices.forEach((choice, index) => {
       const key = index + 1;
-      html += `<div style="margin: 5px 0; color: ${this.colors.bright};">
+      html += `<div style="margin: 2px 0; color: ${this.colors.bright};">
   <span style="color: ${this.colors.primary};">[${key}]</span> ${this.escapeHtml(choice.text)}
   <span style="color: ${this.colors.muted}; font-size: 9px;">${this.escapeHtml(choice.effect || '')}</span>
 </div>`;
@@ -101,7 +101,7 @@ ${symbol} ${title.toUpperCase()} ${symbol}
     const color = result.success ? this.colors.success : this.colors.error;
     const icon = result.success ? '✓' : '✗';
     
-    return `<div style="margin: 15px 0; padding: 10px; border-left: 3px solid ${color};">
+    return `<div style="margin: 2px 0; padding: 4px; border-left: 3px solid ${color};">
 <span style="color: ${color}; font-weight: bold;">${icon} ${this.escapeHtml(result.title)}</span><br>
 <span style="color: ${this.colors.bright};">${this.escapeHtml(result.message)}</span>
 ${result.changes ? this.renderStatChanges(result.changes) : ''}
@@ -140,17 +140,17 @@ ${result.changes ? this.renderStatChanges(result.changes) : ''}
   renderLevelUp(oldLevel, newLevel) {
     const levelData = PMCareer.getLevelData(newLevel);
     
-    return `<div style="margin: 20px 0; padding: 15px; border: 2px solid ${this.colors.warning}; text-align: center;">
+    return `<div style="margin: 6px 0; padding: 5px; border: 2px solid ${this.colors.warning}; text-align: center;">
 <pre style="color: ${this.colors.warning}; font-size: 12px; font-weight: bold;">
 ★ ★ ★  PROMOTION!  ★ ★ ★
 </pre>
-<div style="color: ${this.colors.bright}; font-size: 14px; margin: 10px 0;">
+<div style="color: ${this.colors.bright}; font-size: 14px; margin: 3px 0;">
 You've been promoted to <span style="color: ${this.colors.success}; font-weight: bold;">${levelData.title}</span>!
 </div>
 <div style="color: ${this.colors.muted}; font-size: 10px;">
 ${this.escapeHtml(levelData.description)}
 </div>
-<div style="margin-top: 10px; color: ${this.colors.info}; font-size: 10px;">
+<div style="margin-top: 3px; color: ${this.colors.info}; font-size: 10px;">
 New Skills: ${levelData.skills.join(', ')}
 </div>
 </div>`;
@@ -162,9 +162,9 @@ New Skills: ${levelData.skills.join(', ')}
       return `<div style="color: ${this.colors.muted}; font-style: italic;">No items yet. Keep progressing!</div>`;
     }
 
-    let html = '<div style="margin: 10px 0;">';
+    let html = '<div style="margin: 3px 0;">';
     inventory.forEach(item => {
-      html += `<div style="margin: 5px 0; color: ${this.colors.bright};">
+      html += `<div style="margin: 2px 0; color: ${this.colors.bright};">
   <span style="color: ${this.colors.success};">▸</span> ${this.escapeHtml(item.name)}
   <span style="color: ${this.colors.muted}; font-size: 9px;">${this.escapeHtml(item.effect)}</span>
 </div>`;
@@ -175,15 +175,15 @@ New Skills: ${levelData.skills.join(', ')}
 
   // Render save code display
   renderSaveCode(hash) {
-    return `<div style="margin: 20px 0; padding: 15px; border: 1px solid ${this.colors.info}; background: rgba(86, 182, 194, 0.1);">
-<div style="color: ${this.colors.info}; font-weight: bold; margin-bottom: 10px;">
+    return `<div style="margin: 6px 0; padding: 5px; border: 1px solid ${this.colors.info}; background: rgba(86, 182, 194, 0.1);">
+<div style="color: ${this.colors.info}; font-weight: bold; margin-bottom: 3px;">
 ═══ GAME SAVED ═══
 </div>
-<div style="color: ${this.colors.bright}; margin: 10px 0;">
+<div style="color: ${this.colors.bright}; margin: 3px 0;">
 Your save code:
 </div>
-<pre style="color: ${this.colors.warning}; background: #1e1e1e; padding: 10px; overflow-wrap: break-word; word-wrap: break-word; white-space: pre-wrap; font-size: 10px; border: 1px solid ${this.colors.muted};">${this.escapeHtml(hash)}</pre>
-<div style="color: ${this.colors.muted}; font-size: 9px; margin-top: 10px;">
+<pre style="color: ${this.colors.warning}; background: #1e1e1e; padding: 4px; overflow-wrap: break-word; word-wrap: break-word; white-space: pre-wrap; font-size: 10px; border: 1px solid ${this.colors.muted};">${this.escapeHtml(hash)}</pre>
+<div style="color: ${this.colors.muted}; font-size: 9px; margin-top: 3px;">
 Copy this code. Type 'play' then 'l' to load your progress.
 </div>
 </div>`;
@@ -198,17 +198,17 @@ Copy this code. Type 'play' then 'l' to load your progress.
 
   // Render game menu
   renderMenu() {
-    return `<div style="margin: 20px 0;">
+    return `<div style="margin: 6px 0;">
 ${this.renderTitle()}
-<div style="color: ${this.colors.bright}; margin: 15px 0; line-height: 1.8;">
+<div style="color: ${this.colors.bright}; margin: 2px 0; line-height: 1.8;">
 Navigate the corporate ladder from APM to CPO.<br>
 Make strategic decisions. Ship products. Survive.<br>
 </div>
-<div style="margin: 20px 0; color: ${this.colors.info};">
-<div style="margin: 5px 0;"><span style="color: ${this.colors.primary};">[n]</span> New Game - Start as Associate PM</div>
-<div style="margin: 5px 0;"><span style="color: ${this.colors.primary};">[l]</span> Load Game - Enter your save hash</div>
-<div style="margin: 5px 0;"><span style="color: ${this.colors.primary};">[h]</span> How to Play</div>
-<div style="margin: 5px 0;"><span style="color: ${this.colors.primary};">[q]</span> Quit to Resume</div>
+<div style="margin: 6px 0; color: ${this.colors.info};">
+<div style="margin: 2px 0;"><span style="color: ${this.colors.primary};">[n]</span> New Game - Start as Associate PM</div>
+<div style="margin: 2px 0;"><span style="color: ${this.colors.primary};">[l]</span> Load Game - Enter your save hash</div>
+<div style="margin: 2px 0;"><span style="color: ${this.colors.primary};">[h]</span> How to Play</div>
+<div style="margin: 2px 0;"><span style="color: ${this.colors.primary};">[q]</span> Quit to Resume</div>
 </div>
 <div style="color: ${this.colors.muted}; font-size: 9px; font-style: italic;">
 Choose wisely...
@@ -218,8 +218,8 @@ Choose wisely...
 
   // Render help screen
   renderHelp() {
-    return `<div style="margin: 20px 0; color: ${this.colors.bright}; line-height: 1.8;">
-<div style="color: ${this.colors.warning}; font-weight: bold; font-size: 12px; margin-bottom: 10px;">
+    return `<div style="margin: 6px 0; color: ${this.colors.bright}; line-height: 1.8;">
+<div style="color: ${this.colors.warning}; font-weight: bold; font-size: 12px; margin-bottom: 3px;">
 HOW TO PLAY
 </div>
 
@@ -229,7 +229,7 @@ HOW TO PLAY
 
 <div style="margin-bottom: 15px;">
 <span style="color: ${this.colors.success};">Resources:</span>
-<div style="margin-left: 15px; font-size: 10px;">
+<div style="margin-left: 5px; font-size: 10px;">
 • <span style="color: ${this.colors.info};">Energy</span> - Depleted by meetings and decisions<br>
 • <span style="color: ${this.colors.info};">Credibility</span> - Your influence currency<br>
 • <span style="color: ${this.colors.info};">Budget</span> - Hire, build, scale<br>
@@ -240,7 +240,7 @@ HOW TO PLAY
 
 <div style="margin-bottom: 15px;">
 <span style="color: ${this.colors.success};">Commands:</span>
-<div style="margin-left: 15px; font-size: 10px;">
+<div style="margin-left: 5px; font-size: 10px;">
 • <span style="color: ${this.colors.primary};">[1-4]</span> - Make decisions<br>
 • <span style="color: ${this.colors.primary};">[w]</span> - Wait (auto-progress)<br>
 • <span style="color: ${this.colors.primary};">[s]</span> - Save game<br>
@@ -258,13 +258,13 @@ Press any key to return to menu...
 
   // Render game over
   renderGameOver(state, reason) {
-    return `<div style="margin: 20px 0; padding: 20px; border: 2px solid ${this.colors.error}; text-align: center;">
+    return `<div style="margin: 6px 0; padding: 6px; border: 2px solid ${this.colors.error}; text-align: center;">
 <pre style="color: ${this.colors.error}; font-size: 12px; font-weight: bold;">
 ╔════════════════════╗
 ║   GAME OVER        ║
 ╚════════════════════╝
 </pre>
-<div style="color: ${this.colors.bright}; margin: 15px 0;">
+<div style="color: ${this.colors.bright}; margin: 2px 0;">
 ${this.escapeHtml(reason)}
 </div>
 <div style="color: ${this.colors.muted}; font-size: 10px;">
@@ -272,7 +272,7 @@ Final Level: ${state.level} (${PMCareer.getLevelData(state.level).title})<br>
 Total XP: ${state.xp}<br>
 Decisions Made: ${state.decisionsCount || 0}
 </div>
-<div style="margin-top: 15px; color: ${this.colors.info};">
+<div style="margin-top: 5px; color: ${this.colors.info};">
 <span style="color: ${this.colors.primary};">[n]</span> New Game  <span style="color: ${this.colors.primary};">[q]</span> Quit
 </div>
 </div>`;
@@ -280,14 +280,14 @@ Decisions Made: ${state.decisionsCount || 0}
 
   // Render victory screen
   renderVictory(state) {
-    return `<div style="margin: 20px 0; padding: 20px; border: 2px solid ${this.colors.success}; text-align: center;">
+    return `<div style="margin: 6px 0; padding: 6px; border: 2px solid ${this.colors.success}; text-align: center;">
 <pre style="color: ${this.colors.success}; font-size: 12px; font-weight: bold;">
 ╔═══════════════════════╗
 ║  🎉 VICTORY! 🎉       ║
 ║  YOU ARE NOW CPO!     ║
 ╚═══════════════════════╝
 </pre>
-<div style="color: ${this.colors.bright}; margin: 15px 0;">
+<div style="color: ${this.colors.bright}; margin: 2px 0;">
 You've conquered the corporate ladder!<br>
 From Associate PM to Chief Product Officer.
 </div>
@@ -296,10 +296,10 @@ Total XP: ${state.xp}<br>
 Decisions Made: ${state.decisionsCount || 0}<br>
 Final Budget: ${this.formatCurrency(state.budget)}
 </div>
-<div style="margin-top: 15px; color: ${this.colors.muted}; font-size: 9px; font-style: italic;">
+<div style="margin-top: 5px; color: ${this.colors.muted}; font-size: 9px; font-style: italic;">
 "Ship fast, measure everything, iterate relentlessly."
 </div>
-<div style="margin-top: 15px; color: ${this.colors.info};">
+<div style="margin-top: 5px; color: ${this.colors.info};">
 <span style="color: ${this.colors.primary};">[n]</span> New Game+  <span style="color: ${this.colors.primary};">[q]</span> Quit
 </div>
 </div>`;

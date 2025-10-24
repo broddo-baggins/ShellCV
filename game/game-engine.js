@@ -70,13 +70,13 @@ class PMQuestEngine {
     this.gameMode = 'playing';
     
     // Show intro
-    this.printOutput(`<div style="margin: 20px 0;">
+    this.printOutput(`<div style="margin: 6px 0;">
 <pre style="color: #98c379;">
 ╔═══════════════════════════════════════╗
 ║      WELCOME TO PM QUEST!             ║
 ╚═══════════════════════════════════════╝
 </pre>
-<div style="color: #abb2bf; margin: 15px 0;">
+<div style="color: #abb2bf; margin: 2px 0;">
 You are <span style="color: #61afef;">Amit</span>, a newly hired <span style="color: #e5c07b;">Associate PM</span>.<br>
 Your mission: Climb the corporate ladder from APM to CPO.<br><br>
 Navigate stakeholder politics, ship products, and make strategic decisions.<br>
@@ -92,7 +92,7 @@ Every choice matters. Good luck!
 
   // Load game from hash
   async promptLoadGame() {
-    this.printOutput(`<div style="color: #61afef; margin: 15px 0;">
+    this.printOutput(`<div style="color: #61afef; margin: 2px 0;">
 Enter your save code below and press Enter:
 </div>`);
     
@@ -112,7 +112,7 @@ Enter your save code below and press Enter:
       this.state = loaded;
       this.gameMode = 'playing';
       
-      this.printOutput(`<div style="color: #98c379; margin: 15px 0;">
+      this.printOutput(`<div style="color: #98c379; margin: 2px 0;">
 ✓ Game loaded successfully!<br>
 Level: ${this.state.level} | XP: ${this.state.xp}
 </div>`);
@@ -121,7 +121,7 @@ Level: ${this.state.level} | XP: ${this.state.xp}
       this.nextEncounter();
       
     } catch (error) {
-      this.printOutput(`<div style="color: #e06c75; margin: 15px 0;">
+      this.printOutput(`<div style="color: #e06c75; margin: 2px 0;">
 ✗ Failed to load game. Invalid save code.<br>
 <span style="font-size: 9px;">Error: ${error.message}</span>
 </div>`);
@@ -201,14 +201,14 @@ Level: ${this.state.level} | XP: ${this.state.xp}
     let html = this.renderer.renderEncounterHeader(this.currentEncounter.type, this.currentEncounter.title);
     
     // Add description
-    html += `<div style="color: #abb2bf; margin: 15px 0; line-height: 1.6;">
+    html += `<div style="color: #abb2bf; margin: 2px 0; line-height: 1.6;">
 ${this.renderer.escapeHtml(this.currentEncounter.description)}
 </div>`;
     
     // Add pressure indicator for crises
     if (this.currentEncounter.pressure) {
       const pressureBar = this.renderer.generateProgressBar(this.currentEncounter.pressure, 100);
-      html += `<div style="margin: 10px 0;">
+      html += `<div style="margin: 3px 0;">
 <span style="color: #e06c75;">PRESSURE: ${pressureBar} ${this.currentEncounter.pressure}%</span>
 </div>`;
     }
@@ -217,7 +217,7 @@ ${this.renderer.escapeHtml(this.currentEncounter.description)}
     html += this.renderer.renderChoices(this.currentEncounter.choices);
     
     // Add commands hint
-    html += `<div style="margin-top: 15px; color: #5c6370; font-size: 9px;">
+    html += `<div style="margin-top: 5px; color: #5c6370; font-size: 9px;">
 Commands: [1-${this.currentEncounter.choices.length}] Choose | [s] Save | [stats] View Stats | [q] Quit
 </div>`;
     
@@ -343,7 +343,7 @@ Commands: [1-${this.currentEncounter.choices.length}] Choose | [s] Save | [stats
       
       // Move to next dungeon
       this.state.currentDungeon++;
-      this.printOutput(`<div style="color: #98c379; margin: 15px 0; font-weight: bold;">
+      this.printOutput(`<div style="color: #98c379; margin: 2px 0; font-weight: bold;">
 🎉 Dungeon Complete! Moving to next challenge...
 </div>`);
     }
@@ -387,8 +387,8 @@ Commands: [1-${this.currentEncounter.choices.length}] Choose | [s] Save | [stats
 
   // Show inventory
   showInventory() {
-    this.printOutput(`<div style="margin: 20px 0;">
-<div style="color: #e5c07b; font-weight: bold; margin-bottom: 10px;">═══ INVENTORY ═══</div>
+    this.printOutput(`<div style="margin: 6px 0;">
+<div style="color: #e5c07b; font-weight: bold; margin-bottom: 3px;">═══ INVENTORY ═══</div>
 ${this.renderer.renderInventory(this.state.inventory)}
 </div>`);
   }

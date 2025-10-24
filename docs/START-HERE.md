@@ -1,9 +1,9 @@
 # AmitCV.sh - Your Shell-Based Resume
 
 ## 📍 Location
-This is your **safe copy** of the ShellCV project, located at:
+This is your ShellCV project, located at:
 ```
-/Users/amity/projects/oven-ai/AmitCV.sh
+/Users/amity/projects/ShellCV
 ```
 
 ## 🛡️ Why This Location?
@@ -16,7 +16,7 @@ This is your **safe copy** of the ShellCV project, located at:
 
 ### Start the Server
 ```bash
-cd /Users/amity/projects/oven-ai/AmitCV.sh
+cd /Users/amity/projects/ShellCV
 node server.js
 ```
 
@@ -76,19 +76,19 @@ AmitCV.sh/
 
 ## 📝 Using OvenAI for CV Content
 
-Your OvenAI project is right here: `/Users/amity/projects/oven-ai/oven-ai/`
+Your OvenAI project is at: `/Users/amity/projects/ovenai-crm-portfolio-demo/`
 
 ### Quick Reference Commands
 ```bash
-# View your OvenAI career docs
-ls /Users/amity/projects/oven-ai/oven-ai/Career_Documents/
+# View your OvenAI career docs (stored in ShellCV)
+ls /Users/amity/projects/ShellCV/Career_Documents/
 
 # Read your CV
-cat /Users/amity/projects/oven-ai/oven-ai/Career_Documents/Amit\ Yogev.txt
+cat /Users/amity/projects/ShellCV/Career_Documents/Amit\ Yogev.txt
 
 # Open side-by-side
-code /Users/amity/projects/oven-ai/oven-ai/Career_Documents/Amit\ Yogev.txt
-code /Users/amity/projects/oven-ai/AmitCV.sh/resume.txt
+code /Users/amity/projects/ShellCV/Career_Documents/Amit\ Yogev.txt
+code /Users/amity/projects/ShellCV/resume.txt
 ```
 
 ### Tips for Writing About OvenAI
@@ -109,7 +109,7 @@ Edit: `resume.txt` - It's already in the "OvenAI" section!
 
 ### Edit Resume
 ```bash
-cd /Users/amity/projects/oven-ai/AmitCV.sh
+cd /Users/amity/projects/ShellCV
 nano resume.txt
 # or
 code resume.txt
@@ -120,28 +120,14 @@ code resume.txt
 2. Refresh browser (http://localhost:3333)
 3. Or test with curl
 
-### No Git Conflicts
-This copy is independent! Changes here won't affect:
-- Your original `/Users/amity/projects/amit-terminal-resume/`
-- Your OvenAI project
-- Your deployed Vercel site (until you push)
+### Git Repository
+This project has its own git repository. Changes are tracked independently from the OvenAI CRM project.
 
 ## 🚀 When You're Ready to Deploy
 
-### Option 1: Deploy This Copy
+### Deploy to Vercel
 ```bash
-cd /Users/amity/projects/oven-ai/AmitCV.sh
-vercel --prod
-```
-
-### Option 2: Copy Back to Original
-```bash
-# Copy your changes back
-cp /Users/amity/projects/oven-ai/AmitCV.sh/*.txt \
-   /Users/amity/projects/amit-terminal-resume/
-
-# Deploy from original location
-cd /Users/amity/projects/amit-terminal-resume
+cd /Users/amity/projects/ShellCV
 vercel --prod
 ```
 
@@ -149,24 +135,24 @@ vercel --prod
 
 ### Update Your OvenAI Description
 ```bash
-code /Users/amity/projects/oven-ai/AmitCV.sh/resume.txt
+code /Users/amity/projects/ShellCV/resume.txt
 # Edit the "OvenAI" section
 # Restart server to see changes
 ```
 
 ### Add New Projects
 ```bash
-code /Users/amity/projects/oven-ai/AmitCV.sh/projects.txt
+code /Users/amity/projects/ShellCV/projects.txt
 ```
 
 ### Update Skills
 ```bash
-code /Users/amity/projects/oven-ai/AmitCV.sh/skills.txt
+code /Users/amity/projects/ShellCV/skills.txt
 ```
 
 ### Change Home Page About
 ```bash
-code /Users/amity/projects/oven-ai/AmitCV.sh/terminal.js
+code /Users/amity/projects/ShellCV/terminal.js
 # Look for "createColoredContent()" function
 ```
 
@@ -186,11 +172,11 @@ code /Users/amity/projects/oven-ai/AmitCV.sh/terminal.js
 
 ## 🎉 You're All Set!
 
-Your CV project is now safely isolated. Work on it confidently without affecting OvenAI!
+Your CV project is ready to use!
 
 **Server running at:** http://localhost:3333
 
-**OvenAI reference:** `/Users/amity/projects/oven-ai/oven-ai/Career_Documents/`
+**Career docs:** `/Users/amity/projects/ShellCV/Career_Documents/`
 
-Happy CV building! 🚀
+Happy CV building!
 

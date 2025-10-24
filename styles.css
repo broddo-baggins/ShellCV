@@ -1,4 +1,4 @@
-/* ZSH-Style Terminal Resume */
+/* NUCLEAR REWRITE - Absolute Containment Guaranteed */
 * {
     margin: 0;
     padding: 0;
@@ -7,25 +7,29 @@
 
 body {
     font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-    background: #181818;
+    background: #0a0a0a;
     color: #e0e0e0;
     min-height: 100vh;
-    padding: 20px;
-    line-height: 1.5;
-    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    line-height: 1.3;
+    font-size: 13px;
+    overflow-x: hidden;
 }
 
-/* Terminal Container - macOS style */
+/* Terminal Container - STRICT BOUNDS */
 .terminal-container {
-    max-width: 1100px;
+    max-width: 850px;
+    width: 100%;
     margin: 0 auto;
     background: #1e1e1e;
     border-radius: 8px;
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    position: relative;
 }
 
-/* Terminal Header - macOS style */
+/* Terminal Header */
 .terminal-header {
     background: linear-gradient(to bottom, #3a3a3a 0%, #2d2d2d 100%);
     padding: 10px 15px;
@@ -49,56 +53,48 @@ body {
 
 .btn-close {
     background: linear-gradient(135deg, #ff6057 0%, #ff3b30 100%);
-    border: 0.5px solid rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-minimize {
     background: linear-gradient(135deg, #ffbd44 0%, #ffac00 100%);
-    border: 0.5px solid rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-maximize {
     background: linear-gradient(135deg, #28cd41 0%, #20c035 100%);
-    border: 0.5px solid rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.btn:hover {
-    filter: brightness(1.1);
-    cursor: pointer;
 }
 
 .terminal-title {
     flex: 1;
     text-align: center;
     color: #8a8a8a;
-    font-size: 11px;
-    font-weight: 500;
-}
-
-/* Terminal Body */
-.terminal-body {
-    background: #1e1e1e;
-    padding: 12px 16px;
-    min-height: 350px;
-    max-height: 80vh;
-    overflow-y: auto;
     font-size: 12px;
-    line-height: 1.6;
-    color: #d4d4d4;
-    user-select: text;
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    font-variant-ligatures: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar */
+/* Terminal Body - ABSOLUTE CONTAINMENT */
+.terminal-body {
+    background: #0f0f0f;
+    padding: 3px 5px 3px 8px;
+    min-height: 600px;
+    height: 70vh;
+    max-height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 13px;
+    line-height: 1.3;
+    color: #d4d4d4;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Force all children to stay within bounds */
+.terminal-body * {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Scrollbar */
 .terminal-body::-webkit-scrollbar {
     width: 10px;
 }
@@ -112,147 +108,146 @@ body {
     border-radius: 5px;
 }
 
-.terminal-body::-webkit-scrollbar-thumb:hover {
-    background: #4e4e4e;
-}
-
+/* Shell Output - CONTAINED */
 .shell-output {
     white-space: pre-wrap;
     word-wrap: break-word;
+    overflow-wrap: break-word;
     color: #e0e0e0;
-    user-select: text;
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
+    width: 100%;
+    overflow: hidden;
 }
 
-/* ZSH Color Scheme */
-/* Prompt colors matching ZSH theme */
+.shell-output pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Prompt Colors */
 .prompt-path {
-    color: #d084dd; /* brighter magenta for path */
-    margin-right: 5px;
+    color: #888;
 }
 
 .prompt-symbol {
-    color: #61c9d2; /* brighter cyan for $ */
-    margin-right: 5px;
+    color: #0f0;
 }
 
-/* Links - cyan/teal like YSAP */
+/* Links */
 a {
-    color: #61c9d2;
+    color: #5bc0de;
     text-decoration: none;
+    word-break: break-all;
 }
 
 a:hover {
     text-decoration: underline;
-    color: #8adeea;
+    color: #7dd5ee;
 }
 
-/* ASCII Art - green */
+/* ASCII Art - YSAP Style */
 .ascii-logo {
-    color: #98c379; /* green */
-    font-size: 9px;
-    line-height: 1.1;
-    margin: 10px 0;
+    color: #ff9966;
+    font-size: 10px;
+    line-height: 1.0;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    white-space: pre;
+    display: block;
 }
 
-/* Tagline and headers */
-.tagline {
-    color: #e5c07b; /* yellow/gold */
-    margin: 10px 0;
+/* Gradient bar under logo */
+.gradient-bar {
+    background: linear-gradient(90deg, #ff9966 0%, #ff5e62 50%, #cc3366 100%);
+    height: 4px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+    padding: 0;
+    display: block;
 }
 
-.tagline-links {
-    color: #5c6370; /* gray */
-    margin: 10px 0;
-}
-
-/* Box headers - yellow/gold like YSAP */
-.box-header {
-    color: #e5c07b; /* yellow/gold */
-}
-
-/* Box content - bright text */
-.box-content {
-    color: #d4d4d4;
-}
-
-/* Info boxes */
-.info-boxes {
-    color: #d4d4d4;
-    font-size: 11px;
-    line-height: 1.3;
-    margin: 8px 0;
-}
-
-/* Container for side-by-side boxes */
+/* Info Boxes Container - STRICT LAYOUT */
 .info-boxes-container {
-    display: flex;
-    gap: 16px;
-    margin: 16px 0;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
     max-width: 100%;
 }
 
-/* Individual box styling */
+/* Individual Info Box - NUCLEAR CONTAINMENT */
 .info-box {
-    flex: 1;
-    min-width: 300px;
-    max-width: 450px;
-    border: 1px solid #555;
-    border-radius: 4px;
-    padding: 16px;
-    font-size: 11px;
-    line-height: 1.6;
-    background: rgba(45, 45, 45, 0.6);
+    border: 1px solid #3a3a3a;
+    border-radius: 2px;
+    padding: 3px 5px;
+    background: rgba(20, 20, 20, 0.8);
+    overflow: hidden;
+    position: relative;
+    min-height: 60px;
+    margin: 0;
 }
 
 .info-box-header {
-    color: #e5c07b;
+    color: #ff9966;
     font-weight: bold;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #555;
-    padding-bottom: 8px;
-    font-size: 12px;
+    margin: 0;
+    padding: 0 0 1px 0;
+    border-bottom: 1px solid #3a3a3a;
+    font-size: 11px;
+    line-height: 1.0;
 }
 
 .info-box-content {
-    color: #e0e0e0;
+    color: #b0b0b0;
+    font-size: 11px;
+    line-height: 1.1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 1px 0 0 0;
 }
 
-/* Legend container */
+.info-box-content br {
+    display: block;
+    content: "";
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.info-box-content * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Legend Container */
 .legend-container {
-    margin: 16px 0;
-    border: 1px solid #555;
-    border-radius: 4px;
-    padding: 16px;
-    max-width: 600px;
-    background: rgba(45, 45, 45, 0.6);
+    margin: 4px 0 0 0;
+    border: 1px solid #3a3a3a;
+    border-radius: 2px;
+    padding: 3px 5px;
+    background: rgba(20, 20, 20, 0.8);
+    overflow: hidden;
+    max-width: 100%;
 }
 
-/* Legend section */
-.legend {
-    margin: 20px 0;
+.legend-container pre {
+    color: #888;
+    font-size: 11px;
+    line-height: 1.1;
+    margin: 0;
+    padding: 1px 0 0 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
-.legend-title {
-    color: #e5c07b; /* yellow */
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.legend-item {
-    color: #5c6370; /* gray */
-    margin: 5px 0;
-}
-
-.legend-command {
-    color: #98c379; /* green */
-}
-
-/* Input line with ZSH-style prompt */
+/* Input Line */
 .input-line {
     display: flex;
     align-items: center;
@@ -264,70 +259,54 @@ a:hover {
     border: none;
     color: #e0e0e0;
     font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-    font-size: 12px;
+    font-size: 13px;
     outline: none;
     flex: 1;
     caret-color: #61c9d2;
 }
 
-/* Blinking cursor animation */
-@keyframes blink {
-    0%, 49% { opacity: 1; }
-    50%, 100% { opacity: 0; }
-}
-
-/* Command output colors */
+/* Command Output */
 .command-line {
-    margin: 5px 0;
-}
-
-.command-line .prompt-path {
-    color: #c678dd; /* magenta */
-}
-
-.command-line .prompt-symbol {
-    color: #56b6c2; /* cyan */
+    margin: 2px 0;
+    padding: 0;
 }
 
 .command-text {
     color: #d4d4d4;
 }
 
-/* Section headers - yellow/gold */
+/* Section Headers */
 .section-header {
     color: #e5c07b;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin: 5px 0 3px;
+    padding: 0;
 }
 
-/* Success messages - cyan */
+/* Status Messages */
 .success {
     color: #56b6c2;
 }
 
-/* Error messages - red */
 .error {
     color: #e06c75;
 }
 
-/* Warning/info - yellow */
 .warning {
     color: #e5c07b;
 }
 
-/* Comments/hints - gray */
 .comment {
     color: #5c6370;
 }
 
-/* Footer outside terminal */
+/* Footer */
 .page-footer {
-    max-width: 1000px;
-    margin: 15px auto 20px;
+    max-width: 850px;
+    margin: 10px auto;
     text-align: center;
     color: #5c6370;
-    font-size: 10px;
-    padding: 10px 0;
+    font-size: 11px;
 }
 
 .page-footer p {
@@ -336,200 +315,98 @@ a:hover {
 
 .page-footer a {
     color: #61afef;
-    text-decoration: none;
 }
 
-.page-footer a:hover {
-    text-decoration: underline;
+/* Animation */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
-/* Typing cursor */
 .typing-cursor {
     animation: blink 1s infinite;
 }
 
-@keyframes blink {
-    0%, 50% {
-        opacity: 1;
-    }
-    51%, 100% {
-        opacity: 0;
-    }
-}
-
-/* Mobile responsive */
+/* Mobile Optimization */
 @media (max-width: 768px) {
     body {
-        padding: 5px;
-        font-size: 9px;
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
     }
     
     .terminal-container {
-        border-radius: 0;
-        max-width: 100%;
         margin: 0;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
     }
     
     .terminal-body {
-        max-height: 85vh;
-        padding: 12px 15px;
-        font-size: 9px;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    .terminal-header {
-        padding: 8px 10px;
-    }
-    
-    .terminal-title {
-        font-size: 9px;
+        padding: 3px;
+        font-size: 12px;
+        min-height: 500px;
+        height: 75vh;
+        max-height: 75vh;
     }
     
     .ascii-logo {
-        font-size: 6px;
-        line-height: 1.0;
+        font-size: 9px;
+        line-height: 0.85;
     }
     
-    .info-boxes {
-        font-size: 8px;
+    .gradient-bar {
+        height: 5px;
     }
     
-    .command-input {
-        font-size: 11px;
-    }
-    
-    /* Flexbox mobile adjustments */
     .info-boxes-container {
-        flex-direction: column;
-        gap: 15px;
-        margin: 20px 0;
+        grid-template-columns: 1fr;
+        gap: 4px;
     }
     
     .info-box {
-        min-width: 100%;
-        font-size: 9px;
-        padding: 12px;
-        line-height: 1.5;
+        padding: 3px 4px;
     }
     
-    .info-box-header {
-        font-size: 9px;
-        margin-bottom: 8px;
-    }
-    
-    .legend-container {
-        margin: 20px 0;
-        padding: 12px;
-        font-size: 9px;
-    }
-    
-    /* Make ASCII art and pre elements scale properly */
-    pre {
-        overflow-x: auto;
-        max-width: 100%;
-        font-size: 7px;
-        line-height: 1.2;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    /* Optimize text for mobile readability */
-    a {
-        -webkit-tap-highlight-color: rgba(97, 175, 239, 0.3);
-        touch-action: manipulation;
-    }
-    
-    /* Better spacing for mobile */
-    div[style*="text-align: center"] {
-        font-size: 9px !important;
-        padding: 0 5px;
-        line-height: 1.4;
+    .info-box-header,
+    .info-box-content,
+    .legend-container pre {
+        font-size: 10px;
+        line-height: 1.1;
     }
 }
 
 @media (max-width: 480px) {
     body {
-        padding: 2px;
-        font-size: 8px;
-    }
-    
-    .terminal-container {
-        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        font-size: 11px;
     }
     
     .terminal-body {
-        padding: 10px 12px;
-        max-height: 88vh;
-        font-size: 8px;
-        min-height: 400px;
-    }
-    
-    .terminal-header {
-        padding: 6px 8px;
-    }
-    
-    .terminal-title {
-        font-size: 8px;
-    }
-    
-    .btn {
-        width: 10px;
-        height: 10px;
+        padding: 2px;
+        font-size: 11px;
+        height: 80vh;
+        max-height: 80vh;
     }
     
     .ascii-logo {
-        font-size: 5px;
-        line-height: 1.0;
+        font-size: 8px;
+        line-height: 0.8;
     }
     
-    .info-boxes {
-        font-size: 7px;
-    }
-    
-    .command-input {
-        font-size: 10px;
-    }
-    
-    /* Flexbox mobile adjustments */
-    .info-boxes-container {
-        gap: 10px;
-        margin: 15px 0;
+    .gradient-bar {
+        height: 4px;
     }
     
     .info-box {
-        font-size: 8px;
-        padding: 8px;
-        line-height: 1.4;
+        padding: 2px 3px;
     }
     
-    .info-box-header {
-        font-size: 8px;
-        margin-bottom: 6px;
-    }
-    
-    .info-box-content {
-        font-size: 8px;
-    }
-    
-    .legend-container {
-        margin: 15px 0;
-        padding: 8px;
-    }
-    
-    pre {
-        font-size: 6px;
-        line-height: 1.1;
-    }
-    
-    /* Better text wrapping and readability on small screens */
-    div[style*="text-align: center"] {
-        font-size: 8px !important;
-        line-height: 1.3;
-        word-break: break-word;
-    }
-    
-    .page-footer {
-        font-size: 8px;
-        padding: 5px 0;
+    .info-box-header,
+    .info-box-content,
+    .legend-container pre {
+        font-size: 9px;
+        line-height: 1.0;
     }
 }
