@@ -1,8 +1,8 @@
-# Amit Yogev - Interactive Terminal Resume
+# ShellCV - Amit Yogev
 
 **Product Manager × QA Leader × AI-Powered Builder**
 
-A unique, interactive terminal-style resume that works in **both browser and command line**!
+An interactive terminal-style resume that works in **both browser and command line**!
 
 **Live:** https://amityogev.com
 
