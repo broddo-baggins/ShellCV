@@ -195,12 +195,13 @@ curl amityogev.com/projects
 5. **Fast**: No JavaScript frameworks, instant load
 6. **Dual Interface**: Both beautiful UI and CLI access
 
-## Contact
+## Contact & Links
 
 - **Email**: amit.yogev@gmail.com
 - **Phone**: +972-54-767-8761
-- **LinkedIn**: [linkedin.com/in/amit-yogev](https://linkedin.com/in/amit-yogev)
-- **GitHub**: [github.com/amityogev](https://github.com/amityogev)
+- **LinkedIn**: https://www.linkedin.com/in/amit-yogev
+- **GitHub**: https://github.com/broddo-baggins
+- **Portfolio**: https://amityogev.com
 - **Location**: Tel Aviv, Israel
 
 ## License

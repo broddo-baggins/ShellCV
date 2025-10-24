@@ -45,8 +45,8 @@ function getCurlHomePage() {
 
   ┌─About────────────────────────────────┐ ┌─Socials───┬──────────────────────────┐
   │                                      │ │           │                          │
-  │ Product Manager. Full-stack dev     │ │ LinkedIn  │ linkedin.com/in/amit-yog…│
-  │ turned PM. Built AI CRM achieving    │ │ GitHub    │ github.com/broddo-baggin…│
+  │ Product Manager. Technical PM       │ │ LinkedIn  │ linkedin.com/in/amit-yog…│
+  │ with dev background. Built AI CRM   │ │ GitHub    │ github.com/broddo-baggin…│
   │ 70% engagement, 2.5× meetings.       │ │ Email     │ amit.yogev@gmail.com     │
   │ Led QA at SentinelOne (4yr leader).  │ │ Location  │ Tel Aviv, Israel         │
   │ Ship products backed by data,        │ │           │                          │
