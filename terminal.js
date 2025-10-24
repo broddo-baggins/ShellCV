@@ -278,9 +278,9 @@ $ curl amityogev.com/help       Full list of available commands</pre>
         if (this.waitingForOvenAIResponse) {
             const response = command.toLowerCase();
             if (response === 'y' || response === 'yes') {
-                // TODO: Replace with your Vercel deployment URL
-                // Get your URL from: https://vercel.com/dashboard
-                const OVENAI_DEMO_URL = 'https://your-ovenai-demo.vercel.app'; // ⚠️ UPDATE THIS!
+                // Vercel deployment URL (auto-generated from repo name)
+                // Check https://vercel.com/dashboard for actual URL
+                const OVENAI_DEMO_URL = 'https://ovenai-crm-portfolio-demo.vercel.app';
                 
                 window.open(OVENAI_DEMO_URL, '_blank');
                 this.printOutput('<span class="success">✓ Opening demo in new tab...</span>');
