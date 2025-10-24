@@ -28,7 +28,7 @@ node setup-shellcv.js
 - 💼 Complete portfolio showcase
 - 🚀 Ready to deploy!
 
-**Learn more:** [Onboarding Guide](docs/ONBOARDING_GUIDE.md)
+**Learn more:** [Onboarding Guide](docs/user/ONBOARDING_GUIDE.md)
 
 ---
 
@@ -63,11 +63,13 @@ clear       # Clear terminal screen
 An idle roguelike game built into the terminal! Play through a Product Manager's career journey from Associate PM to Chief Product Officer.
 
 **Features:**
+- **Custom character name** - Make it your own PM journey!
 - 7 career levels with unique challenges
 - Strategic decision-making gameplay
-- Real PM scenarios and frameworks
+- Real PM scenarios and frameworks (RICE, OKRs, AARRR)
 - Save/load system with hash codes
 - 50+ encounters across 7 corporate "dungeons"
+- Based on NetHack roguelike mechanics
 
 **Play Now:**
 ```bash
@@ -77,6 +79,8 @@ play
 # Or via curl (info only)
 curl amityogev.com/play
 ```
+
+**Full Game Guide:** [docs/game/GAME_GUIDE.md](docs/game/GAME_GUIDE.md)
 
 ### OvenAI CRM Demo
 
@@ -134,28 +138,38 @@ curl amityogev.com/projects
 
 ```
 .
-├── index.html       # Main HTML interface
-├── styles.css       # Terminal styling
-├── terminal.js      # Command handler & logic
-├── favicon.svg      # Site favicon
-├── resume.txt       # Resume content
-├── skills.txt       # Skills breakdown
-├── projects.txt     # Project portfolio
-├── server.js        # Node.js server (optional)
-├── package.json     # Node dependencies
-├── vercel.json      # Vercel deployment config
-├── .gitignore       # Git ignore rules
-├── README.md        # This file
-└── docs/            # Documentation
-    ├── CHANGELOG.md
-    ├── COMMANDS.md
-    ├── DEPLOY-NOW.md
-    ├── DEPLOYMENT-CHECKLIST.md
-    ├── DNS-SETUP.md
-    ├── DUAL-INTERFACE.md
-    ├── PROJECT_STATUS.md
-    ├── START-HERE.md
-    └── UX-FEATURES.md
+├── index.html               # Main HTML interface
+├── styles.css               # Terminal styling (increased line-height: 1.4)
+├── terminal.js              # Command handler & logic
+├── favicon.svg              # Site favicon
+├── server.js                # Node.js server
+├── package.json             # Node dependencies
+├── vercel.json              # Vercel deployment config
+├── Career_Documents/        # Resume content
+│   ├── resume.txt
+│   ├── skills.txt
+│   └── projects.txt
+├── game/                    # PM Quest game files
+│   ├── game-engine.js       # Core game loop (with name entry!)
+│   ├── game-renderer.js     # ASCII rendering
+│   ├── game-content.js      # Encounters & items
+│   ├── pm-career.js         # Career progression
+│   └── encounters/          # Encounter modules
+└── docs/                    # Organized documentation (11 files)
+    ├── README.md            # Documentation guide
+    ├── game/                # Game documentation
+    │   ├── GAME_GUIDE.md    # Complete game guide
+    │   └── CHARACTER_STORY.md
+    ├── development/         # Developer docs
+    │   ├── DESIGN_AND_IMPLEMENTATION_GUIDE.md
+    │   └── AGENT_GUIDE.md
+    └── user/                # User guides
+        ├── COMMANDS.md
+        ├── ONBOARDING_GUIDE.md
+        ├── DEPLOYMENT_GUIDE.md
+        ├── MOBILE_TEST_GUIDE.md
+        ├── DUAL-INTERFACE.md
+        └── CHANGELOG.md
 ```
 
 ## Local Development
@@ -220,6 +234,23 @@ curl amityogev.com/projects
 4. **Accessible**: Works in restricted networks
 5. **Fast**: No JavaScript frameworks, instant load
 6. **Dual Interface**: Both beautiful UI and CLI access
+
+## Documentation
+
+All documentation is organized in the `docs/` folder:
+
+- **[docs/README.md](docs/README.md)** - Documentation guide and navigation
+- **[docs/game/GAME_GUIDE.md](docs/game/GAME_GUIDE.md)** - Complete PM Quest guide
+- **[docs/user/DEPLOYMENT_GUIDE.md](docs/user/DEPLOYMENT_GUIDE.md)** - How to deploy
+- **[docs/development/DESIGN_AND_IMPLEMENTATION_GUIDE.md](docs/development/DESIGN_AND_IMPLEMENTATION_GUIDE.md)** - Development guide
+
+**Recent Changes (Oct 2025):**
+- ✅ Increased line-height to 1.4 for better readability
+- ✅ Added player name entry to PM Quest game
+- ✅ Created comprehensive game guide (why, what, how, endgame)
+- ✅ Reorganized docs from 40+ files to 11 well-structured files
+- ✅ Merged redundant documentation
+- ✅ Created clear folder structure (game/, development/, user/)
 
 ## Contact & Links
 

@@ -238,6 +238,8 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
             // Route input to game
             if (this.gameInstance.gameMode === 'menu') {
                 await this.gameInstance.handleMenuInput(command);
+            } else if (this.gameInstance.gameMode === 'name_entry') {
+                await this.gameInstance.handleNameEntry(command);
             } else if (this.gameInstance.gameMode === 'playing') {
                 await this.gameInstance.handleGameInput(command);
             } else if (this.gameInstance.gameMode === 'gameover' || this.gameInstance.gameMode === 'victory') {

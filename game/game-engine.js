@@ -7,15 +7,15 @@ class PMQuestEngine {
     this.state = null;
     this.idleTimer = null;
     this.currentEncounter = null;
-    this.gameMode = 'menu'; // menu, playing, paused, gameover, victory
+    this.gameMode = 'menu'; // menu, name_entry, playing, paused, gameover, victory
   }
 
   // Initialize new game
-  initializeState() {
+  initializeState(playerName = 'AMIT') {
     const levelData = PMCareer.getLevelData(1);
     
     return {
-      name: 'AMIT',
+      name: playerName.toUpperCase().substring(0, 20), // Limit to 20 chars
       level: 1,
       xp: 0,
       energy: levelData.stats.maxEnergy,
@@ -66,18 +66,33 @@ class PMQuestEngine {
 
   // Start new game
   async newGame() {
-    this.state = this.initializeState();
-    this.gameMode = 'playing';
-    
-    // Show intro
+    // Prompt for name
+    this.gameMode = 'name_entry';
     this.printOutput(`<div style="margin: 6px 0;">
 <pre style="color: #98c379;">
 ╔═══════════════════════════════════════╗
 ║      WELCOME TO PM QUEST!             ║
 ╚═══════════════════════════════════════╝
 </pre>
+<div style="color: #61afef; margin: 3px 0; font-weight: bold;">
+Enter your Product Manager name:
+</div>
+<div style="color: #5c6370; font-size: 10px;">
+(Press Enter for default: AMIT | Max 20 characters)
+</div>
+</div>`);
+  }
+
+  // Handle name entry
+  async handleNameEntry(input) {
+    const name = input.trim() || 'AMIT';
+    this.state = this.initializeState(name);
+    this.gameMode = 'playing';
+    
+    // Show intro
+    this.printOutput(`<div style="margin: 6px 0;">
 <div style="color: #abb2bf; margin: 2px 0;">
-You are <span style="color: #61afef;">Amit</span>, a newly hired <span style="color: #e5c07b;">Associate PM</span>.<br>
+You are <span style="color: #61afef;">${this.state.name}</span>, a newly hired <span style="color: #e5c07b;">Associate PM</span>.<br>
 Your mission: Climb the corporate ladder from APM to CPO.<br><br>
 Navigate stakeholder politics, ship products, and make strategic decisions.<br>
 Every choice matters. Good luck!
