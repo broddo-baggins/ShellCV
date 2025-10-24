@@ -37,24 +37,14 @@ function getCurlHomePage() {
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
 
-  Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder
+  Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer
 
-  ┌─────────────────────────────────About┐ ┌──────────────────────────Socials─┐
-  │                                      │ │                                  │
-  │ Technical Product Manager, QA bg.    │ │ LinkedIn  linkedin.com/in/amit-… │
-  │ Solo ideation to POC 100%.           │ │ GitHub    github.com/broddo-bag… │
-  │                                      │ │ Email     amit.yogev@gmail.com   │
-  │ Cross-functional team leadership     │ │ Location  Tel Aviv, Israel       │
-  │ (eng, design, ops). Data-driven      │ │                                  │
-  │ decision making, user validation.    │ │                                  │
-  │ Stakeholder management, roadmap      │ │                                  │
-  │ prioritization. Risk mitigation,     │ │                                  │
-  │ agile/scrum methodologies.           │ │                                  │
-  │                                      │ │                                  │
-  │ Built AI CRM: 70% engagement,        │ │                                  │
-  │ 2.5× meetings.                       │ │                                  │
-  │ Led QA at SentinelOne (4yr).         │ │                                  │
-  └──────────────────────────────────────┘ └──────────────────────────────────┘
+  ┌─────────────────────────────────About┐ ┌───────────────────────────────Socials─┐
+  │ Technical Product Manager, QA bg.    │ │ LinkedIn  linkedin.com/in/amit-yogev │
+  │ Solo ideation to POC 100%.           │ │ GitHub    github.com/broddo-baggins  │
+  └──────────────────────────────────────┘ │ Email     amit.yogev@gmail.com       │
+                                            │ Location  Tel Aviv, Israel           │
+                                            └──────────────────────────────────────┘
 
                                                                           Legend
   

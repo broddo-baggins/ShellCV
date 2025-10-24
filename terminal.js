@@ -107,38 +107,27 @@ class ShellCV {
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre>
 
-<div style="text-align: right; color: #e0e0e0; font-size: 11px; margin: 4px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder</div>
+<div style="text-align: right; color: #e0e0e0; font-size: 11px; margin: 2px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer</div>
 
-<div class="info-boxes-container" style="margin-top: 8px;">
-  <div class="info-box">
-    <div class="info-box-header" style="text-align: right;">About</div>
-    <div class="info-box-content">
-Technical Product Manager, QA background.
-Solo ideation to POC 100%.
-
-Cross-functional team leadership (eng, design, ops).
-Data-driven decision making, user validation focus.
-Stakeholder management, roadmap prioritization.
-Risk mitigation, agile/scrum methodologies.
-
-Built AI CRM: 70% engagement, 2.5× meetings.
-Led QA at SentinelOne (4yr).
-    </div>
+<div class="info-boxes-container" style="margin-top: 4px;">
+  <div class="info-box" style="padding: 4px 6px;">
+    <div class="info-box-header" style="text-align: right; padding-bottom: 2px; margin-bottom: 2px;">About</div>
+    <div class="info-box-content">Technical Product Manager, QA background.<br>Solo ideation to POC 100%.</div>
   </div>
   
-  <div class="info-box">
-    <div class="info-box-header" style="text-align: right;">Socials</div>
+  <div class="info-box" style="padding: 4px 6px;">
+    <div class="info-box-header" style="text-align: right; padding-bottom: 2px; margin-bottom: 2px;">Socials</div>
     <div class="info-box-content">
-LinkedIn   <a href="https://linkedin.com/in/amit-yogev" style="color: #61c9d2;">linkedin.com/in/amit-yogev</a>
-GitHub     <a href="https://github.com/broddo-baggins" style="color: #61c9d2;">github.com/broddo-baggins</a>
-Email      <a href="mailto:amit.yogev@gmail.com" style="color: #61c9d2;">amit.yogev@gmail.com</a>
+LinkedIn   <a href="https://linkedin.com/in/amit-yogev" style="color: #61c9d2;">linkedin.com/in/amit-yogev</a><br>
+GitHub     <a href="https://github.com/broddo-baggins" style="color: #61c9d2;">github.com/broddo-baggins</a><br>
+Email      <a href="mailto:amit.yogev@gmail.com" style="color: #61c9d2;">amit.yogev@gmail.com</a><br>
 Location   Tel Aviv, Israel
     </div>
   </div>
 </div>
 
-<div class="legend-container">
-  <div style="color: #e5c07b; font-size: 11px; margin-bottom: 12px; font-weight: bold; text-align: right;">Legend</div>
+<div class="legend-container" style="padding: 4px 6px; margin: 4px 0; max-width: fit-content;">
+  <div style="color: #e5c07b; font-size: 11px; margin-bottom: 8px; font-weight: bold; text-align: right;">Legend</div>
   <pre style="color: #6c7380; font-size: 10px; line-height: 1.7; margin: 0;">$ curl amityogev.com            Get this page
 $ curl amityogev.com/resume     Full resume + impact metrics
 $ curl amityogev.com/skills     Technical skills breakdown
