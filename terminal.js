@@ -120,25 +120,23 @@ class ShellCV {
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
   <span style="color: #e5c07b;">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></pre>
 
-<div style="text-align: center; color: #e0e0e0; font-size: 11px; margin: 4px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer</div>
+<div style="text-align: center; color: #e0e0e0; font-size: 11px; margin: 8px 0;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer</div>
 
-<div style="margin: 16px 0;">
 <div class="info-boxes-container">
   <div class="info-box">
-    <div class="info-box-header" style="text-align: right;">About</div>
+    <div class="info-box-header">About</div>
     <div class="info-box-content">Technical Product Manager, QA background.<br>Solo ideation to POC 100%.</div>
   </div>
   
   <div class="info-box">
-    <div class="info-box-header" style="text-align: right;">Socials</div>
+    <div class="info-box-header">Socials</div>
     <div class="info-box-content">
-LinkedIn   <a href="https://linkedin.com/in/amit-yogev" style="color: #61c9d2;">linkedin.com/in/amit-yogev</a><br>
-GitHub     <a href="https://github.com/broddo-baggins" style="color: #61c9d2;">github.com/broddo-baggins</a><br>
-Email      <a href="mailto:amit.yogev@gmail.com" style="color: #61c9d2;">amit.yogev@gmail.com</a><br>
-Location   Tel Aviv, Israel
+<span style="color: #888;">LinkedIn</span>   <a href="https://linkedin.com/in/amit-yogev" style="color: #61c9d2; text-decoration: none;">linkedin.com/in/amit-yogev</a><br>
+<span style="color: #888;">GitHub</span>     <a href="https://github.com/broddo-baggins" style="color: #61c9d2; text-decoration: none;">github.com/broddo-baggins</a><br>
+<span style="color: #888;">Email</span>      <a href="mailto:amit.yogev@gmail.com" style="color: #61c9d2; text-decoration: none;">amit.yogev@gmail.com</a><br>
+<span style="color: #888;">Location</span>   Tel Aviv, Israel
     </div>
   </div>
-</div>
 </div>
 
 <div class="legend-container">
