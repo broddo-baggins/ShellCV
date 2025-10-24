@@ -117,10 +117,12 @@ class ShellCV {
   ███████║██╔████╔██║██║   ██║        ╚████╔╝ ██║   ██║██║  ███╗█████╗  ██║   ██║
   ██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
-  ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre>
+  ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
+  <span style="color: #e5c07b;">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></pre>
 
-<div style="text-align: center; color: #e0e0e0; font-size: 11px; margin: 8px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer</div>
+<div style="text-align: center; color: #e0e0e0; font-size: 11px; margin: 4px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer</div>
 
+<div style="margin: 16px 0;">
 <div class="info-boxes-container">
   <div class="info-box">
     <div class="info-box-header" style="text-align: right;">About</div>
@@ -136,6 +138,7 @@ Email      <a href="mailto:amit.yogev@gmail.com" style="color: #61c9d2;">amit.yo
 Location   Tel Aviv, Israel
     </div>
   </div>
+</div>
 </div>
 
 <div class="legend-container">

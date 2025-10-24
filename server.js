@@ -36,8 +36,9 @@ function getCurlHomePage() {
   ██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer
+       Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer
 
   ┌─────────────────────────────────About┐ ┌───────────────────────────────Socials─┐
   │ Technical Product Manager, QA bg.    │ │ LinkedIn  linkedin.com/in/amit-yogev │
