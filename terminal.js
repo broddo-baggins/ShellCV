@@ -6,7 +6,7 @@ class ShellCV {
         this.commandInput = document.getElementById('commandInput');
         this.commandHistory = [];
         this.historyIndex = -1;
-        this.typingSpeed = 0.5; // milliseconds per character (instant but visible typing)
+        this.typingSpeed = 2; // milliseconds per character for visible typing
         this.lastCommand = '';
         this.lastCommandTime = 0;
         this.gameActive = false;
@@ -60,35 +60,37 @@ class ShellCV {
     }
     
     async typeHTML(html, container) {
-        // Create a temporary div to parse HTML
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = html;
-        
-        // For complex HTML with styling, show it with a fast typing effect
-        container.style.opacity = '0';
+        // Show content with visible typing animation
         container.innerHTML = '';
+        container.style.opacity = '1';
         
-        // Show content line by line for terminal effect
+        // Split by major sections for smoother animation
         const lines = html.split('\n');
+        const chunks = [];
+        let currentChunk = '';
+        
+        // Group lines into chunks
         for (let line of lines) {
-            const lineDiv = document.createElement('div');
-            lineDiv.innerHTML = line;
-            container.appendChild(lineDiv);
-            await this.sleep(1); // Fast but visible
-        }
-        
-        // Quick fade in
-        let opacity = 0;
-        const fadeIn = setInterval(() => {
-            opacity += 0.2;
-            container.style.opacity = opacity;
-            if (opacity >= 1) {
-                clearInterval(fadeIn);
-                container.style.opacity = '1';
+            currentChunk += line + '\n';
+            if (line.includes('</div>') || line.includes('</pre>')) {
+                chunks.push(currentChunk);
+                currentChunk = '';
             }
-        }, 10);
+        }
+        if (currentChunk) chunks.push(currentChunk);
         
-        await this.sleep(100);
+        // Type out each chunk with visible delay
+        for (let chunk of chunks) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = chunk;
+            container.appendChild(tempDiv);
+            
+            // Scroll to show new content
+            window.scrollTo(0, document.body.scrollHeight);
+            
+            // Visible pause between chunks
+            await this.sleep(20);
+        }
     }
     
     scrollToBottom() {
