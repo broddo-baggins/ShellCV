@@ -4,10 +4,11 @@
 
 This is a **portfolio demonstration** of the OvenAI CRM system that achieved significant business results in production. All data shown is **mock/sample data** for demonstration purposes.
 
-**Status:** ✅ Deployed and integrated into terminal CV  
-**Deployment:** Vercel configuration fixed and pushed (commit: e511433)  
+**Status:** ✅ Fully mocked - Auto-deploys with no DB/authentication  
+**Latest Commit:** 200d779 - Mock auth context with auto-login  
+**Deployment:** Vercel auto-deploying from GitHub (master branch)  
 **Terminal Command:** Type `ovenai` or `tour` in the terminal  
-**Next Step:** Get Vercel deployment URL from dashboard
+**Next Step:** Get Vercel deployment URL and update terminal.js line 283
 
 ## 📊 Original Production Results
 
