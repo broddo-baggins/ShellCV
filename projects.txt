@@ -37,7 +37,7 @@ OVENAI - AI-POWERED REAL ESTATE CRM (2025)
   │  ├─ Pivoted to WhatsApp after discovering 95% mobile usage
   │  └─ Shipped multi-tenant SaaS MVP in 8 weeks
   │
-  ├─ Technical (Full-Stack)
+  ├─ Technical (Frontend & Backend)
   │  ├─ React + TypeScript frontend with mobile-first design
   │  ├─ Node.js + Express backend with PostgreSQL database
   │  ├─ Redis-backed message queue for 100+ leads/day
@@ -367,7 +367,7 @@ COMMON PATTERNS ACROSS PROJECTS
 
   Technical Depth
   ├─ Can build it myself if needed
-  ├─ Full-stack capable (and do it)
+  ├─ Technical depth (can build when needed)
   ├─ Deep understanding of systems
   └─ Bridge between eng & business
 

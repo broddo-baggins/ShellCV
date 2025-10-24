@@ -19,6 +19,7 @@ help        # Show available commands
 resume      # Display full resume/CV  
 skills      # Show technical skills breakdown
 projects    # View detailed project portfolio
+ovenai      # Launch OvenAI CRM interactive demo
 play        # Start PM Quest (idle roguelike game)
 
 contact     # Get contact information
@@ -49,6 +50,18 @@ play
 
 # Or via curl (info only)
 curl amityogev.com/play
+```
+
+### OvenAI CRM Demo
+
+Experience a live demo of the AI-powered CRM that achieved 70% lead response rates. Try it from the terminal:
+
+```bash
+# In browser
+Visit amityogev.com and type: ovenai
+
+# Direct link
+https://ovenai-demo.vercel.app
 ```
 
 ### Keyboard Shortcuts

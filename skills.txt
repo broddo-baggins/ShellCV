@@ -71,7 +71,7 @@
   • Growth Strategy & Community Building (0→150K members)
   • MVP Development & Iteration
   • Bootstrapped to Pilot Programs (70% response rate, 2.5× meetings)
-  • Full-Stack Development (Built entire CRM from scratch)
+  • Technical Development (Built entire CRM from scratch)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
