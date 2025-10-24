@@ -37,16 +37,23 @@ function getCurlHomePage() {
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
 
-                         Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer
+  Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder
 
   ┌─────────────────────────────────About┐ ┌──────────────────────────Socials─┐
   │                                      │ │                                  │
-  │ Product Manager. Technical PM        │ │ LinkedIn  linkedin.com/in/amit-… │
-  │ with dev background. Built AI CRM    │ │ GitHub    github.com/broddo-bag… │
-  │ 70% engagement, 2.5× meetings.       │ │ Email     amit.yogev@gmail.com   │
-  │ Led QA at SentinelOne (4yr leader).  │ │ Location  Tel Aviv, Israel       │
-  │ Ship products backed by data,        │ │                                  │
-  │ validated by users.                  │ │                                  │
+  │ Technical Product Manager, QA bg.    │ │ LinkedIn  linkedin.com/in/amit-… │
+  │ Solo ideation to POC 100%.           │ │ GitHub    github.com/broddo-bag… │
+  │                                      │ │ Email     amit.yogev@gmail.com   │
+  │ Cross-functional team leadership     │ │ Location  Tel Aviv, Israel       │
+  │ (eng, design, ops). Data-driven      │ │                                  │
+  │ decision making, user validation.    │ │                                  │
+  │ Stakeholder management, roadmap      │ │                                  │
+  │ prioritization. Risk mitigation,     │ │                                  │
+  │ agile/scrum methodologies.           │ │                                  │
+  │                                      │ │                                  │
+  │ Built AI CRM: 70% engagement,        │ │                                  │
+  │ 2.5× meetings.                       │ │                                  │
+  │ Led QA at SentinelOne (4yr).         │ │                                  │
   └──────────────────────────────────────┘ └──────────────────────────────────┘
 
                                                                           Legend

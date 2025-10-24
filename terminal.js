@@ -107,7 +107,7 @@ class ShellCV {
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre>
 
-<div style="text-align: right; color: #e0e0e0; font-size: 11px; margin: 4px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer</div>
+<div style="text-align: right; color: #e0e0e0; font-size: 11px; margin: 4px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder</div>
 
 <div class="info-boxes-container" style="margin-top: 8px;">
   <div class="info-box">
