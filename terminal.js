@@ -46,6 +46,9 @@ class ShellCV {
         // Add spacing
         this.shellOutput.appendChild(document.createElement('br'));
         
+        // Show loading animation
+        await this.showLoadingAnimation('LOADING');
+        
         // Create container for content
         const contentDiv = document.createElement('div');
         this.shellOutput.appendChild(contentDiv);
@@ -259,6 +262,11 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
 
         const args = command.split(' ');
         const cmd = args[0];
+
+        // Show loading animation for all commands except clear and empty commands
+        if (cmd && cmd !== 'clear' && cmd !== 'cls') {
+            await this.showLoadingAnimation();
+        }
 
         switch(cmd) {
             case 'help':
@@ -498,6 +506,27 @@ technical implementation with sanitized sample data.
         // Prompt user
         this.printOutput('\n<span class="success">Launch CRM demo in new tab? (Y/N):</span>');
         this.waitingForOvenAIResponse = true;
+    }
+
+    async showLoadingAnimation(message = 'LOADING') {
+        const frames = [
+            `[ ${message}.   ]`,
+            `[ ${message}..  ]`,
+            `[ ${message}... ]`,
+            `[ ${message}..  ]`,
+        ];
+        
+        const outputDiv = document.createElement('div');
+        outputDiv.style.color = '#5bc0de';
+        outputDiv.style.fontFamily = 'monospace';
+        this.shellOutput.appendChild(outputDiv);
+        
+        for (let i = 0; i < 6; i++) {
+            outputDiv.textContent = frames[i % frames.length];
+            await this.sleep(80);
+        }
+        
+        this.shellOutput.removeChild(outputDiv);
     }
 
     async showMatrixAnimation() {
