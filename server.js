@@ -37,23 +37,19 @@ function getCurlHomePage() {
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
 
-             Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer
-                          https://amityogev.com | https://github.com/broddo-baggins
-       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       Source: https://github.com/broddo-baggins/ShellCV
+                         Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer
 
+  ┌─────────────────────────────────About┐ ┌──────────────────────────Socials─┐
+  │                                      │ │                                  │
+  │ Product Manager. Technical PM        │ │ LinkedIn  linkedin.com/in/amit-… │
+  │ with dev background. Built AI CRM    │ │ GitHub    github.com/broddo-bag… │
+  │ 70% engagement, 2.5× meetings.       │ │ Email     amit.yogev@gmail.com   │
+  │ Led QA at SentinelOne (4yr leader).  │ │ Location  Tel Aviv, Israel       │
+  │ Ship products backed by data,        │ │                                  │
+  │ validated by users.                  │ │                                  │
+  └──────────────────────────────────────┘ └──────────────────────────────────┘
 
-  ┌─About────────────────────────────────┐ ┌─Socials───┬──────────────────────────┐
-  │                                      │ │           │                          │
-  │ Product Manager. Technical PM       │ │ LinkedIn  │ linkedin.com/in/amit-yog…│
-  │ with dev background. Built AI CRM   │ │ GitHub    │ github.com/broddo-baggin…│
-  │ 70% engagement, 2.5× meetings.       │ │ Email     │ amit.yogev@gmail.com     │
-  │ Led QA at SentinelOne (4yr leader).  │ │ Location  │ Tel Aviv, Israel         │
-  │ Ship products backed by data,        │ │           │                          │
-  │ validated by users.                  │ │           │                          │
-  └──────────────────────────────────────┘ └───────────┴──────────────────────────┘
-
-  Legend
+                                                                          Legend
   
   $ curl amityogev.com            Get this page
   $ curl amityogev.com/resume     Full resume + impact metrics

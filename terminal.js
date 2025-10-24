@@ -107,16 +107,11 @@ class ShellCV {
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre>
 
-<div style="text-align: center; color: #e0e0e0; font-size: 11px; margin: 6px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer</div>
-<div style="color: #6c7380; font-size: 10px; margin: 6px 0; text-align: center; word-wrap: break-word;">https://amityogev.com | https://github.com/broddo-baggins</div>
+<div style="text-align: right; color: #e0e0e0; font-size: 11px; margin: 4px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Gamer</div>
 
-<div style="border-top: 1px solid #444; border-bottom: 1px solid #444; margin: 10px 0; padding: 6px 0; text-align: center; max-width: 100%;">
-<span style="color: #6c7380; font-size: 10px;">Source: <a href="https://github.com/broddo-baggins/ShellCV" style="color: #61c9d2;">https://github.com/broddo-baggins/ShellCV</a></span>
-</div>
-
-<div class="info-boxes-container">
+<div class="info-boxes-container" style="margin-top: 8px;">
   <div class="info-box">
-    <div class="info-box-header">About</div>
+    <div class="info-box-header" style="text-align: right;">About</div>
     <div class="info-box-content">
 Technical Product Manager, QA background.
 Solo ideation to POC 100%.
@@ -132,7 +127,7 @@ Led QA at SentinelOne (4yr).
   </div>
   
   <div class="info-box">
-    <div class="info-box-header">Socials</div>
+    <div class="info-box-header" style="text-align: right;">Socials</div>
     <div class="info-box-content">
 LinkedIn   <a href="https://linkedin.com/in/amit-yogev" style="color: #61c9d2;">linkedin.com/in/amit-yogev</a>
 GitHub     <a href="https://github.com/broddo-baggins" style="color: #61c9d2;">github.com/broddo-baggins</a>
@@ -143,7 +138,7 @@ Location   Tel Aviv, Israel
 </div>
 
 <div class="legend-container">
-  <div style="color: #e5c07b; font-size: 11px; margin-bottom: 12px; font-weight: bold;">Legend</div>
+  <div style="color: #e5c07b; font-size: 11px; margin-bottom: 12px; font-weight: bold; text-align: right;">Legend</div>
   <pre style="color: #6c7380; font-size: 10px; line-height: 1.7; margin: 0;">$ curl amityogev.com            Get this page
 $ curl amityogev.com/resume     Full resume + impact metrics
 $ curl amityogev.com/skills     Technical skills breakdown
