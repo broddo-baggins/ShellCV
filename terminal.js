@@ -46,9 +46,6 @@ class ShellCV {
         // Add spacing
         this.shellOutput.appendChild(document.createElement('br'));
         
-        // Show loading animation
-        await this.showLoadingAnimation('LOADING');
-        
         // Create container for content
         const contentDiv = document.createElement('div');
         this.shellOutput.appendChild(contentDiv);
@@ -166,7 +163,7 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
         // Spam prevention: Check if same command was run in last second
         const now = Date.now();
         if (this.lastCommand === command && now - this.lastCommandTime < 1000) {
-            this.printOutput('<span class="warning">⚠ Please wait a moment before running the same command again</span>');
+            await this.printOutput('<span class="warning">⚠ Please wait a moment before running the same command again</span>');
             return;
         }
         this.lastCommand = command;
@@ -199,10 +196,12 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
         this.shellOutput.appendChild(commandLine);
     }
 
-    printOutput(text) {
+    async printOutput(text) {
         const outputDiv = document.createElement('div');
-        outputDiv.innerHTML = text;
         this.shellOutput.appendChild(outputDiv);
+        
+        // 90s-style line-by-line rendering
+        await this.typeHTML(text, outputDiv);
     }
 
     async executeCommand(command) {
@@ -251,10 +250,10 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
                 const OVENAI_DEMO_URL = 'https://ovenai-crm-portfolio-demo.vercel.app';
                 
                 window.open(OVENAI_DEMO_URL, '_blank');
-                this.printOutput('<span class="success">✓ Opening demo in new tab...</span>');
-                this.printOutput('<span class="comment">Tip: Return here to explore more commands (try "projects" or "play")</span>');
+                await this.printOutput('<span class="success">✓ Opening demo in new tab...</span>');
+                await this.printOutput('<span class="comment">Tip: Return here to explore more commands (try "projects" or "play")</span>');
             } else {
-                this.printOutput('<span class="comment">Demo cancelled. Type "crm" to try again, or "help" for other commands.</span>');
+                await this.printOutput('<span class="comment">Demo cancelled. Type "crm" to try again, or "help" for other commands.</span>');
             }
             this.waitingForOvenAIResponse = false;
             return;
@@ -263,14 +262,9 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
         const args = command.split(' ');
         const cmd = args[0];
 
-        // Show loading animation for all commands except clear and empty commands
-        if (cmd && cmd !== 'clear' && cmd !== 'cls') {
-            await this.showLoadingAnimation();
-        }
-
         switch(cmd) {
             case 'help':
-                this.showHelp();
+                await this.showHelp();
                 break;
             case 'resume':
             case 'cv':
@@ -283,15 +277,15 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
                 await this.showProjects();
                 break;
             case 'contact':
-                this.showContact();
+                await this.showContact();
                 break;
             case 'about':
-                this.showAbout();
+                await this.showAbout();
                 break;
             case 'create':
             case 'generate':
             case 'build':
-                this.showCreate();
+                await this.showCreate();
                 break;
             case 'ovenai':
             case 'crm':
@@ -315,11 +309,11 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
                 this.shellOutput.innerHTML = this.getHomeContent();
                 break;
             default:
-                this.handleUnknownCommand(cmd);
+                await this.handleUnknownCommand(cmd);
         }
     }
 
-    showHelp() {
+    async showHelp() {
         const help = `
 <span class="section-header">Available Commands:</span>
 
@@ -346,40 +340,40 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
 
 <span class="comment">Pro tip: Try 'create' to make your own terminal CV!</span>
         `;
-        this.printOutput(help);
+        await this.printOutput(help);
     }
 
     async showResume() {
         try {
-            const response = await fetch('resume.txt');
+            const response = await fetch('assets/resume.txt');
             const text = await response.text();
-                this.printOutput(`<pre>${this.escapeHtml(text)}</pre>`);
+            await this.printOutput(`<pre>${this.escapeHtml(text)}</pre>`);
         } catch (error) {
-            this.printOutput('<span class="error">Error loading resume. Please try again.</span>');
+            await this.printOutput('<span class="error">Error loading resume. Please try again.</span>');
         }
     }
 
     async showSkills() {
         try {
-            const response = await fetch('skills.txt');
+            const response = await fetch('assets/skills.txt');
             const text = await response.text();
-            this.printOutput(`<pre>${this.escapeHtml(text)}</pre>`);
+            await this.printOutput(`<pre>${this.escapeHtml(text)}</pre>`);
         } catch (error) {
-            this.printOutput('<span class="error">Error loading skills. Please try again.</span>');
+            await this.printOutput('<span class="error">Error loading skills. Please try again.</span>');
         }
     }
 
     async showProjects() {
         try {
-            const response = await fetch('projects.txt');
+            const response = await fetch('assets/projects.txt');
             const text = await response.text();
-            this.printOutput(`<pre>${this.escapeHtml(text)}</pre>`);
+            await this.printOutput(`<pre>${this.escapeHtml(text)}</pre>`);
         } catch (error) {
-            this.printOutput('<span class="error">Error loading projects. Please try again.</span>');
+            await this.printOutput('<span class="error">Error loading projects. Please try again.</span>');
         }
     }
 
-    showContact() {
+    async showContact() {
         const contact = `
 <span class="section-header">CONTACT INFORMATION</span>
 
@@ -390,10 +384,10 @@ Location:  Tel Aviv, Israel
 LinkedIn:  <a href="https://linkedin.com/in/amit-yogev" target="_blank">linkedin.com/in/amit-yogev</a>
 GitHub:    <a href="https://github.com/broddo-baggins" target="_blank">github.com/broddo-baggins</a>
         `;
-        this.printOutput(contact);
+        await this.printOutput(contact);
     }
 
-    showAbout() {
+    async showAbout() {
         const about = `
 <span class="section-header">About This Shell</span>
 
@@ -409,10 +403,10 @@ Built with vanilla JavaScript - no frameworks, no dependencies.
 
 <span class="comment">Built by Amit Yogev</span>
         `;
-        this.printOutput(about);
+        await this.printOutput(about);
     }
 
-    showCreate() {
+    async showCreate() {
         const create = `
 <span class="section-header">🚀 Create Your Own Terminal CV</span>
 
@@ -462,7 +456,7 @@ Want a terminal-style CV like this? Generate yours in 2 minutes!
 
 <span class="comment">Total time: ~2 minutes setup + 5 minutes customization = Your own ShellCV! 🎉</span>
         `;
-        this.printOutput(create);
+        await this.printOutput(create);
     }
 
     async showCRMDemo() {
@@ -500,33 +494,12 @@ technical implementation with sanitized sample data.
 
 <span class="success">Ready to explore the live demo?</span>
         `;
-        this.printOutput(tour);
+        await this.printOutput(tour);
         await this.sleep(500);
         
         // Prompt user
-        this.printOutput('\n<span class="success">Launch CRM demo in new tab? (Y/N):</span>');
+        await this.printOutput('\n<span class="success">Launch CRM demo in new tab? (Y/N):</span>');
         this.waitingForOvenAIResponse = true;
-    }
-
-    async showLoadingAnimation(message = 'LOADING') {
-        const frames = [
-            `[ ${message}.   ]`,
-            `[ ${message}..  ]`,
-            `[ ${message}... ]`,
-            `[ ${message}..  ]`,
-        ];
-        
-        const outputDiv = document.createElement('div');
-        outputDiv.style.color = '#5bc0de';
-        outputDiv.style.fontFamily = 'monospace';
-        this.shellOutput.appendChild(outputDiv);
-        
-        for (let i = 0; i < 6; i++) {
-            outputDiv.textContent = frames[i % frames.length];
-            await this.sleep(80);
-        }
-        
-        this.shellOutput.removeChild(outputDiv);
     }
 
     async showMatrixAnimation() {
@@ -552,7 +525,7 @@ technical implementation with sanitized sample data.
     }
 
     async showRainAnimation() {
-        this.printOutput('<span style="color: #5bc0de;">Starting rain animation... (Press Enter to stop)</span>');
+        await this.printOutput('<span style="color: #5bc0de;">Starting rain animation... (Press Enter to stop)</span>');
         
         const rainDiv = document.createElement('pre');
         rainDiv.style.color = '#5bc0de';
@@ -574,9 +547,9 @@ technical implementation with sanitized sample data.
             });
         }
         
-        const stopRain = () => {
+        const stopRain = async () => {
             this.shellOutput.removeChild(rainDiv);
-            this.printOutput('<span class="comment">Rain stopped.</span>');
+            await this.printOutput('<span class="comment">Rain stopped.</span>');
         };
         
         // Animation loop
@@ -605,11 +578,11 @@ technical implementation with sanitized sample data.
             await this.sleep(100);
         }
         
-        stopRain();
+        await stopRain();
     }
 
     async launchGame() {
-        this.printOutput('<span style="color: #56b6c2;">Loading PM Quest...</span>');
+        await this.printOutput('<span style="color: #56b6c2;">Loading PM Quest...</span>');
         
         try {
             // Load game scripts
@@ -622,7 +595,7 @@ technical implementation with sanitized sample data.
             // Start game
             await this.gameInstance.start();
         } catch (error) {
-            this.printOutput('<span style="color: #e06c75;">Error loading game: ' + error.message + '</span>');
+            await this.printOutput('<span style="color: #e06c75;">Error loading game: ' + error.message + '</span>');
             console.error('Game load error:', error);
         }
     }
@@ -653,7 +626,7 @@ technical implementation with sanitized sample data.
         }
     }
 
-    handleUnknownCommand(cmd) {
+    async handleUnknownCommand(cmd) {
         // Find similar commands using Levenshtein-like similarity
         const commands = ['help', 'resume', 'cv', 'skills', 'projects', 'contact', 'create', 'generate', 'play', 'game', 'about', 'home', 'clear', 'cls'];
         const similar = this.findSimilarCommands(cmd, commands);
@@ -665,7 +638,7 @@ technical implementation with sanitized sample data.
             suggestion = '\n<span class="comment">Type <span class="success">help</span> to see available commands</span>';
         }
         
-        this.printOutput(`<span class="error">zsh: command not found: ${this.escapeHtml(cmd)}</span>${suggestion}`);
+        await this.printOutput(`<span class="error">zsh: command not found: ${this.escapeHtml(cmd)}</span>${suggestion}`);
     }
     
     findSimilarCommands(input, commands) {
