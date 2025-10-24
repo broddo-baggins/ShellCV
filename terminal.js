@@ -69,7 +69,7 @@ class ShellCV {
             const chunk = lines.slice(0, i + 1).join('');
             container.innerHTML = chunk;
             container.style.opacity = '1';
-            await this.sleep(30); // 30ms per chunk
+            await this.sleep(15); // 15ms per chunk - faster than reading pace
             this.scrollToBottom();
         }
     }
