@@ -119,7 +119,7 @@ class ShellCV {
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre>
 
-<div style="text-align: right; color: #e0e0e0; font-size: 11px; margin: 2px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer</div>
+<div style="text-align: center; color: #e0e0e0; font-size: 11px; margin: 8px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer</div>
 
 <div class="info-boxes-container">
   <div class="info-box">
@@ -139,20 +139,10 @@ Location   Tel Aviv, Israel
 </div>
 
 <div class="legend-container">
-  <div style="color: #e5c07b; font-size: 11px; margin-bottom: 8px; font-weight: bold; text-align: right;">Legend</div>
-  <pre style="color: #6c7380; font-size: 10px; line-height: 1.7; margin: 0;">Type 'help' for available commands
+  <div style="color: #e5c07b; font-size: 11px; margin-bottom: 8px; font-weight: bold;">Commands</div>
+  <pre style="color: #6c7380; font-size: 10px; line-height: 1.7; margin: 0;">Type 'help' for full command list
 
-Browser Commands:
-  help        Full command list & documentation
-  resume      Full resume with metrics
-  skills      Technical skills breakdown
-  projects    Project portfolio
-  ovenai      View AI CRM demo (interactive)
-  clear       Clear terminal
-
-Or use curl:
-  $ curl amityogev.com
-  $ curl amityogev.com/resume</pre>
+Quick commands: resume | skills | projects | ovenai | help</pre>
 </div>`;
     }
 

@@ -46,19 +46,12 @@ function getCurlHomePage() {
                                             │ Location  Tel Aviv, Israel           │
                                             └──────────────────────────────────────┘
 
-                                                                          Legend
+                                                                        Commands
   
-  curl Commands:
-  $ curl amityogev.com            Get this page
-  $ curl amityogev.com/resume     Full resume + impact metrics
-  $ curl amityogev.com/skills     Technical skills breakdown
-  $ curl amityogev.com/projects   Project portfolio
   $ curl amityogev.com/help       Full command list
-
-  Browser Features:
-  Visit https://amityogev.com in browser
-  Type 'help' for interactive commands
-  Type 'ovenai' to view AI CRM demo
+  
+  Quick: resume | skills | projects | help
+  Browser: https://amityogev.com (type 'help' for interactive mode)
 
 `;
 }
