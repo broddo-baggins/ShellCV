@@ -76,18 +76,33 @@ class ShellCV {
             if (lines[i].trim()) {
                 await this.sleep(50);
             }
-            this.scrollToBottom();
+            
+            // Smooth scrolling: only scroll every 3 lines to reduce stutter
+            if (i % 3 === 0 || i === lines.length - 1) {
+                this.scrollToBottomSmooth();
+            }
+        }
+        
+        // Final smooth scroll at the end
+        this.scrollToBottom();
+    }
+    
+    scrollToBottomSmooth() {
+        // Smooth instant scroll during animation (no behavior: smooth to avoid stutter)
+        const terminalBody = document.querySelector('.terminal-body');
+        if (terminalBody) {
+            terminalBody.scrollTop = terminalBody.scrollHeight;
         }
     }
     
     scrollToBottom() {
-        // Scroll terminal body AGGRESSIVELY
+        // Final smooth scroll with animation
         const terminalBody = document.querySelector('.terminal-body');
         if (terminalBody) {
             terminalBody.scrollTop = terminalBody.scrollHeight;
         }
         
-        // Scroll window
+        // Scroll window smoothly
         window.scrollTo({
             top: document.body.scrollHeight,
             behavior: 'smooth'
@@ -267,10 +282,11 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
 
         const args = command.split(' ');
         const cmd = args[0];
+        const subCmd = args[1];
 
         switch(cmd) {
             case 'help':
-                await this.showHelp();
+                await this.showHelp(subCmd);
                 break;
             case 'resume':
             case 'cv':
@@ -319,7 +335,157 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
         }
     }
 
-    async showHelp() {
+    async showHelp(command) {
+        // Show help for specific command if provided
+        if (command) {
+            const helpTexts = {
+                'resume': `<span class="section-header">Help: resume</span>
+
+<span class="success">Usage:</span> resume (or cv)
+
+<span class="comment">Description:</span>
+Displays your complete resume/CV with professional experience, education, and achievements.
+Loads line-by-line in classic terminal style for easy reading.
+
+<span class="comment">Aliases:</span> cv
+
+<span class="comment">Example:</span>
+  $ resume
+  $ cv`,
+                
+                'skills': `<span class="section-header">Help: skills</span>
+
+<span class="success">Usage:</span> skills
+
+<span class="comment">Description:</span>
+Shows a detailed breakdown of technical skills, tools, and technologies.
+Organized by category for easy navigation.
+
+<span class="comment">Example:</span>
+  $ skills`,
+                
+                'projects': `<span class="section-header">Help: projects</span>
+
+<span class="success">Usage:</span> projects
+
+<span class="comment">Description:</span>
+View your complete project portfolio with descriptions, tech stacks, and links.
+Each project includes key achievements and technologies used.
+
+<span class="comment">Example:</span>
+  $ projects`,
+                
+                'crm': `<span class="section-header">Help: crm</span>
+
+<span class="success">Usage:</span> crm (or demo, ovenai, tour)
+
+<span class="comment">Description:</span>
+Launch the interactive CRM Demo showcasing full-stack development work with mock data.
+Opens in a new browser tab for easy exploration.
+
+<span class="comment">Aliases:</span> demo, ovenai, tour
+
+<span class="comment">Example:</span>
+  $ crm
+  $ demo`,
+                
+                'contact': `<span class="section-header">Help: contact</span>
+
+<span class="success">Usage:</span> contact
+
+<span class="comment">Description:</span>
+Display contact information including email, phone, LinkedIn, and GitHub.
+All links are clickable for easy connection.
+
+<span class="comment">Example:</span>
+  $ contact`,
+                
+                'play': `<span class="section-header">Help: play</span>
+
+<span class="success">Usage:</span> play (or game)
+
+<span class="comment">Description:</span>
+Start PM Quest, an idle roguelike game simulating a Product Manager's journey.
+Battle stakeholders, manage sprints, and level up your PM skills!
+
+<span class="comment">Aliases:</span> game
+
+<span class="comment">Example:</span>
+  $ play
+  $ game`,
+                
+                'about': `<span class="section-header">Help: about</span>
+
+<span class="success">Usage:</span> about
+
+<span class="comment">Description:</span>
+Learn about this shell-based terminal CV, its features, and how it was built.
+Includes information about the tech stack and design philosophy.
+
+<span class="comment">Example:</span>
+  $ about`,
+                
+                'create': `<span class="section-header">Help: create</span>
+
+<span class="success">Usage:</span> create (or generate, build)
+
+<span class="comment">Description:</span>
+Learn how to create your own terminal-style CV in just 2 minutes!
+Includes step-by-step instructions and links to generator scripts.
+
+<span class="comment">Aliases:</span> generate, build
+
+<span class="comment">Example:</span>
+  $ create
+  $ generate`,
+                
+                'clear': `<span class="section-header">Help: clear</span>
+
+<span class="success">Usage:</span> clear (or cls)
+
+<span class="comment">Description:</span>
+Clear the terminal screen and start fresh.
+Command history is preserved.
+
+<span class="comment">Aliases:</span> cls
+
+<span class="comment">Example:</span>
+  $ clear
+  $ cls`,
+                
+                'home': `<span class="section-header">Help: home</span>
+
+<span class="success">Usage:</span> home
+
+<span class="comment">Description:</span>
+Return to the home page with the welcome screen and info boxes.
+Useful for navigating back after exploring commands.
+
+<span class="comment">Example:</span>
+  $ home`,
+                
+                'rain': `<span class="section-header">Help: rain</span>
+
+<span class="success">Usage:</span> rain
+
+<span class="comment">Description:</span>
+Display an ASCII rain animation. An easter egg for terminal enthusiasts!
+Watch the Matrix-style rain fall across your screen.
+
+<span class="comment">Example:</span>
+  $ rain`
+            };
+            
+            const helpText = helpTexts[command];
+            if (helpText) {
+                await this.printOutput(helpText);
+            } else {
+                await this.printOutput(`<span class="error">No help available for '${this.escapeHtml(command)}'</span>\n<span class="comment">Type 'help' to see all available commands</span>`);
+            }
+            return;
+        }
+        
+        // Show general help
         const help = `
 <span class="section-header">Available Commands:</span>
 
@@ -337,6 +503,10 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
 
   <span class="success">create</span>     Learn how to build your own ShellCV in 2 minutes!
 
+<span class="comment">Get Detailed Help:</span>
+  Type 'help <command>' for detailed information about any command
+  Example: help resume, help skills, help crm
+
 <span class="comment">Keyboard Shortcuts:</span>
   Up/Down     Navigate command history
   Tab         Auto-complete commands
@@ -344,7 +514,7 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
 <span class="comment">Easter Eggs:</span>
   rain        ASCII rain animation
 
-<span class="comment">Pro tip: Try 'create' to make your own terminal CV!</span>
+<span class="comment">Pro tip: Try 'help <command>' to learn more about each command!</span>
         `;
         await this.printOutput(help);
     }
