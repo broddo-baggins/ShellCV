@@ -6,7 +6,7 @@ class ShellCV {
         this.commandInput = document.getElementById('commandInput');
         this.commandHistory = [];
         this.historyIndex = -1;
-        this.typingSpeed = 3; // milliseconds per character (faster animation)
+        this.typingSpeed = 0.5; // milliseconds per character (instant but visible typing)
         this.lastCommand = '';
         this.lastCommandTime = 0;
         this.gameActive = false;
@@ -60,23 +60,35 @@ class ShellCV {
     }
     
     async typeHTML(html, container) {
-        // Show content instantly but with a loading effect
-        container.style.opacity = '0';
-        container.innerHTML = html;
+        // Create a temporary div to parse HTML
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
         
-        // Fade in animation
-        await this.sleep(100);
+        // For complex HTML with styling, show it with a fast typing effect
+        container.style.opacity = '0';
+        container.innerHTML = '';
+        
+        // Show content line by line for terminal effect
+        const lines = html.split('\n');
+        for (let line of lines) {
+            const lineDiv = document.createElement('div');
+            lineDiv.innerHTML = line;
+            container.appendChild(lineDiv);
+            await this.sleep(1); // Fast but visible
+        }
+        
+        // Quick fade in
         let opacity = 0;
         const fadeIn = setInterval(() => {
-            opacity += 0.1;
+            opacity += 0.2;
             container.style.opacity = opacity;
             if (opacity >= 1) {
                 clearInterval(fadeIn);
                 container.style.opacity = '1';
             }
-        }, 30);
+        }, 10);
         
-        await this.sleep(400);
+        await this.sleep(100);
     }
     
     scrollToBottom() {
