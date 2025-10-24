@@ -168,7 +168,7 @@ Available Commands:
   resume      Full resume with metrics
   skills      Technical skills breakdown
   projects    Project portfolio
-  ovenai      View AI CRM demo (70% engagement, 2.5× meetings)
+  crm         CRM Demo - showcasing my work with mock data
   play        PM Quest idle roguelike game
   create      Learn how to build your own ShellCV in 2 minutes!
   clear       Clear terminal

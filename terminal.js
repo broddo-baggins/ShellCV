@@ -251,7 +251,7 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
                 this.printOutput('<span class="success">✓ Opening demo in new tab...</span>');
                 this.printOutput('<span class="comment">Tip: Return here to explore more commands (try "projects" or "play")</span>');
             } else {
-                this.printOutput('<span class="comment">Demo cancelled. Type "ovenai" to try again, or "help" for other commands.</span>');
+                this.printOutput('<span class="comment">Demo cancelled. Type "crm" to try again, or "help" for other commands.</span>');
             }
             this.waitingForOvenAIResponse = false;
             return;
@@ -286,8 +286,10 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
                 this.showCreate();
                 break;
             case 'ovenai':
+            case 'crm':
+            case 'demo':
             case 'tour':
-                await this.showOvenAITour();
+                await this.showCRMDemo();
                 break;
             case 'play':
             case 'game':
@@ -296,6 +298,9 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
             case 'clear':
             case 'cls':
                 this.clear();
+                break;
+            case 'rain':
+                await this.showRainAnimation();
                 break;
             case 'home':
                 this.clear();
@@ -313,7 +318,7 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
   <span class="success">resume</span>     Display full resume/CV
   <span class="success">skills</span>     Show technical skills breakdown
   <span class="success">projects</span>   View detailed project portfolio
-  <span class="success">ovenai</span>    OvenAI CRM project tour & demo
+  <span class="success">crm</span>       CRM Demo - showcasing my work with mock data
   <span class="success">contact</span>    Get contact information
   <span class="success">play</span>       Start PM Quest (idle roguelike game)
   <span class="success">about</span>      Learn about this shell
@@ -327,6 +332,9 @@ Type 'help' or 'start' to begin exploring →</pre></div>`;
 <span class="comment">Keyboard Shortcuts:</span>
   Up/Down     Navigate command history
   Tab         Auto-complete commands
+
+<span class="comment">Easter Eggs:</span>
+  rain        ASCII rain animation
 
 <span class="comment">Pro tip: Try 'create' to make your own terminal CV!</span>
         `;
@@ -449,44 +457,126 @@ Want a terminal-style CV like this? Generate yours in 2 minutes!
         this.printOutput(create);
     }
 
-    async showOvenAITour() {
+    async showCRMDemo() {
+        // ASCII Animation: Matrix-style loading
+        await this.showMatrixAnimation();
+        
         const tour = `
-<span class="section-header">OVENAI CRM - PORTFOLIO DEMO</span>
+<span class="section-header">CRM DEMO - PORTFOLIO SHOWCASE</span>
 
-<span class="success">🎯 Real Production Results:</span>
+<span class="success">Real Production Results:</span>
   • <strong>70% response rate</strong> on cold leads (vs 2% SMS baseline)
   • <strong>2.5× more meetings</strong> scheduled per agent
-  • <strong>~70% reduction</strong> in manual follow-up time
+  • <strong>70% reduction</strong> in manual follow-up time
   • <strong>100+ leads handled</strong> per day per agent
   • <strong>Zero production defects</strong> during pilot phase
 
-<span class="success">🛠 Technical Stack:</span>
+<span class="success">Technical Stack:</span>
   <strong>Frontend:</strong> React 18, TypeScript, Tailwind CSS, Zustand, TanStack Query
   <strong>Backend:</strong> Node.js, Express, PostgreSQL, Redis, Prisma ORM
   <strong>Integrations:</strong> WhatsApp Business API, Calendly, OpenAI GPT-4
   <strong>Testing:</strong> 1,289+ automated tests, 85%+ code coverage
   <strong>DevOps:</strong> Docker, Vercel, GitHub Actions
 
-<span class="success">📊 Demo Features:</span>
+<span class="success">Demo Features:</span>
   • AI-Powered BANT Scoring (82% accuracy)
   • Real-time WhatsApp Integration
   • Automated Meeting Scheduling
   • Live Analytics Dashboard
   • Mobile-Responsive Design
 
-<span class="warning">⚠️ Demo Notes:</span>
+<span class="warning">Demo Notes:</span>
 This is a portfolio demo with mock data. Due to legal constraints with
 CEO/CTO, actual customer data has been removed. All features showcase
 technical implementation with sanitized sample data.
 
-<span class="success">🚀 Ready to explore the live demo?</span>
+<span class="success">Ready to explore the live demo?</span>
         `;
         this.printOutput(tour);
         await this.sleep(500);
         
         // Prompt user
-        this.printOutput('\n<span class="success">Launch OvenAI CRM demo in new tab? (Y/N):</span>');
+        this.printOutput('\n<span class="success">Launch CRM demo in new tab? (Y/N):</span>');
         this.waitingForOvenAIResponse = true;
+    }
+
+    async showMatrixAnimation() {
+        const frames = [
+            '  . : . : . : . : . :  ',
+            '  : . : . : . : . : .  ',
+            '  . : . : . : . : . :  ',
+        ];
+        
+        const outputDiv = document.createElement('div');
+        outputDiv.style.color = '#0f0';
+        outputDiv.style.fontFamily = 'monospace';
+        this.shellOutput.appendChild(outputDiv);
+        
+        for (let i = 0; i < 8; i++) {
+            outputDiv.textContent = frames[i % frames.length];
+            await this.sleep(100);
+        }
+        
+        outputDiv.textContent = '  [ LOADING CRM DEMO ]  ';
+        await this.sleep(300);
+        this.shellOutput.removeChild(outputDiv);
+    }
+
+    async showRainAnimation() {
+        this.printOutput('<span style="color: #5bc0de;">Starting rain animation... (Press Enter to stop)</span>');
+        
+        const rainDiv = document.createElement('pre');
+        rainDiv.style.color = '#5bc0de';
+        rainDiv.style.fontFamily = 'monospace';
+        rainDiv.style.fontSize = '12px';
+        rainDiv.style.lineHeight = '1.2';
+        this.shellOutput.appendChild(rainDiv);
+        
+        const width = 60;
+        const height = 15;
+        let raindrops = [];
+        
+        // Initialize raindrops
+        for (let i = 0; i < 20; i++) {
+            raindrops.push({
+                x: Math.floor(Math.random() * width),
+                y: Math.floor(Math.random() * height),
+                char: ['|', '/', '\\', ':', '.'][Math.floor(Math.random() * 5)]
+            });
+        }
+        
+        const stopRain = () => {
+            this.shellOutput.removeChild(rainDiv);
+            this.printOutput('<span class="comment">Rain stopped.</span>');
+        };
+        
+        // Animation loop
+        for (let frame = 0; frame < 100; frame++) {
+            let display = [];
+            for (let y = 0; y < height; y++) {
+                display[y] = ' '.repeat(width);
+            }
+            
+            // Update and draw raindrops
+            raindrops.forEach(drop => {
+                if (drop.y >= 0 && drop.y < height && drop.x >= 0 && drop.x < width) {
+                    display[drop.y] = display[drop.y].substring(0, drop.x) + drop.char + display[drop.y].substring(drop.x + 1);
+                }
+                
+                // Move raindrop down
+                drop.y++;
+                if (drop.y > height) {
+                    drop.y = 0;
+                    drop.x = Math.floor(Math.random() * width);
+                    drop.char = ['|', '/', '\\', ':', '.'][Math.floor(Math.random() * 5)];
+                }
+            });
+            
+            rainDiv.textContent = display.join('\n');
+            await this.sleep(100);
+        }
+        
+        stopRain();
     }
 
     async launchGame() {
@@ -608,7 +698,7 @@ technical implementation with sanitized sample data.
 
     autoComplete() {
         const partial = this.commandInput.value.toLowerCase();
-        const commands = ['help', 'resume', 'skills', 'projects', 'ovenai', 'tour', 'contact', 'create', 'generate', 'play', 'game', 'about', 'home', 'clear'];
+        const commands = ['help', 'resume', 'skills', 'projects', 'crm', 'demo', 'contact', 'create', 'generate', 'play', 'game', 'about', 'home', 'clear', 'rain'];
         
         const matches = commands.filter(cmd => cmd.startsWith(partial));
         
