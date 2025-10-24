@@ -59,42 +59,24 @@ class ShellCV {
     }
     
     async typeHTML(html, container) {
-        // OLD ASCII GAME style: line-by-line revelation at reading pace
-        container.style.opacity = '1';
+        // 90s-style line-by-line rendering like old ASCII games
+        container.style.opacity = '0';
         
-        // Check if content is wrapped in <pre> (like resume/skills/projects)
-        const isPreContent = html.trim().startsWith('<pre>');
+        // Split by newlines to render line-by-line for reading pace
+        const lines = html.split('\n');
+        let currentHTML = '';
         
-        if (isPreContent) {
-            // Extract text from <pre> tag and render line-by-line
-            const preMatch = html.match(/<pre>([\s\S]*?)<\/pre>/);
-            if (preMatch) {
-                const textContent = preMatch[1];
-                const lines = textContent.split('\n');
-                
-                const pre = document.createElement('pre');
-                container.appendChild(pre);
-                
-                // Reveal one line at a time like old ASCII games
-                for (let i = 0; i < lines.length; i++) {
-                    pre.textContent += (i > 0 ? '\n' : '') + lines[i];
-                    await this.sleep(80); // 80ms per line - reading pace
-                    this.scrollToBottom();
-                }
-            } else {
-                container.innerHTML = html;
-            }
-        } else {
-            // For HTML content, split by lines/elements
-            const parts = html.split(/\n|(?=<span class="section-header")|(?=<span class="success")|(?=<span class="comment")/);
+        for (let i = 0; i < lines.length; i++) {
+            currentHTML += lines[i] + (i < lines.length - 1 ? '\n' : '');
+            container.innerHTML = currentHTML;
+            container.style.opacity = '1';
             
-            let accumulated = '';
-            for (let i = 0; i < parts.length; i++) {
-                accumulated += parts[i];
-                container.innerHTML = accumulated;
-                await this.sleep(60); // 60ms per chunk - smooth reveal
-                this.scrollToBottom();
+            // Reading pace: 50ms per line (adjust for comfortable reading)
+            // Skip delay for empty lines to avoid pauses
+            if (lines[i].trim()) {
+                await this.sleep(50);
             }
+            this.scrollToBottom();
         }
     }
     
