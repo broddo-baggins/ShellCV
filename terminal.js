@@ -12,6 +12,7 @@ class ShellCV {
         this.gameActive = false;
         this.gameInstance = null;
         this.loadGameMode = false;
+        this.waitingForOvenAIResponse = false;
         
         this.init();
     }
@@ -117,9 +118,10 @@ class ShellCV {
   <div class="info-box">
     <div class="info-box-header">About</div>
     <div class="info-box-content">
-Product Manager. Full-stack dev
-turned PM. Built AI CRM achieving
-70% engagement, 2.5× meetings.
+Product Manager. Technical PM
+with development background.
+Built AI CRM achieving 70% 
+engagement, 2.5× meetings.
 Led QA at SentinelOne (4yr leader).
 Ship products backed by data,
 validated by users.
@@ -272,6 +274,24 @@ $ curl amityogev.com/help       Full list of available commands</pre>
     }
 
     async executeNormalCommand(command) {
+        // Handle Y/N response for OvenAI demo
+        if (this.waitingForOvenAIResponse) {
+            const response = command.toLowerCase();
+            if (response === 'y' || response === 'yes') {
+                // TODO: Replace with your Vercel deployment URL
+                // Get your URL from: https://vercel.com/dashboard
+                const OVENAI_DEMO_URL = 'https://your-ovenai-demo.vercel.app'; // ⚠️ UPDATE THIS!
+                
+                window.open(OVENAI_DEMO_URL, '_blank');
+                this.printOutput('<span class="success">✓ Opening demo in new tab...</span>');
+                this.printOutput('<span class="comment">Tip: Return here to explore more commands (try "projects" or "play")</span>');
+            } else {
+                this.printOutput('<span class="comment">Demo cancelled. Type "ovenai" to try again, or "help" for other commands.</span>');
+            }
+            this.waitingForOvenAIResponse = false;
+            return;
+        }
+
         const args = command.split(' ');
         const cmd = args[0];
 
@@ -294,6 +314,10 @@ $ curl amityogev.com/help       Full list of available commands</pre>
                 break;
             case 'about':
                 this.showAbout();
+                break;
+            case 'ovenai':
+            case 'tour':
+                await this.showOvenAITour();
                 break;
             case 'play':
             case 'game':
@@ -319,6 +343,7 @@ $ curl amityogev.com/help       Full list of available commands</pre>
   <span class="success">resume</span>     Display full resume/CV
   <span class="success">skills</span>     Show technical skills breakdown
   <span class="success">projects</span>   View detailed project portfolio
+  <span class="success">ovenai</span>    OvenAI CRM project tour & demo
   <span class="success">contact</span>    Get contact information
   <span class="success">play</span>       Start PM Quest (idle roguelike game)
   <span class="success">about</span>      Learn about this shell
@@ -395,6 +420,46 @@ Built with vanilla JavaScript - no frameworks, no dependencies.
 <span class="comment">Built by Amit Yogev</span>
         `;
         this.printOutput(about);
+    }
+
+    async showOvenAITour() {
+        const tour = `
+<span class="section-header">OVENAI CRM - PORTFOLIO DEMO</span>
+
+<span class="success">🎯 Real Production Results:</span>
+  • <strong>70% response rate</strong> on cold leads (vs 2% SMS baseline)
+  • <strong>2.5× more meetings</strong> scheduled per agent
+  • <strong>~70% reduction</strong> in manual follow-up time
+  • <strong>100+ leads handled</strong> per day per agent
+  • <strong>Zero production defects</strong> during pilot phase
+
+<span class="success">🛠 Technical Stack:</span>
+  <strong>Frontend:</strong> React 18, TypeScript, Tailwind CSS, Zustand, TanStack Query
+  <strong>Backend:</strong> Node.js, Express, PostgreSQL, Redis, Prisma ORM
+  <strong>Integrations:</strong> WhatsApp Business API, Calendly, OpenAI GPT-4
+  <strong>Testing:</strong> 1,289+ automated tests, 85%+ code coverage
+  <strong>DevOps:</strong> Docker, Vercel, GitHub Actions
+
+<span class="success">📊 Demo Features:</span>
+  • AI-Powered BANT Scoring (82% accuracy)
+  • Real-time WhatsApp Integration
+  • Automated Meeting Scheduling
+  • Live Analytics Dashboard
+  • Mobile-Responsive Design
+
+<span class="warning">⚠️ Demo Notes:</span>
+This is a portfolio demo with mock data. Due to legal constraints with
+CEO/CTO, actual customer data has been removed. All features showcase
+technical implementation with sanitized sample data.
+
+<span class="success">🚀 Ready to explore the live demo?</span>
+        `;
+        this.printOutput(tour);
+        await this.sleep(500);
+        
+        // Prompt user
+        this.printOutput('\n<span class="success">Launch OvenAI CRM demo in new tab? (Y/N):</span>');
+        this.waitingForOvenAIResponse = true;
     }
 
     async launchGame() {
@@ -516,7 +581,7 @@ Built with vanilla JavaScript - no frameworks, no dependencies.
 
     autoComplete() {
         const partial = this.commandInput.value.toLowerCase();
-        const commands = ['help', 'resume', 'skills', 'projects', 'contact', 'play', 'game', 'about', 'home', 'clear'];
+        const commands = ['help', 'resume', 'skills', 'projects', 'ovenai', 'tour', 'contact', 'play', 'game', 'about', 'home', 'clear'];
         
         const matches = commands.filter(cmd => cmd.startsWith(partial));
         
