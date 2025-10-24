@@ -121,14 +121,14 @@ class ShellCV {
 
 <div style="text-align: right; color: #e0e0e0; font-size: 11px; margin: 2px 0; max-width: 100%; word-wrap: break-word;">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer</div>
 
-<div class="info-boxes-container" style="margin-top: 4px;">
-  <div class="info-box" style="padding: 4px 6px;">
-    <div class="info-box-header" style="text-align: right; padding-bottom: 2px; margin-bottom: 2px;">About</div>
+<div class="info-boxes-container">
+  <div class="info-box">
+    <div class="info-box-header" style="text-align: right;">About</div>
     <div class="info-box-content">Technical Product Manager, QA background.<br>Solo ideation to POC 100%.</div>
   </div>
   
-  <div class="info-box" style="padding: 4px 6px;">
-    <div class="info-box-header" style="text-align: right; padding-bottom: 2px; margin-bottom: 2px;">Socials</div>
+  <div class="info-box">
+    <div class="info-box-header" style="text-align: right;">Socials</div>
     <div class="info-box-content">
 LinkedIn   <a href="https://linkedin.com/in/amit-yogev" style="color: #61c9d2;">linkedin.com/in/amit-yogev</a><br>
 GitHub     <a href="https://github.com/broddo-baggins" style="color: #61c9d2;">github.com/broddo-baggins</a><br>
@@ -138,13 +138,21 @@ Location   Tel Aviv, Israel
   </div>
 </div>
 
-<div class="legend-container" style="padding: 4px 6px; margin: 4px 0; max-width: fit-content;">
+<div class="legend-container">
   <div style="color: #e5c07b; font-size: 11px; margin-bottom: 8px; font-weight: bold; text-align: right;">Legend</div>
-  <pre style="color: #6c7380; font-size: 10px; line-height: 1.7; margin: 0;">$ curl amityogev.com            Get this page
-$ curl amityogev.com/resume     Full resume + impact metrics
-$ curl amityogev.com/skills     Technical skills breakdown
-$ curl amityogev.com/projects   Project portfolio
-$ curl amityogev.com/help       Full list of available commands</pre>
+  <pre style="color: #6c7380; font-size: 10px; line-height: 1.7; margin: 0;">Type 'help' for available commands
+
+Browser Commands:
+  help        Full command list & documentation
+  resume      Full resume with metrics
+  skills      Technical skills breakdown
+  projects    Project portfolio
+  ovenai      View AI CRM demo (interactive)
+  clear       Clear terminal
+
+Or use curl:
+  $ curl amityogev.com
+  $ curl amityogev.com/resume</pre>
 </div>`;
     }
 

@@ -189,8 +189,8 @@ a:hover {
 /* Container for side-by-side boxes */
 .info-boxes-container {
     display: flex;
-    gap: 8px;
-    margin: 4px 0;
+    gap: 12px;
+    margin: 8px 0;
     flex-wrap: wrap;
     justify-content: flex-start;
     max-width: 100%;
@@ -198,12 +198,12 @@ a:hover {
 
 /* Individual box styling */
 .info-box {
-    flex: 0 1 auto;
-    min-width: fit-content;
-    max-width: fit-content;
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
     border: 1px solid #444444;
     border-radius: 3px;
-    padding: 4px 6px;
+    padding: 8px 10px;
     font-size: 11px;
     line-height: 1.5;
     background: rgba(40, 40, 40, 0.4);
@@ -224,11 +224,11 @@ a:hover {
 
 /* Legend container */
 .legend-container {
-    margin: 4px 0;
+    margin: 8px 0;
     border: 1px solid #444444;
     border-radius: 3px;
-    padding: 4px 6px;
-    max-width: fit-content;
+    padding: 8px 10px;
+    max-width: 100%;
     background: rgba(40, 40, 40, 0.4);
 }
 

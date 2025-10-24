@@ -48,11 +48,17 @@ function getCurlHomePage() {
 
                                                                           Legend
   
+  curl Commands:
   $ curl amityogev.com            Get this page
   $ curl amityogev.com/resume     Full resume + impact metrics
   $ curl amityogev.com/skills     Technical skills breakdown
   $ curl amityogev.com/projects   Project portfolio
-  $ curl amityogev.com/help       Full list of available commands
+  $ curl amityogev.com/help       Full command list
+
+  Browser Features:
+  Visit https://amityogev.com in browser
+  Type 'help' for interactive commands
+  Type 'ovenai' to view AI CRM demo
 
 `;
 }
@@ -150,8 +156,9 @@ Or return to resume with: curl amityogev.com/resume
     res.end(playInfo);
   } else if (url === '/help') {
     const help = `
-Available Endpoints:
+Available Commands:
 
+  CURL Endpoints:
   curl amityogev.com              Home page with info
   curl amityogev.com/resume       Full resume/CV
   curl amityogev.com/skills       Technical skills
@@ -159,9 +166,20 @@ Available Endpoints:
   curl amityogev.com/play         PM Quest game info
   curl amityogev.com/help         This help message
 
-Or visit in your browser: https://amityogev.com
+  Browser Interactive Mode: https://amityogev.com
+  
+  Browser Commands (type in terminal):
+  help        Full command list & documentation
+  resume      Full resume with metrics
+  skills      Technical skills breakdown
+  projects    Project portfolio
+  ovenai      View AI CRM demo (70% engagement, 2.5× meetings)
+  play        PM Quest idle roguelike game
+  clear       Clear terminal
+  contact     Contact information
+  about       About this shell
 
-Try typing 'play' in the browser for an interactive PM adventure!
+  GitHub: https://github.com/broddo-baggins/ShellCV
 `;
     res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end(help);
