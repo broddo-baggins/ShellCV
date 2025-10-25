@@ -55,6 +55,7 @@ function getCurlHomePage() {
 
   Quick Start
   ───────────
+  › ask anything - AI agent knows everything! (Try: ask what projects have you built?)
   › Type help to see all available commands
   › Try resume to view my experience
   › Run projects to explore my portfolio
