@@ -488,3 +488,140 @@ a:hover {
         line-height: 1.0;
     }
 }
+
+/* ======================================================================== */
+/* 90s HACKER MOVIE AESTHETICS - Scanlines, CRT, Screen Glow               */
+/* ======================================================================== */
+
+/* Scanlines overlay - subtle CRT monitor effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.1) 51%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+    animation: scanlines 8s linear infinite;
+}
+
+@keyframes scanlines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+}
+
+/* Screen flicker effect - very subtle */
+.terminal-container {
+    animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.97; }
+    75% { opacity: 0.99; }
+}
+
+/* Phosphor glow on text - green terminal glow */
+.success, .comment {
+    text-shadow: 0 0 2px currentColor, 0 0 5px rgba(0, 255, 100, 0.3);
+}
+
+/* Enhanced glow for success messages */
+.success {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 2px #0f0, 0 0 5px rgba(0, 255, 0, 0.4);
+    }
+    to {
+        text-shadow: 0 0 3px #0f0, 0 0 8px rgba(0, 255, 0, 0.6);
+    }
+}
+
+/* Matrix-style data stream effect for AI thinking */
+@keyframes matrix-rain {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* CRT screen curvature - very subtle (optional, can be removed if too much) */
+.terminal-container {
+    transform: perspective(1000px) rotateX(0.5deg);
+}
+
+/* Neon border glow effect */
+.terminal-container {
+    box-shadow: 
+        0 0 5px rgba(0, 255, 100, 0.1),
+        0 10px 50px rgba(0, 0, 0, 0.5),
+        inset 0 0 20px rgba(0, 255, 100, 0.02);
+}
+
+/* Grid background pattern - subtle cyberpunk grid */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 100, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 100, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Enhanced prompt with glow */
+.command-line::before {
+    text-shadow: 0 0 5px rgba(0, 255, 200, 0.5);
+}
+
+/* Error messages - red alert style */
+.error {
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    animation: alert-pulse 1s ease-in-out infinite;
+}
+
+@keyframes alert-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* ASCII art enhanced glow */
+.ascii-logo {
+    text-shadow: 0 0 10px rgba(0, 255, 200, 0.3);
+}
+
+/* Digital glitch effect (disabled by default, can enable on demand) */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Uncomment to enable glitch on errors */
+/* .error {
+    animation: glitch 0.3s infinite, alert-pulse 1s ease-in-out infinite;
+} */
+
+/* Screen static/noise overlay (very subtle) */
+body {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="noise"><feTurbulence baseFrequency="0.9"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.02"/></svg>');
+}

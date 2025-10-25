@@ -940,6 +940,8 @@ technical implementation with sanitized sample data.
             return;
         }
 
+        // Visual separator for new AI conversation
+        await this.printOutput('<span class="comment">─────────────────────────────────────────────────────</span>');
         await this.printOutput('<span class="comment">Thinking...</span>');
 
         try {
@@ -969,6 +971,7 @@ technical implementation with sanitized sample data.
                 await this.printOutput(`<span class="comment">Try: 'help' or 'resume' for other ways to explore</span>`);
             } else {
                 await this.printOutput(`<span class="success">${data.answer}</span>`);
+                await this.printOutput('<span class="comment">─────────────────────────────────────────────────────</span>');
             }
         } catch (error) {
             // Remove the "Thinking..." line
