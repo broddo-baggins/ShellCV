@@ -59,32 +59,44 @@ class ShellCV {
     }
     
     async typeHTML(html, container) {
-        // 90s-style line-by-line rendering like old ASCII games
-        container.style.opacity = '0';
-        
-        // Split by newlines to render line-by-line for reading pace
-        const lines = html.split('\n');
-        let currentHTML = '';
-        
-        for (let i = 0; i < lines.length; i++) {
-            currentHTML += lines[i] + (i < lines.length - 1 ? '\n' : '');
-            container.innerHTML = currentHTML;
-            container.style.opacity = '1';
+        // Smooth terminal rendering using requestAnimationFrame - eliminates stutter
+        return new Promise((resolve) => {
+            container.style.opacity = '0';
             
-            // Reading pace: 50ms per line (adjust for comfortable reading)
-            // Skip delay for empty lines to avoid pauses
-            if (lines[i].trim()) {
-                await this.sleep(50);
-            }
+            const lines = html.split('\n');
+            let currentHTML = '';
+            let currentLine = 0;
+            let lastTimestamp = 0;
+            const lineDelay = 15; // 15ms per line = ~66fps (buttery smooth)
             
-            // Smooth scrolling: only scroll every 3 lines to reduce stutter
-            if (i % 3 === 0 || i === lines.length - 1) {
-                this.scrollToBottomSmooth();
-            }
-        }
-        
-        // Final smooth scroll at the end
-        this.scrollToBottom();
+            const renderNextLine = (timestamp) => {
+                // Sync with browser refresh rate for smooth animation
+                if (timestamp - lastTimestamp >= lineDelay) {
+                    if (currentLine < lines.length) {
+                        currentHTML += lines[currentLine] + (currentLine < lines.length - 1 ? '\n' : '');
+                        container.innerHTML = currentHTML;
+                        container.style.opacity = '1';
+                        
+                        // Efficient scrolling - only on content lines
+                        if (lines[currentLine].trim() && currentLine % 2 === 0) {
+                            this.scrollToBottomSmooth();
+                        }
+                        
+                        currentLine++;
+                        lastTimestamp = timestamp;
+                    }
+                }
+                
+                if (currentLine < lines.length) {
+                    requestAnimationFrame(renderNextLine);
+                } else {
+                    this.scrollToBottom(); // Final scroll
+                    resolve();
+                }
+            };
+            
+            requestAnimationFrame(renderNextLine);
+        });
     }
     
     scrollToBottomSmooth() {
@@ -189,7 +201,13 @@ $ curl amityogev.com/help      Get the full list of endpoints</pre></div>`;
 
     async handleCommand() {
         const command = this.commandInput.value.trim();
-        if (!command) return;
+        
+        // Allow empty commands like real terminals (just show prompt)
+        if (!command) {
+            this.printCommand('');
+            this.commandInput.value = '';
+            return;
+        }
 
         // Spam prevention: Check if same command was run in last second
         const now = Date.now();
