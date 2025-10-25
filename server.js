@@ -37,8 +37,11 @@ function getCurlHomePage() {
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer
 
-       Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer
+  10+ years building products that matter. From cybersecurity (SentinelOne, McAfee) to
+  Web3 (Deeplayers) to AI-powered SaaS (OvenAI) - I ship fast, measure everything, and
+  iterate relentlessly.
 
   ┌─────────────────────────────────About┐ ┌───────────────────────────────Socials─┐
   │ Technical Product Manager, QA bg.    │ │ LinkedIn  linkedin.com/in/amit-yogev │
@@ -47,11 +50,18 @@ function getCurlHomePage() {
                                             │ Location  Tel Aviv, Israel           │
                                             └──────────────────────────────────────┘
 
-                                                                        Commands
+  Quick Start
+  ───────────
+  › Type help to see all available commands
+  › Try resume to view my experience
+  › Run projects to explore my portfolio
+  › Type crm to launch the interactive demo
+  › Use play to start the PM Quest game
   
-  $ curl amityogev.com/help       Full command list
+  Try in any CLI/Terminal:
+  $ curl amityogev.com           Get this page
+  $ curl amityogev.com/help      Get the full list of endpoints
   
-  Quick: resume | skills | projects | help
   Browser: https://amityogev.com (type 'help' for interactive mode)
 
 `;

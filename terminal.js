@@ -120,17 +120,27 @@ class ShellCV {
     }
 
     getColoredContentHTML() {
-        return `<pre class="ascii-logo">   █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
+        return `<div class="ascii-logo-container"><div class="ascii-wrapper"><pre class="ascii-logo-shadow">   █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
   ██╔══██╗████╗ ████║██║╚══██╔══╝    ╚██╗ ██╔╝██╔═══██╗██╔════╝ ██╔════╝██║   ██║
   ███████║██╔████╔██║██║   ██║        ╚████╔╝ ██║   ██║██║  ███╗█████╗  ██║   ██║
   ██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
   ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
-  ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre><div class="gradient-bar"></div>
-<div style="text-align: center; color: #888; font-size: 11px; margin: 8px 0; padding: 0; line-height: 1.0;">Product Manager | QA Leader | Builder | Tech Enthusiast</div>
-<div class="info-boxes-container"><div class="info-box"><div class="info-box-header">About This Terminal</div><div class="info-box-content">Interactive terminal-style CV. Navigate with commands or explore via browser. Built to showcase PM/QA skills through code. Type 'help' to start.</div></div><div class="info-box"><div class="info-box-header">Socials</div><div class="info-box-content">LinkedIn  <a href="https://linkedin.com/in/amit-yogev">linkedin.com/in/amit-yogev</a><br>GitHub    <a href="https://github.com/broddo-baggins">github.com/broddo-baggins</a><br>Email     <a href="mailto:amit.yogev@gmail.com">amit.yogev@gmail.com</a><br>Location  Tel Aviv, Israel</div></div></div><div class="legend-container"><div style="color: #ff9966; font-weight: bold; margin: 0; padding: 0; font-size: 11px; line-height: 1.0;">Legend</div><pre>$ curl amityogev.com           Get this page
-$ curl amityogev.com/help      Get the full list of available endpoints
+  ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre><pre class="ascii-logo">   █████╗ ███╗   ███╗██╗████████╗    ██╗   ██╗ ██████╗  ██████╗ ███████╗██╗   ██╗
+  ██╔══██╗████╗ ████║██║╚══██╔══╝    ╚██╗ ██╔╝██╔═══██╗██╔════╝ ██╔════╝██║   ██║
+  ███████║██╔████╔██║██║   ██║        ╚████╔╝ ██║   ██║██║  ███╗█████╗  ██║   ██║
+  ██╔══██║██║╚██╔╝██║██║   ██║         ╚██╔╝  ██║   ██║██║   ██║██╔══╝  ╚██╗ ██╔╝
+  ██║  ██║██║ ╚═╝ ██║██║   ██║          ██║   ╚██████╔╝╚██████╔╝███████╗ ╚████╔╝ 
+  ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝   ╚═╝          ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝  ╚═══╝  </pre></div><div class="bio-text">10+ years building products that matter.<br>From cybersecurity (SentinelOne, McAfee)<br>to Web3 (Deeplayers) to AI-powered SaaS<br>(OvenAI) - I ship fast, measure everything,<br>and iterate relentlessly.</div></div><div class="gradient-bar"></div>
+<div class="subtitle">Product Manager @ Stealth | QA Leader | Blockchain Enthusiast | Builder | Gamer</div>
+<div class="info-boxes-container"><div class="info-box"><div class="info-box-header">About</div><div class="info-box-content">Interactive terminal-style CV. Navigate with commands or explore via browser. Built to showcase PM/QA skills through code.</div></div><div class="info-box"><div class="info-box-header">Socials</div><div class="info-box-content">LinkedIn  <a href="https://linkedin.com/in/amit-yogev">linkedin.com/in/amit-yogev</a><br>GitHub    <a href="https://github.com/broddo-baggins">github.com/broddo-baggins</a><br>Email     <a href="mailto:amit.yogev@gmail.com">amit.yogev@gmail.com</a><br>Location  Tel Aviv, Israel</div></div></div><div class="legend-container"><div style="color: #ff9966; font-weight: bold; margin: 0; padding: 0; font-size: 11px; line-height: 1.2;">Quick Start</div><pre style="margin-top: 2px;">› Type <span style="color: #98c379;">help</span> to see all available commands
+› Try <span style="color: #98c379;">resume</span> to view my experience
+› Run <span style="color: #98c379;">projects</span> to explore my portfolio
+› Type <span style="color: #98c379;">crm</span> to launch the interactive demo
+› Use <span style="color: #98c379;">play</span> to start the PM Quest game
 
-Type 'help' or 'start' to begin exploring →</pre></div>`;
+Try in any CLI/Terminal:
+$ curl amityogev.com           Get this page
+$ curl amityogev.com/help      Get the full list of endpoints</pre></div>`;
     }
 
     createColoredContent() {
