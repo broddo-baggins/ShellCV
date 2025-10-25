@@ -1,6 +1,9 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config(); // Load environment variables
+
+const { getAIAgent } = require('./ai-agent');
 
 const PORT = process.env.PORT || 3333;
 
@@ -107,6 +110,31 @@ function handleRequest(req, res) {
     const svg = fs.readFileSync(path.join(__dirname, 'favicon.svg'), 'utf8');
     res.writeHead(200, { 'Content-Type': 'image/svg+xml' });
     res.end(svg);
+    return;
+  }
+
+  // Handle AI agent API endpoint
+  if (url === '/api/ask' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk.toString();
+    });
+    req.on('end', async () => {
+      try {
+        const { question } = JSON.parse(body);
+        const aiAgent = getAIAgent();
+        const answer = await aiAgent.ask(question);
+        
+        res.writeHead(200, { 
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        });
+        res.end(JSON.stringify({ answer }));
+      } catch (error) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Failed to process question' }));
+      }
+    });
     return;
   }
 

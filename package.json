@@ -9,7 +9,13 @@
     "build": "echo 'No build needed - Node.js server'",
     "test": "curl localhost:3333"
   },
-  "keywords": ["resume", "terminal", "curl", "ascii", "shellcv"],
+  "keywords": [
+    "resume",
+    "terminal",
+    "curl",
+    "ascii",
+    "shellcv"
+  ],
   "author": "Amit Yogev",
   "license": "MIT",
   "repository": {
@@ -21,6 +27,10 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "ai": "^5.0.78",
+    "dotenv": "^17.2.3"
   }
 }
-

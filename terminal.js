@@ -342,6 +342,10 @@ $ curl amityogev.com/help      Get the full list of endpoints</pre></div>`;
                 this.clear();
                 this.shellOutput.innerHTML = this.getHomeContent();
                 break;
+            case 'ask':
+            case 'chat':
+                await this.askAI(args.slice(1).join(' '));
+                break;
             default:
                 await this.handleUnknownCommand(cmd);
         }
@@ -485,7 +489,23 @@ Display an ASCII rain animation. An easter egg for terminal enthusiasts!
 Watch the Matrix-style rain fall across your screen.
 
 <span class="comment">Example:</span>
-  $ rain`
+  $ rain`,
+                
+                'ask': `<span class="section-header">Help: ask</span>
+
+<span class="success">Usage:</span> ask <your question> (or chat)
+
+<span class="comment">Description:</span>
+Ask the AI agent anything about Amit's experience, skills, projects, or how to use this terminal.
+The AI knows the entire ShellCV system and can help you navigate.
+
+<span class="comment">Aliases:</span> chat
+
+<span class="comment">Examples:</span>
+  $ ask what projects have you built?
+  $ ask how do I play the game?
+  $ ask tell me about your experience
+  $ chat what skills do you have?`
             };
             
             const helpText = helpTexts[command];
@@ -501,15 +521,22 @@ Watch the Matrix-style rain fall across your screen.
         const help = `
 <span class="section-header">Available Commands:</span>
 
+  <span class="success">ask</span>        Ask AI agent about anything (experience, projects, commands)
   <span class="success">resume</span>     Display full resume/CV
   <span class="success">skills</span>     Show technical skills breakdown
   <span class="success">projects</span>   View detailed project portfolio
-  <span class="success">crm</span>       CRM Demo - showcasing my work with mock data
+  <span class="success">crm</span>        CRM Demo - showcasing my work with mock data
   <span class="success">contact</span>    Get contact information
   <span class="success">play</span>       Start PM Quest (idle roguelike game)
   <span class="success">about</span>      Learn about this shell
   <span class="success">home</span>       Return to home page
   <span class="success">clear</span>      Clear screen
+
+<span class="section-header">🤖 New: AI Agent!</span>
+
+  <span class="success">ask</span>        Ask questions about Amit's experience, skills, projects, or how to use this terminal
+  Example: ask what projects have you built?
+  Example: ask how do I play the game?
 
 <span class="section-header">🚀 Want Your Own Terminal CV?</span>
 
@@ -517,7 +544,7 @@ Watch the Matrix-style rain fall across your screen.
 
 <span class="comment">Get Detailed Help:</span>
   Type 'help <command>' for detailed information about any command
-  Example: help resume, help skills, help crm
+  Example: help resume, help skills, help ask
 
 <span class="comment">Keyboard Shortcuts:</span>
   Up/Down     Navigate command history
@@ -816,14 +843,14 @@ technical implementation with sanitized sample data.
 
     async handleUnknownCommand(cmd) {
         // Find similar commands using Levenshtein-like similarity
-        const commands = ['help', 'resume', 'cv', 'skills', 'projects', 'contact', 'create', 'generate', 'play', 'game', 'about', 'home', 'clear', 'cls'];
+        const commands = ['help', 'ask', 'chat', 'resume', 'cv', 'skills', 'projects', 'contact', 'create', 'generate', 'play', 'game', 'about', 'home', 'clear', 'cls'];
         const similar = this.findSimilarCommands(cmd, commands);
         
         let suggestion = '';
         if (similar.length > 0) {
             suggestion = `\n<span class="comment">Did you mean: ${similar.map(c => `<span class="success">${c}</span>`).join(', ')}?</span>`;
         } else {
-            suggestion = '\n<span class="comment">Type <span class="success">help</span> to see available commands</span>';
+            suggestion = '\n<span class="comment">Type <span class="success">help</span> for available commands, or <span class="success">ask</span> to chat with the AI agent</span>';
         }
         
         await this.printOutput(`<span class="error">zsh: command not found: ${this.escapeHtml(cmd)}</span>${suggestion}`);
@@ -886,9 +913,45 @@ technical implementation with sanitized sample data.
         }
     }
 
+    async askAI(question) {
+        if (!question || question.trim() === '') {
+            await this.printOutput('<span class="error">Usage: ask <your question></span>');
+            await this.printOutput('<span class="comment">Example: ask what projects have you built?</span>');
+            await this.printOutput('<span class="comment">Example: ask how do I play the game?</span>');
+            return;
+        }
+
+        await this.printOutput('<span class="comment">Thinking...</span>');
+
+        try {
+            const response = await fetch('/api/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ question }),
+            });
+
+            const data = await response.json();
+            
+            if (data.error) {
+                await this.printOutput(`<span class="error">Error: ${data.error}</span>`);
+            } else {
+                // Remove the "Thinking..." line
+                const lines = this.shellOutput.innerHTML.split('\n');
+                lines.pop();
+                this.shellOutput.innerHTML = lines.join('\n');
+                
+                await this.printOutput(`<span class="success">${data.answer}</span>`);
+            }
+        } catch (error) {
+            await this.printOutput('<span class="error">Failed to connect to AI agent. Please try again.</span>');
+        }
+    }
+
     autoComplete() {
         const partial = this.commandInput.value.toLowerCase();
-        const commands = ['help', 'resume', 'skills', 'projects', 'crm', 'demo', 'contact', 'create', 'generate', 'play', 'game', 'about', 'home', 'clear', 'rain'];
+        const commands = ['help', 'ask', 'chat', 'resume', 'skills', 'projects', 'crm', 'demo', 'contact', 'create', 'generate', 'play', 'game', 'about', 'home', 'clear', 'rain'];
         
         const matches = commands.filter(cmd => cmd.startsWith(partial));
         
