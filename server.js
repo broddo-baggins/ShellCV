@@ -7,6 +7,56 @@ const { getAIAgent } = require('./ai-agent');
 
 const PORT = process.env.PORT || 3333;
 
+// ============================================================================
+// RATE LIMITING & ANTI-ABUSE PROTECTION (SERVER-SIDE)
+// ============================================================================
+// Track requests per IP address
+const rateLimitMap = new Map(); // { ip: { count: number, resetTime: number } }
+
+// Rate limit configuration
+const RATE_LIMIT = {
+  windowMs: 60 * 1000,        // 1 minute window
+  maxRequests: 10,             // Max 10 AI requests per minute per IP
+  message: 'Too many requests. Please try again in a minute.'
+};
+
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  
+  // No record or window expired - create new record
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, {
+      count: 1,
+      resetTime: now + RATE_LIMIT.windowMs
+    });
+    return { allowed: true };
+  }
+  
+  // Within window - check count
+  if (record.count >= RATE_LIMIT.maxRequests) {
+    return { 
+      allowed: false, 
+      retryAfter: Math.ceil((record.resetTime - now) / 1000) 
+    };
+  }
+  
+  // Increment count
+  record.count++;
+  return { allowed: true };
+}
+
+// Cleanup old rate limit entries every 5 minutes
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, record] of rateLimitMap.entries()) {
+    if (now > record.resetTime + 60000) { // 1 minute grace period
+      rateLimitMap.delete(ip);
+    }
+  }
+}, 5 * 60 * 1000);
+// ============================================================================
+
 // Read resume files from assets folder
 const resume = fs.readFileSync(path.join(__dirname, 'assets', 'resume.txt'), 'utf8');
 const skills = fs.readFileSync(path.join(__dirname, 'assets', 'skills.txt'), 'utf8');
@@ -114,8 +164,31 @@ function handleRequest(req, res) {
     return;
   }
 
-  // Handle AI agent API endpoint
+  // Handle AI agent API endpoint (with rate limiting)
   if (url === '/api/ask' && req.method === 'POST') {
+    // Get client IP address (handle proxies)
+    const clientIp = req.headers['x-forwarded-for']?.split(',')[0].trim() || 
+                     req.headers['x-real-ip'] || 
+                     req.socket.remoteAddress || 
+                     'unknown';
+    
+    // Check rate limit (SERVER-SIDE PROTECTION)
+    const rateLimitResult = checkRateLimit(clientIp);
+    if (!rateLimitResult.allowed) {
+      res.writeHead(429, { 
+        'Content-Type': 'application/json',
+        'Retry-After': rateLimitResult.retryAfter,
+        'X-RateLimit-Limit': RATE_LIMIT.maxRequests,
+        'X-RateLimit-Reset': rateLimitResult.retryAfter
+      });
+      res.end(JSON.stringify({ 
+        error: RATE_LIMIT.message,
+        retryAfter: rateLimitResult.retryAfter
+      }));
+      console.log(`⚠️  Rate limit exceeded for IP: ${clientIp}`);
+      return;
+    }
+    
     let body = '';
     req.on('data', chunk => {
       body += chunk.toString();
@@ -123,15 +196,28 @@ function handleRequest(req, res) {
     req.on('end', async () => {
       try {
         const { question } = JSON.parse(body);
+        
+        // Validate question
+        if (!question || typeof question !== 'string' || question.length > 500) {
+          res.writeHead(400, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Invalid question format (max 500 chars)' }));
+          return;
+        }
+        
         const aiAgent = getAIAgent();
         const answer = await aiAgent.ask(question);
         
         res.writeHead(200, { 
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
+          'Access-Control-Allow-Origin': '*',
+          'X-RateLimit-Limit': RATE_LIMIT.maxRequests,
+          'X-RateLimit-Remaining': RATE_LIMIT.maxRequests - rateLimitMap.get(clientIp).count
         });
         res.end(JSON.stringify({ answer }));
+        
+        console.log(`✅ AI request from ${clientIp}: "${question.substring(0, 50)}..."`);
       } catch (error) {
+        console.error('AI Agent error:', error);
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: 'Failed to process question' }));
       }

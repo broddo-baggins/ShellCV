@@ -953,20 +953,21 @@ technical implementation with sanitized sample data.
 
             const data = await response.json();
             
-            if (data.error) {
-                // Remove the "Thinking..." line
-                const lines = this.shellOutput.innerHTML.split('\n');
-                lines.pop();
-                this.shellOutput.innerHTML = lines.join('\n');
-                
+            // Remove the "Thinking..." line
+            const lines = this.shellOutput.innerHTML.split('\n');
+            lines.pop();
+            this.shellOutput.innerHTML = lines.join('\n');
+            
+            // Handle rate limiting (429 status)
+            if (response.status === 429) {
+                const retryAfter = data.retryAfter || 60;
+                await this.printOutput(`<span class="error">⚠ Rate limit exceeded</span>`);
+                await this.printOutput(`<span class="comment">Please wait ${retryAfter} seconds before asking again</span>`);
+                await this.printOutput(`<span class="comment">Try: 'help' or 'resume' for other ways to explore</span>`);
+            } else if (data.error) {
                 await this.printOutput(`<span class="error">⚠ AI agent temporarily unavailable</span>`);
                 await this.printOutput(`<span class="comment">Try: 'help' or 'resume' for other ways to explore</span>`);
             } else {
-                // Remove the "Thinking..." line
-                const lines = this.shellOutput.innerHTML.split('\n');
-                lines.pop();
-                this.shellOutput.innerHTML = lines.join('\n');
-                
                 await this.printOutput(`<span class="success">${data.answer}</span>`);
             }
         } catch (error) {
